@@ -1,0 +1,23 @@
+CREATE PROPERTY GRAPH graph2
+  VERTEX TABLES (
+    customer
+      KEY (cst_id)
+      LABEL customer
+      PROPERTIES (cst_id, first_name, last_name)
+  , account
+      KEY (acc_id)
+      LABEL account
+      PROPERTIES (acc_id)
+  )
+  EDGE TABLES (
+    transaction
+      KEY (txn_id)
+      SOURCE KEY(acc_id_src) REFERENCES account
+      DESTINATION KEY(acc_id_dst) REFERENCES account
+      LABEL transferred_to
+  , account
+      KEY (acc_id)
+      SOURCE KEY(cst_id) REFERENCES customer
+      DESTINATION KEY(acc_id) REFERENCES account
+      LABEL owns
+  )
