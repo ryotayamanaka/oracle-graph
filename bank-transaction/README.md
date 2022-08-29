@@ -26,8 +26,9 @@ Copy the 3 CSV files under `/data/` for loading.
 
 For creating a graph with larger number of accounts (e.g. 10000), run this script.
 
+    $ pip3 install networkx
     $ cd script/
-    $ python3 create_graph.py 10000
+    $ python3 create-graph.py 10000
 
 This script creates 3 CSV files.
 
