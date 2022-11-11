@@ -1,0 +1,160 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "name": "conflict_of_interest",
+      "configuration": {
+        "visualization": {
+          "filters": [
+            {
+              "_id": 1668148936329,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": []
+              },
+              "properties": {
+                "sizes": [
+                  16
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1668149140766,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "label",
+                    "operator": "=",
+                    "value": "PURCHASE"
+                  }
+                ]
+              },
+              "properties": {
+                "colors": [
+                  "orange"
+                ],
+                "icons": [
+                  "fa-money"
+                ],
+                "iconColors": [
+                  "white"
+                ],
+                "label": [
+                  "INVOICE_NO"
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1668149096606,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "label",
+                    "operator": "=",
+                    "value": "FORM"
+                  }
+                ]
+              },
+              "properties": {
+                "colors": [
+                  "green"
+                ],
+                "icons": [
+                  "fa-file-text-o"
+                ],
+                "iconColors": [
+                  "white"
+                ],
+                "label": [
+                  "FORM_ID"
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1668149054731,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "label",
+                    "operator": "=",
+                    "value": "SUPPLIER"
+                  }
+                ]
+              },
+              "properties": {
+                "colors": [
+                  "blue"
+                ],
+                "icons": [
+                  "fa-building-o"
+                ],
+                "iconColors": [
+                  "white"
+                ],
+                "label": [
+                  "SUPPLIER_NAME"
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1668149190230,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "label",
+                    "operator": "=",
+                    "value": "EMPLOYEE"
+                  }
+                ]
+              },
+              "properties": {
+                "colors": [
+                  "red"
+                ],
+                "icons": [
+                  "fa-user-man"
+                ],
+                "iconColors": [
+                  "white"
+                ],
+                "label": [
+                  "FIRST_NAME"
+                ]
+              },
+              "aggregation": []
+            }
+          ],
+          "version": 9
+        }
+      }
+    }
+  ]
+}

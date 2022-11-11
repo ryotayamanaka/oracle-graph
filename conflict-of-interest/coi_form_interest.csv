@@ -1,0 +1,808 @@
+form_id,interest_type,details,business_name,company_id,company_code,address,created
+DPI-0000,Partnerships,Half Partnership,Edwin Clinic,ABN 43 399 724 727,,"120 Perennial Drive, Sunshine North, 3034",15-Feb-2021
+DPI-0000,Investments,470000 Long Term,The Trustee for Vinimini Self Managed Super,ABN 46 321 575 688,,,15-Feb-2021
+DPI-0000,Other Assets,Morris Minor - Mnti,,,,,15-Feb-2021
+DPI-0000,Share Holdings,Afterpay Ltd,,,APT,,15-Feb-2021
+DPI-0000,Other Source of Income,Crochet Classes for Execs,Cindy Clinic,ABN 41 347 279 364,,"123 Fred St, Footscray, 3011",15-Feb-2021
+DPI-0001,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Johnson & Johnson,,,,29-Dec-2021
+DPI-0001,Real Estate,Owned Property for Rental,,,,"123 Fred St, Footscray, 3011",29-Dec-2021
+DPI-0001,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Johnson & Johnson,,,,29-Dec-2021
+DPI-0001,Trusts/Nominees,Family Trust,Sarah Accounting,,,,29-Dec-2021
+DPI-0001,Partnerships,Quarter Partnership,Joshua Property,ABN 45 303 156 248,,"77 Natalia Avenue, Oakleigh South, 3166",29-Dec-2021
+DPI-0002,Partnerships,25% Partnership,Tony Builders,ABN 42 355 413 240,,"94 High Street Road, Wantirna South, 3133",21-Sep-2021
+DPI-0002,Investments,360000 Family Investment,GP SELF MANAGED SUPERANNUATION FUND,ABN 44 356 165 369,,,21-Sep-2021
+DPI-0002,Trusts/Nominees,Business Trust,Mason Builders,,,,21-Sep-2021
+DPI-0003,Trusts/Nominees,Family Trust,Matthew Lawyers,,,,26-Sep-2021
+DPI-0003,Investments,330000 Investment,JGW SELF MANAGED SUPER TRUST,ABN 41 329 128 864,,,26-Sep-2021
+DPI-0003,Share Holdings,Australia and New Zealand Banking Group Ltd,,,ANZ,,26-Sep-2021
+DPI-0003,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Johnson & Johnson,,,,26-Sep-2021
+DPI-0003,Investments,260000 Investment,The Trustee for SET Managed Future Fund,ABN 43 323 584 552,,,26-Sep-2021
+DPI-0004,Partnerships,Half Partnership,Elaine Builders,ABN 41 370 432 783,,"120 George Street, St Albans, 3021",28-Feb-2021
+DPI-0004,Share Holdings,Woodside Petroleum Ltd,,,WPL,,28-Feb-2021
+DPI-0004,Partnerships,25% Partnership,Nancy Management,ABN 42 383 612 748,,"77 Main Street, Greensborough, 3088",28-Feb-2021
+DPI-0004,Real Estate,Rental Property,,,,"77 Natalia Avenue, Oakleigh South, 3166",28-Feb-2021
+DPI-0005,Other Assets,1951 Penfolds Grange,,,,,24-Jun-2021
+DPI-0005,Share Holdings,Fortescue Metals Group Ltd,,,FMG,,24-Jun-2021
+DPI-0005,Real Estate,Property Portfolio,,,,"42 Little Berry Street, Yarraville, 3013",24-Jun-2021
+DPI-0005,Trusts/Nominees,Family Trust,Richard Physiotherapy,,,,24-Jun-2021
+DPI-0006,Real Estate,Rental Property,,,,"118 Winjeel Court, Braybrook, 3019",19-Jun-2022
+DPI-0006,Partnerships,25% Partnership,Scott Builders,ABN 42 331 129 734,,"74 Highview Grove, Burwood East, 3151",19-Jun-2022
+DPI-0006,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Pfizer Pharma,,,,19-Jun-2022
+DPI-0007,Real Estate,Property Portfolio,,,,"60 Terminal Drive, Melbourne Airport, 3045",26-Nov-2021
+DPI-0007,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Purdue Pharma,,,,26-Nov-2021
+DPI-0007,Partnerships,Half Partnership,Cindy Clinic,ABN 41 347 279 364,,"123 Fred St, Footscray, 3011",26-Nov-2021
+DPI-0007,Other Assets,Singer Sewing Machine,,,,,26-Nov-2021
+DPI-0007,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Pfizer Pharma,,,,26-Nov-2021
+DPI-0008,Real Estate,Property Portfolio,,,,"109 Merri Creek Trail, Fawkner, 3060",17-Jan-2022
+DPI-0008,Trusts/Nominees,Business Trust,Ryan Apparel,,,,17-Jan-2022
+DPI-0008,Other Assets,Morris Minor - Mnti,,,,,17-Jan-2022
+DPI-0009,Directorships,Non-Executive Director,Tony Builders,ABN 42 355 413 240,,"94 High Street Road, Wantirna South, 3133",23-Jul-2021
+DPI-0009,Share Holdings,Amcor Plc,,,AMC,,23-Jul-2021
+DPI-0009,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Astra Pharma,,,,23-Jul-2021
+DPI-0009,Other Assets,John Deere Historical Tractor,,,,,23-Jul-2021
+DPI-0009,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Astra Pharma,,,,23-Jul-2021
+DPI-0010,Real Estate,Rental Property,,,,"62 Candy Crescent, Braybrook, 3019",13-Dec-2021
+DPI-0010,Partnerships,Quarter Partnership,Kimberly Lawyers,ABN 46 317 150 125,,"71 Haig Court, Doncaster East, 3130",13-Dec-2021
+DPI-0010,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Johnson & Johnson,,,,13-Dec-2021
+DPI-0011,Investments,270000 Long Term,FARMILO SELF MANAGED SUPER FUND,ABN 47 328 550 156,,,09-Dec-2021
+DPI-0011,Partnerships,Quarter Partnership,Steven Hotel,ABN 48 364 668 375,,"64 Foxton Street, St Albans, 3021",09-Dec-2021
+DPI-0011,Share Holdings,SOUTH32 Ltd,,,S32,,09-Dec-2021
+DPI-0011,Directorships,Director,Kevin Computers,ABN 44 344 159 482,,"87 Agar Drive, Truganina, 3023",09-Dec-2021
+DPI-0012,Directorships,Non-Executive Director,Tiffany Apparel,ABN 45 376 312 757,,"73 Kingston Road, Clarinda, 3169",13-Feb-2021
+DPI-0012,Other Assets,John Deere Historical Tractor,,,,,13-Feb-2021
+DPI-0012,Partnerships,Quarter Partnership,Brandi Apparel,ABN 46 324 412 151,,"78 Somerton Road, Greenvale, 3059",13-Feb-2021
+DPI-0012,Investments,890000 Investment,THE TRUSTEE FOR KAYMI SELF MANAGED FUNDR,ABN 46 345 649 637,,,13-Feb-2021
+DPI-0012,Directorships,Non-Executive Director,Ryan Apparel,ABN 45 335 745 488,,"74 Blue Lake Circuit, Plenty, 3082",13-Feb-2021
+DPI-0013,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,GlaxoSmithKline,,,,22-Sep-2021
+DPI-0013,Other Assets,John Deere Historical Tractor,,,,,22-Sep-2021
+DPI-0013,Trusts/Nominees,Business Trust,Robert Clinic,,,,22-Sep-2021
+DPI-0013,Trusts/Nominees,Family Trust,Matthew Gardening,,,,22-Sep-2021
+DPI-0013,Partnerships,Quarter Partnership,Stephanie Finance,ABN 42 341 567 697,,"86 Champion Road, Williamstown North, 3016",22-Sep-2021
+DPI-0014,Trusts/Nominees,Business Trust,Paul Builders,,,,23-May-2021
+DPI-0014,Directorships,Director,Cindy Clinic,ABN 41 347 279 364,,"123 Fred St, Footscray, 3011",23-May-2021
+DPI-0014,Investments,630000 Long Term,The Trustee for Sri Managed Super Fund,ABN 43 399 724 727,,,23-May-2021
+DPI-0014,Investments,840000 Investment,The Trustee for Troys Self Managed Supa,ABN 45 381 409 477,,,23-May-2021
+DPI-0014,Other Source of Income,Spouse Income from Employer,John Apparel,ABN 45 374 774 544,,"61 Sydney Street, Avondale Heights, 3034",23-May-2021
+DPI-0015,Directorships,Non-Executive Director,Maria Property,ABN 46 350 736 329,,"80 Mornington Peninsula Freeway Onramp, Braeside, 3195",30-Dec-2021
+DPI-0015,Real Estate,Owned Property for Rental,,,,"87 Agar Drive, Truganina, 3023",30-Dec-2021
+DPI-0015,Directorships,Executive Director,Cindy Clinic,ABN 41 347 279 364,,"123 Fred St, Footscray, 3011",30-Dec-2021
+DPI-0015,Real Estate,Rental Property,,,,"107 Barkly Close, Brunswick, 3037",30-Dec-2021
+DPI-0016,Other Assets,Morris Minor - Mnti,,,,,17-Aug-2021
+DPI-0016,Partnerships,25% Partnership,Sara Lawyers,ABN 41 358 411 432,,"53 Yarra Boulevard, Kew, 3078",17-Aug-2021
+DPI-0016,Trusts/Nominees,Business Nominee,Alex Apparel,,,,17-Aug-2021
+DPI-0016,Directorships,Executive Director,Jennifer Management,ABN 42 322 548 809,,"62 Kingston Boulevard, Brunswick, 3029",17-Aug-2021
+DPI-0016,Other Source of Income,Puppet Stand at Local Farmers Market,Ann Physiotherapy,ABN 41 375 498 344,,"36 Amery Street, Reservoir, 3060",17-Aug-2021
+DPI-0017,Trusts/Nominees,Business Trust,Richard Clinic,,,,09-May-2021
+DPI-0017,Trusts/Nominees,Business Nominee,Joshua Property,,,,09-May-2021
+DPI-0017,Directorships,Director,Matthew Digital,ABN 48 337 877 553,,"108 Neil Street, West Footscray, 3012",09-May-2021
+DPI-0017,Trusts/Nominees,Business Trust,Cindy Clinic,,,,09-May-2021
+DPI-0017,Share Holdings,TPG Telecom Ltd,,,TPG,,09-May-2021
+DPI-0018,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Astra Pharma,,,,14-Aug-2021
+DPI-0018,Investments,890000 Long Term,THE ROBERTS SELF MANAGED SUPER FUND,ABN 42 331 129 734,,,14-Aug-2021
+DPI-0018,Investments,580000 Investment,The trustee for The Sant Self Managed Fund,ABN 42 309 583 387,,,14-Aug-2021
+DPI-0018,Real Estate,Property Portfolio,,,,"27 Duncans Road, Werribee South, 3030",14-Aug-2021
+DPI-0018,Other Assets,John Deere Historical Tractor,,,,,14-Aug-2021
+DPI-0019,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Johnson & Johnson,,,,26-Apr-2021
+DPI-0019,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Johnson & Johnson,,,,26-Apr-2021
+DPI-0019,Real Estate,Property Portfolio,,,,"120 Perennial Drive, Sunshine North, 3034",26-Apr-2021
+DPI-0020,Other Assets,John Deere Historical Tractor,,,,,25-Apr-2022
+DPI-0020,Real Estate,Owned Property for Rental,,,,"84 Kinnear Street, Footscray, 3011",25-Apr-2022
+DPI-0020,Other Source of Income,Puppet Stand at Local Farmers Market,Rachel Accounting,ABN 47 346 628 832,,"32 Main Yarra Trail Capital City Trail, Burnley, 3121",25-Apr-2022
+DPI-0020,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Johnson & Johnson,,,,25-Apr-2022
+DPI-0020,Share Holdings,TPG Telecom Ltd,,,TPG,,25-Apr-2022
+DPI-0021,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Astra Pharma,,,,14-Feb-2022
+DPI-0021,Directorships,Non-Executive Director,Carol Lawyers,ABN 42 372 707 387,,"62 Candy Crescent, Braybrook, 3019",14-Feb-2022
+DPI-0021,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Johnson & Johnson,,,,14-Feb-2022
+DPI-0022,Share Holdings,QBE Insurance Group Ltd,,,QBE,,30-May-2022
+DPI-0022,Other Source of Income,Exec Mentoring,Tiffany Apparel,ABN 45 376 312 757,,"73 Kingston Road, Clarinda, 3169",30-May-2022
+DPI-0022,Share Holdings,ASX Ltd,,,ASX,,30-May-2022
+DPI-0023,Directorships,Executive Director,Robert Clinic,ABN 43 387 299 747,,"114 Heard Avenue, Plenty, 3090",21-Jul-2021
+DPI-0023,Other Source of Income,Crochet Classes for Execs,Scott Builders,ABN 42 331 129 734,,"74 Highview Grove, Burwood East, 3151",21-Jul-2021
+DPI-0023,Partnerships,25% Partnership,Michael Clinic,ABN 43 369 376 360,,"39 Phoenix Street, Sunshine North, 3020",21-Jul-2021
+DPI-0023,Directorships,Non-Executive Director,Thomas Digital,ABN 45 400 298 800,,"68 Bushmans Way, South Morang, 3090",21-Jul-2021
+DPI-0024,Directorships,Executive Director,Sara Lawyers,ABN 41 358 411 432,,"53 Yarra Boulevard, Kew, 3078",05-Sep-2021
+DPI-0024,Share Holdings,Suncorp Group Ltd��,,,SUN,,05-Sep-2021
+DPI-0024,Real Estate,Rental Property,,,,"71 Collard Drive, Diamond Creek, 3096",05-Sep-2021
+DPI-0024,Trusts/Nominees,Business Nominee,Richard Physiotherapy,,,,05-Sep-2021
+DPI-0024,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Johnson & Johnson,,,,05-Sep-2021
+DPI-0025,Share Holdings,National Australia Bank Ltd,,,NAB,,24-Apr-2022
+DPI-0025,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Purdue Pharma,,,,24-Apr-2022
+DPI-0025,Investments,560000 Investment,TURNERS MANAGED FUND,ABN 45 400 298 800,,,24-Apr-2022
+DPI-0026,Other Source of Income,Crochet Classes for Execs,Lisa Apparel,ABN 43 302 758 581,,"76 Old Eltham Road, Lower Plenty, 3093",21-Sep-2021
+DPI-0026,Real Estate,Property Portfolio,,,,"38 Fuge Street, Highett, 3188",21-Sep-2021
+DPI-0026,Other Assets,Morris Minor - Mnti,,,,,21-Sep-2021
+DPI-0027,Real Estate,Property Portfolio,,,,"27 Duncans Road, Werribee South, 3030",13-Jul-2021
+DPI-0027,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Pfizer Pharma,,,,13-Jul-2021
+DPI-0027,Partnerships,25% Partnership,Michael Hotel,ABN 46 325 766 730,,"38 Fuge Street, Highett, 3188",13-Jul-2021
+DPI-0027,Other Assets,Singer Sewing Machine,,,,,13-Jul-2021
+DPI-0027,Real Estate,Property Portfolio,,,,"36 Amery Street, Reservoir, 3060",13-Jul-2021
+DPI-0028,Real Estate,Rental Property,,,,"77 Natalia Avenue, Oakleigh South, 3166",23-Dec-2021
+DPI-0028,Other Assets,Morris Minor - Mnti,,,,,23-Dec-2021
+DPI-0028,Investments,740000 Long Term,THE HITCHENER SELF MANAGED SUPERANNUATION FUND,ABN 46 382 880 578,,,23-Dec-2021
+DPI-0028,Real Estate,Property Portfolio,,,,"115 South Centre Road, Melbourne Airport, 3045",23-Dec-2021
+DPI-0029,Trusts/Nominees,Business Trust,Karen Computers,,,,09-Feb-2021
+DPI-0029,Trusts/Nominees,Business Nominee,Zachary Digital,,,,09-Feb-2021
+DPI-0029,Directorships,Director,Jennifer Management,ABN 42 322 548 809,,"62 Kingston Boulevard, Brunswick, 3029",09-Feb-2021
+DPI-0029,Trusts/Nominees,Business Trust,Monique Builders,,,,09-Feb-2021
+DPI-0029,Trusts/Nominees,Family Trust,Kevin Clinic,,,,09-Feb-2021
+DPI-0030,Trusts/Nominees,Family Trust,Kelly Finance,,,,17-Nov-2021
+DPI-0030,Share Holdings,Bluescope Steel Ltd,,,BSL,,17-Nov-2021
+DPI-0030,Real Estate,Rental Property,,,,"107 Barkly Close, Brunswick, 3037",17-Nov-2021
+DPI-0030,Investments,170000 Long Term,The Trustee for Jenke Managed Fund,ABN 46 362 768 601,,,17-Nov-2021
+DPI-0031,Share Holdings,Coles Group Ltd��,,,COL,,10-Dec-2021
+DPI-0031,Trusts/Nominees,Business Trust,Patrick Apparel,,,,10-Dec-2021
+DPI-0031,Other Assets,Singer Sewing Machine,,,,,10-Dec-2021
+DPI-0031,Other Assets,John Deere Historical Tractor,,,,,10-Dec-2021
+DPI-0032,Other Source of Income,Spouse Income from Employer,Zachary Lawyers,ABN 44 397 380 528,,"51 Lawson Street, Oakleigh East, 3800",07-Jun-2022
+DPI-0032,Directorships,Executive Director,Joel Clinic,ABN 42 334 277 307,,"24 Yarra Flats Entry Road, Eaglemont, 3084",07-Jun-2022
+DPI-0032,Trusts/Nominees,Family Trust,Nancy Management,,,,07-Jun-2022
+DPI-0032,Share Holdings,Transurban Group,,,TCL,,07-Jun-2022
+DPI-0033,Partnerships,Quarter Partnership,Scott Property,ABN 48 304 420 514,,"100 Victoria Drive, Thomastown, 3060",29-Mar-2021
+DPI-0033,Other Assets,Singer Sewing Machine,,,,,29-Mar-2021
+DPI-0033,Trusts/Nominees,Business Nominee,Nicholas Computers,,,,29-Mar-2021
+DPI-0033,Share Holdings,Magellan Global Fund (Open Class) (Managed Fund),,,MGO,,29-Mar-2021
+DPI-0033,Partnerships,Half Partnership,Alex Apparel,ABN 43 357 160 878,,"61 Kokoda Road, Williamstown, 3016",29-Mar-2021
+DPI-0034,Partnerships,Quarter Partnership,Chris Lawyers,ABN 47 393 455 339,,"112 Mulberry Parade, Heidelberg West, 3081",03-Mar-2022
+DPI-0034,Directorships,Non-Executive Director,Joshua Property,ABN 45 303 156 248,,"77 Natalia Avenue, Oakleigh South, 3166",03-Mar-2022
+DPI-0034,Partnerships,25% Partnership,Maria Property,ABN 46 350 736 329,,"80 Mornington Peninsula Freeway Onramp, Braeside, 3195",03-Mar-2022
+DPI-0034,Real Estate,Rental Property,,,,"77 Natalia Avenue, Oakleigh South, 3166",03-Mar-2022
+DPI-0035,Partnerships,Half Partnership,Barbara Cleaning,ABN 42 359 586 265,,"100 Calendula Circuit, Epping, 3082",26-Dec-2021
+DPI-0035,Other Source of Income,Crochet Classes for Execs,Michael Clinic,ABN 43 369 376 360,,"39 Phoenix Street, Sunshine North, 3020",26-Dec-2021
+DPI-0035,Other Assets,1951 Penfolds Grange,,,,,26-Dec-2021
+DPI-0035,Trusts/Nominees,Family Trust,Andrew Finance,,,,26-Dec-2021
+DPI-0035,Share Holdings,Bluescope Steel Ltd,,,BSL,,26-Dec-2021
+DPI-0036,Investments,650000 Long Term,THE SUPERIOR MANAGED SUPERFUND,ABN 46 325 766 730,,,21-Jun-2022
+DPI-0036,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Johnson & Johnson,,,,21-Jun-2022
+DPI-0036,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Purdue Pharma,,,,21-Jun-2022
+DPI-0036,Share Holdings,Amcor Plc,,,AMC,,21-Jun-2022
+DPI-0037,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Johnson & Johnson,,,,28-Jan-2022
+DPI-0037,Partnerships,Half Partnership,Zachary Lawyers,ABN 44 397 380 528,,"51 Lawson Street, Oakleigh East, 3800",28-Jan-2022
+DPI-0037,Directorships,Director,Stephen Events,ABN 46 390 827 581,,"117 Timothy Court, Templestowe, 3106",28-Jan-2022
+DPI-0037,Share Holdings,RIO Tinto Ltd,,,RIO,,28-Jan-2022
+DPI-0038,Other Source of Income,Spouse Income from Employer,Scott Builders,ABN 42 331 129 734,,"74 Highview Grove, Burwood East, 3151",30-Nov-2021
+DPI-0038,Other Assets,Morris Minor - Mnti,,,,,30-Nov-2021
+DPI-0038,Share Holdings,QBE Insurance Group Ltd,,,QBE,,30-Nov-2021
+DPI-0038,Partnerships,Half Partnership,Sara Lawyers,ABN 41 358 411 432,,"53 Yarra Boulevard, Kew, 3078",30-Nov-2021
+DPI-0039,Investments,260000 Long Term,The trustee for Cox Managed Superannuation Fund,ABN 42 332 235 727,,,14-Aug-2021
+DPI-0039,Other Source of Income,Spouse Income from Employer,Chris Lawyers,ABN 47 393 455 339,,"112 Mulberry Parade, Heidelberg West, 3081",14-Aug-2021
+DPI-0039,Share Holdings,REA Group Ltd,,,REA,,14-Aug-2021
+DPI-0039,Other Assets,Morris Minor - Mnti,,,,,14-Aug-2021
+DPI-0039,Other Assets,John Deere Historical Tractor,,,,,14-Aug-2021
+DPI-0040,Trusts/Nominees,Business Nominee,Kimberly Apparel,,,,29-Jan-2022
+DPI-0040,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Purdue Pharma,,,,29-Jan-2022
+DPI-0040,Trusts/Nominees,Business Nominee,Christie Property,,,,29-Jan-2022
+DPI-0040,Real Estate,Rental Property,,,,"97 Tenth Avenue, Carlton North, 3054",29-Jan-2022
+DPI-0040,Other Assets,Singer Sewing Machine,,,,,29-Jan-2022
+DPI-0041,Other Source of Income,Crochet Classes for Execs,Amanda Lawyers,ABN 43 311 447 799,,"67 Beauty Point Road, Research, 3113",21-Jun-2022
+DPI-0041,Real Estate,Owned Property for Rental,,,,"43 Jenny Rd, Point Cook, 3030",21-Jun-2022
+DPI-0041,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,GlaxoSmithKline,,,,21-Jun-2022
+DPI-0041,Investments,280000 Family Investment,The Trustee for TDF Managed Superfund,ABN 44 356 165 369,,,21-Jun-2022
+DPI-0041,Real Estate,Property Portfolio,,,,"89 Boundary Road, Laverton North, 3026",21-Jun-2022
+DPI-0042,Directorships,Non-Executive Director,Arthur Lawyers,ABN 42 368 492 317,,"95 The Crescent, Port Melbourne, 3207",21-Mar-2021
+DPI-0042,Share Holdings,RIO Tinto Ltd,,,RIO,,21-Mar-2021
+DPI-0042,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Pfizer Pharma,,,,21-Mar-2021
+DPI-0042,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,GlaxoSmithKline,,,,21-Mar-2021
+DPI-0043,Investments,480000 Long Term,THE TRUSTEE FOR GOTHAM SELF MANAGED SUPER FUND,ABN 47 377 126 660,,,21-May-2021
+DPI-0043,Directorships,Executive Director,Matthew Gardening,ABN 48 327 378 235,,"78 Outlook Drive, Eaglemont, 3079",21-May-2021
+DPI-0043,Partnerships,Half Partnership,Alex Apparel,ABN 43 357 160 878,,"61 Kokoda Road, Williamstown, 3016",21-May-2021
+DPI-0043,Real Estate,Property Portfolio,,,,"78 Somerton Road, Greenvale, 3059",21-May-2021
+DPI-0043,Trusts/Nominees,Business Nominee,Alex Apparel,,,,21-May-2021
+DPI-0044,Investments,820000 Investment,The Trustee for Simpsons Managed Fund,ABN 42 366 780 774,,,01-Mar-2022
+DPI-0044,Share Holdings,Goodman Group,,,GMG,,01-Mar-2022
+DPI-0044,Share Holdings,RIO Tinto Ltd,,,RIO,,01-Mar-2022
+DPI-0044,Directorships,Executive Director,Keith Management,ABN 46 333 653 400,,"36 Reeve Court, Cheltenham, 3192",01-Mar-2022
+DPI-0044,Share Holdings,Tabcorp Holdings Ltd,,,TAH,,01-Mar-2022
+DPI-0045,Directorships,Director,Jacob Physiotherapy,ABN 44 352 560 555,,"73 Ellesmere Parade, Rosanna, 3084",10-May-2021
+DPI-0045,Trusts/Nominees,Family Trust,Gabriel Digital,,,,10-May-2021
+DPI-0045,Investments,760000 Long Term,The Trustee for barea managed fund,ABN 45 301 598 208,,,10-May-2021
+DPI-0045,Directorships,Executive Director,Lisa Apparel,ABN 43 302 758 581,,"76 Old Eltham Road, Lower Plenty, 3093",10-May-2021
+DPI-0046,Other Source of Income,Puppet Stand at Local Farmers Market,Carol Lawyers,ABN 42 372 707 387,,"62 Candy Crescent, Braybrook, 3019",25-May-2022
+DPI-0046,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Purdue Pharma,,,,25-May-2022
+DPI-0046,Share Holdings,Resmed Inc,,,RMD,,25-May-2022
+DPI-0047,Share Holdings,Goodman Group,,,GMG,,05-May-2022
+DPI-0047,Investments,790000 Long Term,KARPE SELF MANAGED SUPER FUND,ABN 45 307 376 146,,,05-May-2022
+DPI-0047,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Pfizer Pharma,,,,05-May-2022
+DPI-0047,Directorships,Director,Joseph Builders,ABN 47 312 269 347,,"71 Collard Drive, Diamond Creek, 3096",05-May-2022
+DPI-0047,Trusts/Nominees,Family Trust,Jared Builders,,,,05-May-2022
+DPI-0048,Share Holdings,Wisetech Global Ltd,,,WTC,,07-May-2021
+DPI-0048,Share Holdings,Wesfarmers Ltd,,,WES,,07-May-2021
+DPI-0048,Share Holdings,Wesfarmers Ltd,,,WES,,07-May-2021
+DPI-0048,Other Source of Income,Crochet Classes for Execs,Jared Builders,ABN 47 328 550 156,,"37 Dirkala Avenue, Heathmont, 3135",07-May-2021
+DPI-0049,Partnerships,25% Partnership,Karen Computers,ABN 46 388 106 109,,"107 Barkly Close, Brunswick, 3037",06-Jun-2022
+DPI-0049,Real Estate,Property Portfolio,,,,"85 Newsom Street, Ascot Vale, 3032",06-Jun-2022
+DPI-0049,Trusts/Nominees,Business Trust,Kenneth Hotel,,,,06-Jun-2022
+DPI-0049,Directorships,Non-Executive Director,Jennifer Management,ABN 42 322 548 809,,"62 Kingston Boulevard, Brunswick, 3029",06-Jun-2022
+DPI-0049,Trusts/Nominees,Business Trust,Joseph Digital,,,,06-Jun-2022
+DPI-0050,Trusts/Nominees,Business Nominee,Alexis Finance,,,,19-May-2021
+DPI-0050,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Purdue Pharma,,,,19-May-2021
+DPI-0050,Investments,740000 Investment,THE TRUSTEE FOR GOTHAM SELF MANAGED SUPER FUND,ABN 46 388 106 109,,,19-May-2021
+DPI-0051,Directorships,Non-Executive Director,Zachary Digital,ABN 43 323 584 552,,"108 Ross Road, Altona North, 3025",23-Aug-2021
+DPI-0051,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Purdue Pharma,,,,23-Aug-2021
+DPI-0051,Other Source of Income,Exec Mentoring,William Finance,ABN 42 385 674 247,,"20 Larter Court, Wantirna South, 3152",23-Aug-2021
+DPI-0051,Real Estate,Property Portfolio,,,,"107 Barkly Close, Brunswick, 3037",23-Aug-2021
+DPI-0051,Partnerships,25% Partnership,Jose Finance,ABN 45 318 829 567,,"35 Mona Place, South Yarra, 3141",23-Aug-2021
+DPI-0052,Real Estate,Rental Property,,,,"47 Christies Road, Ravenhall, 3023",11-May-2022
+DPI-0052,Investments,510000 Family Investment,PEAEARR SELF MANAGED SUPERANNUATION FU,ABN 43 302 758 581,,,11-May-2022
+DPI-0052,Other Source of Income,Crochet Classes for Execs,Monica Finance,ABN 47 315 872 738,,"27 Duncans Road, Werribee South, 3030",11-May-2022
+DPI-0052,Other Source of Income,Exec Mentoring,Chris Lawyers,ABN 47 393 455 339,,"112 Mulberry Parade, Heidelberg West, 3081",11-May-2022
+DPI-0053,Real Estate,Rental Property,,,,"100 Calendula Circuit, Epping, 3082",14-Mar-2022
+DPI-0053,Trusts/Nominees,Family Trust,Tiffany Apparel,,,,14-Mar-2022
+DPI-0053,Other Source of Income,Puppet Stand at Local Farmers Market,Laura Clinic,ABN 42 309 583 387,,"56 Richards Street, Coburg, 3058",14-Mar-2022
+DPI-0053,Other Assets,John Deere Historical Tractor,,,,,14-Mar-2022
+DPI-0054,Other Source of Income,Spouse Income from Employer,Christine Trading,ABN 43 365 431 228,,"83 Smiley Crescent, Essendon West, 3034",28-Dec-2021
+DPI-0054,Other Source of Income,Puppet Stand at Local Farmers Market,Keith Management,ABN 46 333 653 400,,"36 Reeve Court, Cheltenham, 3192",28-Dec-2021
+DPI-0054,Other Source of Income,Crochet Classes for Execs,Nicole Services,ABN 41 353 692 664,,"47 Riverside Track, South Morang, 3090",28-Dec-2021
+DPI-0054,Real Estate,Rental Property,,,,"45 Burnet Trail, Kew, 3067",28-Dec-2021
+DPI-0055,Share Holdings,Westpac Banking Corporation,,,WBC,,29-Aug-2021
+DPI-0055,Real Estate,Property Portfolio,,,,"82 Modal Place, Altona, 3018",29-Aug-2021
+DPI-0055,Directorships,Executive Director,Zachary Lawyers,ABN 44 397 380 528,,"51 Lawson Street, Oakleigh East, 3800",29-Aug-2021
+DPI-0055,Share Holdings,Magellan Global Fund (Open Class) (Managed Fund),,,MGO,,29-Aug-2021
+DPI-0056,Directorships,Non-Executive Director,Matthew Gardening,ABN 48 327 378 235,,"78 Outlook Drive, Eaglemont, 3079",20-Sep-2021
+DPI-0056,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Purdue Pharma,,,,20-Sep-2021
+DPI-0056,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Johnson & Johnson,,,,20-Sep-2021
+DPI-0057,Other Source of Income,Crochet Classes for Execs,William Finance,ABN 42 385 674 247,,"20 Larter Court, Wantirna South, 3152",12-Mar-2022
+DPI-0057,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Astra Pharma,,,,12-Mar-2022
+DPI-0057,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Purdue Pharma,,,,12-Mar-2022
+DPI-0057,Directorships,Non-Executive Director,Justin Property,ABN 45 373 645 203,,"112 Rowe Street, Maribyrnong, 3011",12-Mar-2022
+DPI-0058,Partnerships,Half Partnership,Kimberly Lawyers,ABN 46 317 150 125,,"71 Haig Court, Doncaster East, 3130",24-May-2022
+DPI-0058,Share Holdings,Bluescope Steel Ltd,,,BSL,,24-May-2022
+DPI-0058,Real Estate,Property Portfolio,,,,"37 Dirkala Avenue, Heathmont, 3135",24-May-2022
+DPI-0058,Other Source of Income,Crochet Classes for Execs,James Events,ABN 42 389 414 773,,"71 Bay Trail, Mentone, 3194",24-May-2022
+DPI-0058,Investments,790000 Family Investment,ATKINSON SELF MANAGED SUPERANNUATION FUND,ABN 45 374 774 544,,,24-May-2022
+DPI-0059,Share Holdings,Tabcorp Holdings Ltd,,,TAH,,19-Feb-2021
+DPI-0059,Other Assets,Morris Minor - Mnti,,,,,19-Feb-2021
+DPI-0059,Directorships,Non-Executive Director,Cesar Cleaning,ABN 46 316 576 365,,"83 Laluma Street, Essendon, 3040",19-Feb-2021
+DPI-0059,Directorships,Non-Executive Director,Alex Apparel,ABN 43 357 160 878,,"61 Kokoda Road, Williamstown, 3016",19-Feb-2021
+DPI-0059,Real Estate,Owned Property for Rental,,,,"56 Richards Street, Coburg, 3058",19-Feb-2021
+DPI-0060,Directorships,Director,Mary Clinic,ABN 47 384 405 272,,"24 Boundary Road, Dingley Village, 3172",08-Jun-2022
+DPI-0060,Directorships,Non-Executive Director,Amanda Lawyers,ABN 43 311 447 799,,"67 Beauty Point Road, Research, 3113",08-Jun-2022
+DPI-0060,Other Assets,1951 Penfolds Grange,,,,,08-Jun-2022
+DPI-0061,Partnerships,Quarter Partnership,Jose Builders,ABN 44 379 589 591,,"38 Christies Road, Ravenhall, 3023",17-Jul-2021
+DPI-0061,Real Estate,Property Portfolio,,,,"39 Phoenix Street, Sunshine North, 3020",17-Jul-2021
+DPI-0061,Share Holdings,Coles Group Ltd��,,,COL,,17-Jul-2021
+DPI-0062,Investments,890000 Long Term,THE TRUSTEE FOR EBENEZER SELF-MANAGED SUPER FUND,ABN 43 319 385 766,,,12-Mar-2022
+DPI-0062,Directorships,Executive Director,Thomas Digital,ABN 45 400 298 800,,"68 Bushmans Way, South Morang, 3090",12-Mar-2022
+DPI-0062,Investments,390000 Long Term,THE MANNING SELF MANAGED SUPER FUND,ABN 47 361 621 790,,,12-Mar-2022
+DPI-0062,Share Holdings,Fisher & Paykel Healthcare Corporation Ltd,,,FPH,,12-Mar-2022
+DPI-0062,Share Holdings,Stockland,,,SGP,,12-Mar-2022
+DPI-0063,Other Source of Income,Crochet Classes for Execs,Ronald Hotel,ABN 46 345 649 637,,"87 Jolimont Road, Forest Hill, 3133",19-Apr-2022
+DPI-0063,Other Assets,Morris Minor - Mnti,,,,,19-Apr-2022
+DPI-0063,Other Assets,1951 Penfolds Grange,,,,,19-Apr-2022
+DPI-0063,Partnerships,25% Partnership,Chris Lawyers,ABN 47 393 455 339,,"112 Mulberry Parade, Heidelberg West, 3081",19-Apr-2022
+DPI-0063,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Pfizer Pharma,,,,19-Apr-2022
+DPI-0064,Other Assets,Singer Sewing Machine,,,,,06-Apr-2021
+DPI-0064,Partnerships,Half Partnership,Joseph Digital,ABN 47 310 480 747,,"55 Flora Road, Donvale, 3111",06-Apr-2021
+DPI-0064,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Pfizer Pharma,,,,06-Apr-2021
+DPI-0065,Directorships,Non-Executive Director,Ryan Apparel,ABN 45 335 745 488,,"74 Blue Lake Circuit, Plenty, 3082",12-Nov-2021
+DPI-0065,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Purdue Pharma,,,,12-Nov-2021
+DPI-0065,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Purdue Pharma,,,,12-Nov-2021
+DPI-0066,Share Holdings,Seek Ltd,,,SEK,,24-Aug-2021
+DPI-0066,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Astra Pharma,,,,24-Aug-2021
+DPI-0066,Other Source of Income,Puppet Stand at Local Farmers Market,Scott Property,ABN 48 304 420 514,,"100 Victoria Drive, Thomastown, 3060",24-Aug-2021
+DPI-0067,Real Estate,Property Portfolio,,,,"114 Heard Avenue, Plenty, 3090",25-Aug-2021
+DPI-0067,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,GlaxoSmithKline,,,,25-Aug-2021
+DPI-0067,Partnerships,Quarter Partnership,Andrew Finance,ABN 42 371 684 433,,"57 Allendale Road, Research, 3095",25-Aug-2021
+DPI-0067,Share Holdings,Fisher & Paykel Healthcare Corporation Ltd,,,FPH,,25-Aug-2021
+DPI-0068,Investments,140000 Family Investment,The Trustee for STECHER SELF MANAGED SUPER,ABN 46 350 736 329,,,19-Jun-2021
+DPI-0068,Trusts/Nominees,Family Trust,Joseph Builders,,,,19-Jun-2021
+DPI-0068,Directorships,Executive Director,Gabriel Digital,ABN 46 363 785 828,,"43 Jenny Rd, Point Cook, 3030",19-Jun-2021
+DPI-0069,Partnerships,Quarter Partnership,Karen Computers,ABN 46 388 106 109,,"107 Barkly Close, Brunswick, 3037",06-May-2021
+DPI-0069,Real Estate,Property Portfolio,,,,"83 Smiley Crescent, Essendon West, 3034",06-May-2021
+DPI-0069,Directorships,Non-Executive Director,Carol Lawyers,ABN 42 372 707 387,,"62 Candy Crescent, Braybrook, 3019",06-May-2021
+DPI-0069,Trusts/Nominees,Business Trust,Richard Physiotherapy,,,,06-May-2021
+DPI-0069,Other Source of Income,Crochet Classes for Execs,Richard Physiotherapy,ABN 47 326 771 456,,"98 Jasper Road, McKinnon, 3204",06-May-2021
+DPI-0070,Other Assets,1951 Penfolds Grange,,,,,06-Feb-2022
+DPI-0070,Partnerships,25% Partnership,William Finance,ABN 42 385 674 247,,"20 Larter Court, Wantirna South, 3152",06-Feb-2022
+DPI-0070,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Purdue Pharma,,,,06-Feb-2022
+DPI-0071,Other Source of Income,Crochet Classes for Execs,Sarah Accounting,ABN 45 340 804 343,,"97 Tenth Avenue, Carlton North, 3054",08-Jan-2022
+DPI-0071,Directorships,Non-Executive Director,Brandi Apparel,ABN 46 324 412 151,,"78 Somerton Road, Greenvale, 3059",08-Jan-2022
+DPI-0071,Partnerships,Quarter Partnership,Jose Builders,ABN 44 379 589 591,,"38 Christies Road, Ravenhall, 3023",08-Jan-2022
+DPI-0071,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,GlaxoSmithKline,,,,08-Jan-2022
+DPI-0072,Trusts/Nominees,Business Nominee,Sarah Accounting,,,,06-Dec-2021
+DPI-0072,Trusts/Nominees,Business Trust,Steven Hotel,,,,06-Dec-2021
+DPI-0072,Share Holdings,QBE Insurance Group Ltd,,,QBE,,06-Dec-2021
+DPI-0072,Real Estate,Property Portfolio,,,,"42 Little Berry Street, Yarraville, 3013",06-Dec-2021
+DPI-0073,Share Holdings,Auckland International Airport Ltd,,,AIA,,12-Feb-2021
+DPI-0073,Trusts/Nominees,Business Trust,Joseph Digital,,,,12-Feb-2021
+DPI-0073,Other Assets,Morris Minor - Mnti,,,,,12-Feb-2021
+DPI-0073,Real Estate,Property Portfolio,,,,"38 Christies Road, Ravenhall, 3023",12-Feb-2021
+DPI-0074,Other Source of Income,Puppet Stand at Local Farmers Market,Michael Hotel,ABN 46 325 766 730,,"38 Fuge Street, Highett, 3188",07-Aug-2021
+DPI-0074,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Pfizer Pharma,,,,07-Aug-2021
+DPI-0074,Real Estate,Property Portfolio,,,,"43 Jenny Rd, Point Cook, 3030",07-Aug-2021
+DPI-0074,Other Assets,1951 Penfolds Grange,,,,,07-Aug-2021
+DPI-0075,Other Assets,John Deere Historical Tractor,,,,,26-Jul-2021
+DPI-0075,Trusts/Nominees,Business Trust,Karen Computers,,,,26-Jul-2021
+DPI-0075,Real Estate,Rental Property,,,,"77 Main Street, Greensborough, 3088",26-Jul-2021
+DPI-0075,Real Estate,Owned Property for Rental,,,,"98 Jasper Road, McKinnon, 3204",26-Jul-2021
+DPI-0075,Other Assets,1951 Penfolds Grange,,,,,26-Jul-2021
+DPI-0076,Directorships,Non-Executive Director,Matthew Gardening,ABN 48 327 378 235,,"78 Outlook Drive, Eaglemont, 3079",11-Mar-2022
+DPI-0076,Partnerships,Half Partnership,Jose Finance,ABN 45 318 829 567,,"35 Mona Place, South Yarra, 3141",11-Mar-2022
+DPI-0076,Investments,160000 Long Term,THE TRUSTEE FOR THE KERR SELF MANAGED FUND,ABN 43 399 724 727,,,11-Mar-2022
+DPI-0077,Directorships,Non-Executive Director,Lauren Finance,ABN 43 319 385 766,,"26 Rosto Court, Tullamarine, 3045",17-Jun-2021
+DPI-0077,Investments,790000 Family Investment,The Trustee for West Super Managed Fund,ABN 47 312 269 347,,,17-Jun-2021
+DPI-0077,Real Estate,Rental Property,,,,"121 Brunton Avenue, East Melbourne, 3002",17-Jun-2021
+DPI-0077,Other Source of Income,Spouse Income from Employer,Laura Clinic,ABN 42 309 583 387,,"56 Richards Street, Coburg, 3058",17-Jun-2021
+DPI-0078,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Johnson & Johnson,,,,23-Sep-2021
+DPI-0078,Directorships,Non-Executive Director,Christine Digital,ABN 43 391 498 897,,"20 Melaleuca Close, Hillside, 3037",23-Sep-2021
+DPI-0078,Real Estate,Owned Property for Rental,,,,"62 Kingston Boulevard, Brunswick, 3029",23-Sep-2021
+DPI-0078,Directorships,Executive Director,Stephanie Finance,ABN 42 341 567 697,,"86 Champion Road, Williamstown North, 3016",23-Sep-2021
+DPI-0078,Trusts/Nominees,Business Nominee,Michael Hotel,,,,23-Sep-2021
+DPI-0079,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Johnson & Johnson,,,,13-Jun-2021
+DPI-0079,Real Estate,Property Portfolio,,,,"108 Ross Road, Altona North, 3025",13-Jun-2021
+DPI-0079,Partnerships,Quarter Partnership,Katherine Lawyers,ABN 43 305 792 134,,"48 Ballantyne Street, Burwood East, 3151",13-Jun-2021
+DPI-0080,Investments,190000 Family Investment,The Trustee for VIKAVAS SELF MANAGED FUND,ABN 45 349 357 654,,,13-Mar-2022
+DPI-0080,Trusts/Nominees,Business Nominee,Alexis Finance,,,,13-Mar-2022
+DPI-0080,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Astra Pharma,,,,13-Mar-2022
+DPI-0081,Other Source of Income,Spouse Income from Employer,Nicole Services,ABN 41 353 692 664,,"47 Riverside Track, South Morang, 3090",18-Feb-2022
+DPI-0081,Share Holdings,Coles Group Ltd��,,,COL,,18-Feb-2022
+DPI-0081,Other Assets,Singer Sewing Machine,,,,,18-Feb-2022
+DPI-0081,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Astra Pharma,,,,18-Feb-2022
+DPI-0081,Partnerships,Quarter Partnership,Kari Hotel,ABN 42 332 235 727,,"60 Terminal Drive, Melbourne Airport, 3045",18-Feb-2022
+DPI-0082,Share Holdings,Seek Ltd,,,SEK,,17-Jan-2022
+DPI-0082,Partnerships,Quarter Partnership,Rachel Accounting,ABN 47 346 628 832,,"32 Main Yarra Trail Capital City Trail, Burnley, 3121",17-Jan-2022
+DPI-0082,Share Holdings,REA Group Ltd,,,REA,,17-Jan-2022
+DPI-0082,Share Holdings,BHP Group Ltd,,,BHP,,17-Jan-2022
+DPI-0083,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Pfizer Pharma,,,,07-Jun-2022
+DPI-0083,Trusts/Nominees,Business Trust,Michael Clinic,,,,07-Jun-2022
+DPI-0083,Directorships,Executive Director,Amanda Lawyers,ABN 43 311 447 799,,"67 Beauty Point Road, Research, 3113",07-Jun-2022
+DPI-0083,Real Estate,Owned Property for Rental,,,,"108 Ross Road, Altona North, 3025",07-Jun-2022
+DPI-0083,Partnerships,Half Partnership,Patrick Apparel,ABN 48 339 691 515,,"123 Orbital Drive, Kealba, 3021",07-Jun-2022
+DPI-0084,Other Source of Income,Exec Mentoring,Julie Apparel,ABN 42 398 293 588,,"36 Napier Street, South Melbourne, 3205",08-Mar-2022
+DPI-0084,Partnerships,25% Partnership,Scott Property,ABN 48 304 420 514,,"100 Victoria Drive, Thomastown, 3060",08-Mar-2022
+DPI-0084,Real Estate,Owned Property for Rental,,,,"78 Outlook Drive, Eaglemont, 3079",08-Mar-2022
+DPI-0085,Trusts/Nominees,Business Nominee,Brandi Apparel,,,,14-Jun-2022
+DPI-0085,Other Assets,Singer Sewing Machine,,,,,14-Jun-2022
+DPI-0085,Directorships,Executive Director,Matthew Lawyers,ABN 43 360 354 182,,"32 Mirabella Drive, Tullamarine, 3045",14-Jun-2022
+DPI-0085,Share Holdings,Afterpay Ltd,,,APT,,14-Jun-2022
+DPI-0086,Directorships,Director,Russell Lawyers,ABN 45 381 409 477,,"102 Disney Street, Fawkner, 3060",15-Mar-2022
+DPI-0086,Investments,640000 Investment,The Trustee for EJJ MANAGED SUPER FUND,ABN 43 323 584 552,,,15-Mar-2022
+DPI-0086,Other Source of Income,Puppet Stand at Local Farmers Market,Matthew Gardening,ABN 48 327 378 235,,"78 Outlook Drive, Eaglemont, 3079",15-Mar-2022
+DPI-0086,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Pfizer Pharma,,,,15-Mar-2022
+DPI-0087,Directorships,Non-Executive Director,Ryan Builders,ABN 46 321 575 688,,"84 Kinnear Street, Footscray, 3011",13-May-2022
+DPI-0087,Trusts/Nominees,Family Trust,Brandi Apparel,,,,13-May-2022
+DPI-0087,Share Holdings,TPG Telecom Ltd,,,TPG,,13-May-2022
+DPI-0088,Other Source of Income,Spouse Income from Employer,Patrick Apparel,ABN 48 339 691 515,,"123 Orbital Drive, Kealba, 3021",21-Jun-2021
+DPI-0088,Other Assets,John Deere Historical Tractor,,,,,21-Jun-2021
+DPI-0088,Trusts/Nominees,Business Nominee,Cindy Clinic,,,,21-Jun-2021
+DPI-0088,Share Holdings,Scentre Group,,,SCG,,21-Jun-2021
+DPI-0088,Partnerships,Quarter Partnership,William Physiotherapy,ABN 46 313 472 590,,"77 Bridgewater Terrace, Caroline Springs, 3023",21-Jun-2021
+DPI-0089,Other Source of Income,Puppet Stand at Local Farmers Market,Joel Clinic,ABN 42 334 277 307,,"24 Yarra Flats Entry Road, Eaglemont, 3084",20-Feb-2022
+DPI-0089,Directorships,Non-Executive Director,Zachary Digital,ABN 43 323 584 552,,"108 Ross Road, Altona North, 3025",20-Feb-2022
+DPI-0089,Other Assets,John Deere Historical Tractor,,,,,20-Feb-2022
+DPI-0089,Trusts/Nominees,Family Trust,Alexandra Builders,,,,20-Feb-2022
+DPI-0089,Real Estate,Owned Property for Rental,,,,"112 Calder Freeway, Keilor, 3036",20-Feb-2022
+DPI-0090,Trusts/Nominees,Business Trust,Barbara Cleaning,,,,04-Apr-2021
+DPI-0090,Real Estate,Owned Property for Rental,,,,"108 Ross Road, Altona North, 3025",04-Apr-2021
+DPI-0090,Other Assets,John Deere Historical Tractor,,,,,04-Apr-2021
+DPI-0090,Other Source of Income,Spouse Income from Employer,Nancy Management,ABN 42 383 612 748,,"77 Main Street, Greensborough, 3088",04-Apr-2021
+DPI-0090,Directorships,Executive Director,Jose Finance,ABN 45 318 829 567,,"35 Mona Place, South Yarra, 3141",04-Apr-2021
+DPI-0091,Trusts/Nominees,Business Nominee,Cesar Cleaning,,,,12-Apr-2022
+DPI-0091,Real Estate,Property Portfolio,,,,"20 Melaleuca Close, Hillside, 3037",12-Apr-2022
+DPI-0091,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Astra Pharma,,,,12-Apr-2022
+DPI-0091,Share Holdings,Suncorp Group Ltd��,,,SUN,,12-Apr-2022
+DPI-0092,Other Source of Income,Crochet Classes for Execs,Zachary Digital,ABN 43 323 584 552,,"108 Ross Road, Altona North, 3025",24-Dec-2021
+DPI-0092,Other Assets,John Deere Historical Tractor,,,,,24-Dec-2021
+DPI-0092,Other Source of Income,Puppet Stand at Local Farmers Market,Alexandra Builders,ABN 46 382 880 578,,"122 Ajax Street, Truganina, 3029",24-Dec-2021
+DPI-0093,Partnerships,Half Partnership,Jean Accounting,ABN 46 362 768 601,,"82 Modal Place, Altona, 3018",02-Mar-2021
+DPI-0093,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Astra Pharma,,,,02-Mar-2021
+DPI-0093,Other Source of Income,Crochet Classes for Execs,Jennifer Management,ABN 42 322 548 809,,"62 Kingston Boulevard, Brunswick, 3029",02-Mar-2021
+DPI-0093,Real Estate,Owned Property for Rental,,,,"122 Ajax Street, Truganina, 3029",02-Mar-2021
+DPI-0093,Directorships,Director,Christine Digital,ABN 43 391 498 897,,"20 Melaleuca Close, Hillside, 3037",02-Mar-2021
+DPI-0094,Share Holdings,Mirvac Group��,,,MGR,,16-Sep-2021
+DPI-0094,Other Source of Income,Exec Mentoring,Linda Property,ABN 47 361 621 790,,"23 Carnsworth Avenue, Kew, 3101",16-Sep-2021
+DPI-0094,Directorships,Non-Executive Director,Jennifer Management,ABN 42 322 548 809,,"62 Kingston Boulevard, Brunswick, 3029",16-Sep-2021
+DPI-0094,Real Estate,Rental Property,,,,"45 Burnet Trail, Kew, 3067",16-Sep-2021
+DPI-0094,Investments,160000 Family Investment,MULLEYCHANG SELF MANAGED SUPERANNUATION FUND,ABN 48 339 691 515,,,16-Sep-2021
+DPI-0095,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,GlaxoSmithKline,,,,13-Jan-2022
+DPI-0095,Other Source of Income,Exec Mentoring,Nicole Services,ABN 41 353 692 664,,"47 Riverside Track, South Morang, 3090",13-Jan-2022
+DPI-0095,Investments,70000 Investment,MAJEDI SELF MANAGED SUPERANNUATION FUND,ABN 42 341 567 697,,,13-Jan-2022
+DPI-0095,Trusts/Nominees,Business Nominee,Tracy Physiotherapy,,,,13-Jan-2022
+DPI-0095,Investments,210000 Long Term,The Trustee for Sri Managed Super Fund,ABN 47 320 810 296,,,13-Jan-2022
+DPI-0096,Directorships,Executive Director,Richard Physiotherapy,ABN 47 326 771 456,,"98 Jasper Road, McKinnon, 3204",30-Sep-2021
+DPI-0096,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Astra Pharma,,,,30-Sep-2021
+DPI-0096,Share Holdings,Magellan Global Fund (Open Class) (Managed Fund),,,MGO,,30-Sep-2021
+DPI-0096,Partnerships,Half Partnership,Alexis Finance,ABN 43 330 750 303,,"78 Bannons Lane North, Doreen, 3091",30-Sep-2021
+DPI-0096,Other Source of Income,Exec Mentoring,Maria Consulting,ABN 47 320 810 296,,"112 Calder Freeway, Keilor, 3036",30-Sep-2021
+DPI-0097,Trusts/Nominees,Business Trust,Kimberly Lawyers,,,,28-May-2022
+DPI-0097,Directorships,Director,Jared Builders,ABN 47 328 550 156,,"37 Dirkala Avenue, Heathmont, 3135",28-May-2022
+DPI-0097,Directorships,Executive Director,Michael Clinic,ABN 43 369 376 360,,"39 Phoenix Street, Sunshine North, 3020",28-May-2022
+DPI-0098,Investments,200000 Long Term,THE TRUSTEE FOR KAYMI SELF MANAGED FUNDR,ABN 41 347 279 364,,,21-May-2022
+DPI-0098,Partnerships,25% Partnership,Karen Computers,ABN 46 388 106 109,,"107 Barkly Close, Brunswick, 3037",21-May-2022
+DPI-0098,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,GlaxoSmithKline,,,,21-May-2022
+DPI-0099,Directorships,Director,Monica Finance,ABN 47 315 872 738,,"27 Duncans Road, Werribee South, 3030",15-May-2021
+DPI-0099,Trusts/Nominees,Business Trust,Alexis Finance,,,,15-May-2021
+DPI-0099,Trusts/Nominees,Family Trust,Joshua Property,,,,15-May-2021
+DPI-0099,Other Source of Income,Spouse Income from Employer,Barbara Cleaning,ABN 42 359 586 265,,"100 Calendula Circuit, Epping, 3082",15-May-2021
+DPI-0100,Real Estate,Owned Property for Rental,,,,"74 Blue Lake Circuit, Plenty, 3082",12-Feb-2022
+DPI-0100,Other Source of Income,Spouse Income from Employer,Arthur Lawyers,ABN 42 368 492 317,,"95 The Crescent, Port Melbourne, 3207",12-Feb-2022
+DPI-0100,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Johnson & Johnson,,,,12-Feb-2022
+DPI-0101,Investments,130000 Investment,SLATTERY SELF MANAGED FUND,ABN 45 374 774 544,,,03-Jun-2022
+DPI-0101,Partnerships,Quarter Partnership,Joseph Builders,ABN 47 312 269 347,,"71 Collard Drive, Diamond Creek, 3096",03-Jun-2022
+DPI-0101,Partnerships,Quarter Partnership,Arthur Lawyers,ABN 42 368 492 317,,"95 The Crescent, Port Melbourne, 3207",03-Jun-2022
+DPI-0102,Other Assets,1951 Penfolds Grange,,,,,31-Oct-2021
+DPI-0102,Investments,740000 Family Investment,The trustee for MAKOKOU SELF MANAGED FUND,ABN 45 318 829 567,,,31-Oct-2021
+DPI-0102,Other Assets,1951 Penfolds Grange,,,,,31-Oct-2021
+DPI-0103,Real Estate,Owned Property for Rental,,,,"71 Bay Trail, Mentone, 3194",16-May-2021
+DPI-0103,Share Holdings,BHP Group Ltd,,,BHP,,16-May-2021
+DPI-0103,Investments,110000 Investment,THE ENDACOTT SELF MANAGED SUPER FUND,ABN 43 302 758 581,,,16-May-2021
+DPI-0103,Investments,670000 Long Term,LAUREMM SELF MANAGED SUPER FUND,ABN 45 303 156 248,,,16-May-2021
+DPI-0104,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Astra Pharma,,,,04-Mar-2022
+DPI-0104,Partnerships,25% Partnership,Sarah Lawyers,ABN 45 336 398 139,,"47 Christies Road, Ravenhall, 3023",04-Mar-2022
+DPI-0104,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Purdue Pharma,,,,04-Mar-2022
+DPI-0104,Share Holdings,Stockland,,,SGP,,04-Mar-2022
+DPI-0104,Investments,800000 Investment,ROZLEX SELF MANAGED SUPERANNUATION FUND,ABN 42 386 592 614,,,04-Mar-2022
+DPI-0105,Trusts/Nominees,Family Trust,Richard Clinic,,,,11-Feb-2021
+DPI-0105,Trusts/Nominees,Business Trust,Stephanie Finance,,,,11-Feb-2021
+DPI-0105,Share Holdings,Wisetech Global Ltd,,,WTC,,11-Feb-2021
+DPI-0105,Trusts/Nominees,Family Trust,Kevin Clinic,,,,11-Feb-2021
+DPI-0105,Partnerships,Half Partnership,Justin Property,ABN 45 373 645 203,,"112 Rowe Street, Maribyrnong, 3011",11-Feb-2021
+DPI-0106,Partnerships,Quarter Partnership,Christie Property,ABN 45 349 357 654,,"85 Newsom Street, Ascot Vale, 3032",09-Jan-2022
+DPI-0106,Trusts/Nominees,Family Trust,Nicholas Computers,,,,09-Jan-2022
+DPI-0106,Directorships,Non-Executive Director,Richard Physiotherapy,ABN 47 326 771 456,,"98 Jasper Road, McKinnon, 3204",09-Jan-2022
+DPI-0106,Real Estate,Rental Property,,,,"78 Outlook Drive, Eaglemont, 3079",09-Jan-2022
+DPI-0107,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Purdue Pharma,,,,16-May-2021
+DPI-0107,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Johnson & Johnson,,,,16-May-2021
+DPI-0107,Other Source of Income,Crochet Classes for Execs,Nancy Management,ABN 42 383 612 748,,"77 Main Street, Greensborough, 3088",16-May-2021
+DPI-0107,Investments,140000 Long Term,THE MANNING SELF MANAGED SUPER FUND,ABN 44 378 482 301,,,16-May-2021
+DPI-0108,Investments,750000 Family Investment,The Trustee for Hunter Managed Super Fund,ABN 44 379 589 591,,,23-Mar-2021
+DPI-0108,Share Holdings,Transurban Group,,,TCL,,23-Mar-2021
+DPI-0108,Share Holdings,Coles Group Ltd��,,,COL,,23-Mar-2021
+DPI-0109,Real Estate,Rental Property,,,,"121 Peronne Street, Pascoe Vale South, 3044",18-May-2021
+DPI-0109,Other Source of Income,Exec Mentoring,Jacob Physiotherapy,ABN 44 352 560 555,,"73 Ellesmere Parade, Rosanna, 3084",18-May-2021
+DPI-0109,Trusts/Nominees,Business Nominee,Jean Accounting,,,,18-May-2021
+DPI-0109,Share Holdings,Newcrest Mining Ltd,,,NCM,,18-May-2021
+DPI-0109,Share Holdings,Brambles Ltd,,,BXB,,18-May-2021
+DPI-0110,Directorships,Non-Executive Director,James Events,ABN 42 389 414 773,,"71 Bay Trail, Mentone, 3194",06-Dec-2021
+DPI-0110,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Astra Pharma,,,,06-Dec-2021
+DPI-0110,Partnerships,Half Partnership,Tracy Physiotherapy,ABN 45 307 376 146,,"44 Bunting Road, Brooklyn, 3025",06-Dec-2021
+DPI-0111,Partnerships,Half Partnership,Alexis Finance,ABN 43 330 750 303,,"78 Bannons Lane North, Doreen, 3091",21-Mar-2021
+DPI-0111,Directorships,Director,Russell Lawyers,ABN 45 381 409 477,,"102 Disney Street, Fawkner, 3060",21-Mar-2021
+DPI-0111,Other Assets,Singer Sewing Machine,,,,,21-Mar-2021
+DPI-0111,Other Assets,John Deere Historical Tractor,,,,,21-Mar-2021
+DPI-0112,Real Estate,Rental Property,,,,"85 Newsom Street, Ascot Vale, 3032",26-Jun-2021
+DPI-0112,Directorships,Non-Executive Director,Monica Finance,ABN 47 315 872 738,,"27 Duncans Road, Werribee South, 3030",26-Jun-2021
+DPI-0112,Investments,480000 Family Investment,The Trustee for Stirling Managed Super Fund,ABN 45 400 298 800,,,26-Jun-2021
+DPI-0113,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Pfizer Pharma,,,,15-Sep-2021
+DPI-0113,Other Source of Income,Puppet Stand at Local Farmers Market,Jessica Clinic,ABN 42 386 592 614,,"89 Boundary Road, Laverton North, 3026",15-Sep-2021
+DPI-0113,Other Assets,Morris Minor - Mnti,,,,,15-Sep-2021
+DPI-0113,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Pfizer Pharma,,,,15-Sep-2021
+DPI-0114,Investments,890000 Family Investment,THE TRUSTEE FOR HUME MANAGED SUPER FUND 8,ABN 43 330 750 303,,,13-Feb-2022
+DPI-0114,Other Source of Income,Spouse Income from Employer,Robert Clinic,ABN 43 387 299 747,,"114 Heard Avenue, Plenty, 3090",13-Feb-2022
+DPI-0114,Directorships,Executive Director,Zachary Lawyers,ABN 44 397 380 528,,"51 Lawson Street, Oakleigh East, 3800",13-Feb-2022
+DPI-0114,Share Holdings,RIO Tinto Ltd,,,RIO,,13-Feb-2022
+DPI-0114,Real Estate,Owned Property for Rental,,,,"74 Highview Grove, Burwood East, 3151",13-Feb-2022
+DPI-0115,Directorships,Director,Andrew Finance,ABN 42 371 684 433,,"57 Allendale Road, Research, 3095",07-Apr-2021
+DPI-0115,Trusts/Nominees,Business Nominee,Cesar Cleaning,,,,07-Apr-2021
+DPI-0115,Investments,430000 Long Term,HOLTHAM SELF MANAGED SUPER FUND,ABN 42 359 586 265,,,07-Apr-2021
+DPI-0115,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Astra Pharma,,,,07-Apr-2021
+DPI-0116,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,GlaxoSmithKline,,,,24-Apr-2022
+DPI-0116,Directorships,Director,Mason Builders,ABN 41 329 128 864,,"70 Barwon Court, Clayton South, 3169",24-Apr-2022
+DPI-0116,Investments,90000 Investment,SMITH SELF MANAGED SUPERANNUATION FUND,ABN 45 301 598 208,,,24-Apr-2022
+DPI-0116,Share Holdings,CSL Ltd,,,CSL,,24-Apr-2022
+DPI-0117,Real Estate,Rental Property,,,,"48 Ballantyne Street, Burwood East, 3151",16-Aug-2021
+DPI-0117,Other Source of Income,Exec Mentoring,Kimberly Apparel,ABN 42 366 780 774,,"123 Hopetoun Avenue, Reservoir, 3072",16-Aug-2021
+DPI-0117,Directorships,Executive Director,Scott Property,ABN 48 304 420 514,,"100 Victoria Drive, Thomastown, 3060",16-Aug-2021
+DPI-0117,Directorships,Executive Director,Nancy Management,ABN 42 383 612 748,,"77 Main Street, Greensborough, 3088",16-Aug-2021
+DPI-0117,Real Estate,Property Portfolio,,,,"116 Argus Walk, Alphington, 3078",16-Aug-2021
+DPI-0118,Other Source of Income,Spouse Income from Employer,Kevin Computers,ABN 44 344 159 482,,"87 Agar Drive, Truganina, 3023",06-Sep-2021
+DPI-0118,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,GlaxoSmithKline,,,,06-Sep-2021
+DPI-0118,Investments,400000 Long Term,THE TRUSTEE FOR CLK SELF MANAGED SUPER FUND,ABN 47 326 771 456,,,06-Sep-2021
+DPI-0118,Other Assets,Morris Minor - Mnti,,,,,06-Sep-2021
+DPI-0118,Other Source of Income,Puppet Stand at Local Farmers Market,Paul Builders,ABN 46 342 354 501,,"118 Winjeel Court, Braybrook, 3019",06-Sep-2021
+DPI-0119,Other Source of Income,Puppet Stand at Local Farmers Market,Christine Digital,ABN 43 391 498 897,,"20 Melaleuca Close, Hillside, 3037",01-Aug-2021
+DPI-0119,Directorships,Director,Elaine Builders,ABN 41 370 432 783,,"120 George Street, St Albans, 3021",01-Aug-2021
+DPI-0119,Other Source of Income,Crochet Classes for Execs,Christine Digital,ABN 43 391 498 897,,"20 Melaleuca Close, Hillside, 3037",01-Aug-2021
+DPI-0119,Other Assets,John Deere Historical Tractor,,,,,01-Aug-2021
+DPI-0120,Real Estate,Property Portfolio,,,,"78 Outlook Drive, Eaglemont, 3079",17-Jul-2021
+DPI-0120,Share Holdings,Mirvac Group��,,,MGR,,17-Jul-2021
+DPI-0120,Other Assets,John Deere Historical Tractor,,,,,17-Jul-2021
+DPI-0120,Investments,670000 Investment,MOLONEY SELF MANAGED SUPERANNUATION FUND,ABN 46 316 576 365,,,17-Jul-2021
+DPI-0120,Investments,210000 Long Term,The Trustee for barea managed fund,ABN 46 324 412 151,,,17-Jul-2021
+DPI-0121,Trusts/Nominees,Business Trust,Justin Property,,,,03-Mar-2021
+DPI-0121,Share Holdings,Australia and New Zealand Banking Group Ltd,,,ANZ,,03-Mar-2021
+DPI-0121,Real Estate,Owned Property for Rental,,,,"64 Foxton Street, St Albans, 3021",03-Mar-2021
+DPI-0121,Other Source of Income,Puppet Stand at Local Farmers Market,Carol Lawyers,ABN 42 372 707 387,,"62 Candy Crescent, Braybrook, 3019",03-Mar-2021
+DPI-0121,Other Source of Income,Spouse Income from Employer,Zachary Lawyers,ABN 44 397 380 528,,"51 Lawson Street, Oakleigh East, 3800",03-Mar-2021
+DPI-0122,Other Assets,John Deere Historical Tractor,,,,,27-Apr-2022
+DPI-0122,Other Assets,John Deere Historical Tractor,,,,,27-Apr-2022
+DPI-0122,Real Estate,Owned Property for Rental,,,,"32 Mirabella Drive, Tullamarine, 3045",27-Apr-2022
+DPI-0122,Trusts/Nominees,Business Nominee,Gabriel Digital,,,,27-Apr-2022
+DPI-0122,Other Assets,Singer Sewing Machine,,,,,27-Apr-2022
+DPI-0123,Trusts/Nominees,Family Trust,Russell Lawyers,,,,12-Apr-2021
+DPI-0123,Trusts/Nominees,Family Trust,Michael Hotel,,,,12-Apr-2021
+DPI-0123,Directorships,Director,Jennifer Management,ABN 42 322 548 809,,"62 Kingston Boulevard, Brunswick, 3029",12-Apr-2021
+DPI-0124,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Purdue Pharma,,,,13-Nov-2021
+DPI-0124,Share Holdings,BHP Group Ltd,,,BHP,,13-Nov-2021
+DPI-0124,Investments,500000 Family Investment,THE POWELL SELF MANAGED SUPER FUND,ABN 42 332 235 727,,,13-Nov-2021
+DPI-0125,Share Holdings,Insurance Australia Group Ltd,,,IAG,,23-Jun-2021
+DPI-0125,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Astra Pharma,,,,23-Jun-2021
+DPI-0125,Other Assets,1951 Penfolds Grange,,,,,23-Jun-2021
+DPI-0125,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Pfizer Pharma,,,,23-Jun-2021
+DPI-0125,Other Source of Income,Exec Mentoring,Ronald Hotel,ABN 46 345 649 637,,"87 Jolimont Road, Forest Hill, 3133",23-Jun-2021
+DPI-0126,Other Assets,Singer Sewing Machine,,,,,28-Mar-2022
+DPI-0126,Real Estate,Owned Property for Rental,,,,"116 Argus Walk, Alphington, 3078",28-Mar-2022
+DPI-0126,Directorships,Non-Executive Director,Joseph Digital,ABN 47 310 480 747,,"55 Flora Road, Donvale, 3111",28-Mar-2022
+DPI-0126,Share Holdings,Macquarie Group Ltd,,,MQG,,28-Mar-2022
+DPI-0127,Real Estate,Rental Property,,,,"123 Orbital Drive, Kealba, 3021",30-Sep-2021
+DPI-0127,Trusts/Nominees,Business Trust,Chelsea Builders,,,,30-Sep-2021
+DPI-0127,Trusts/Nominees,Family Trust,James Events,,,,30-Sep-2021
+DPI-0127,Other Assets,1951 Penfolds Grange,,,,,30-Sep-2021
+DPI-0127,Share Holdings,Fisher & Paykel Healthcare Corporation Ltd,,,FPH,,30-Sep-2021
+DPI-0128,Share Holdings,Northern Star Resources Ltd,,,NST,,29-Mar-2021
+DPI-0128,Investments,740000 Investment,The Trustee for Hunter Managed Super Fund,ABN 45 373 645 203,,,29-Mar-2021
+DPI-0128,Partnerships,25% Partnership,William Finance,ABN 42 385 674 247,,"20 Larter Court, Wantirna South, 3152",29-Mar-2021
+DPI-0129,Real Estate,Owned Property for Rental,,,,"89 Boundary Road, Laverton North, 3026",03-May-2022
+DPI-0129,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Pfizer Pharma,,,,03-May-2022
+DPI-0129,Other Source of Income,Spouse Income from Employer,Rachel Accounting,ABN 47 346 628 832,,"32 Main Yarra Trail Capital City Trail, Burnley, 3121",03-May-2022
+DPI-0129,Partnerships,25% Partnership,Kimberly Lawyers,ABN 46 317 150 125,,"71 Haig Court, Doncaster East, 3130",03-May-2022
+DPI-0130,Trusts/Nominees,Business Nominee,Kimberly Apparel,,,,20-May-2022
+DPI-0130,Directorships,Non-Executive Director,Ryan Builders,ABN 46 321 575 688,,"84 Kinnear Street, Footscray, 3011",20-May-2022
+DPI-0130,Other Source of Income,Crochet Classes for Execs,Andrew Finance,ABN 42 371 684 433,,"57 Allendale Road, Research, 3095",20-May-2022
+DPI-0131,Partnerships,25% Partnership,Carol Lawyers,ABN 42 372 707 387,,"62 Candy Crescent, Braybrook, 3019",23-Apr-2022
+DPI-0131,Investments,660000 Long Term,MICHAEL SELF MANAGED SUPER FUND,ABN 46 362 768 601,,,23-Apr-2022
+DPI-0131,Other Assets,1951 Penfolds Grange,,,,,23-Apr-2022
+DPI-0132,Investments,710000 Investment,KARPE SELF MANAGED SUPER FUND,ABN 43 387 299 747,,,01-May-2022
+DPI-0132,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Pfizer Pharma,,,,01-May-2022
+DPI-0132,Other Source of Income,Crochet Classes for Execs,Brandi Apparel,ABN 46 324 412 151,,"78 Somerton Road, Greenvale, 3059",01-May-2022
+DPI-0132,Directorships,Director,Michael Clinic,ABN 43 369 376 360,,"39 Phoenix Street, Sunshine North, 3020",01-May-2022
+DPI-0133,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Purdue Pharma,,,,15-May-2021
+DPI-0133,Directorships,Non-Executive Director,Tracy Physiotherapy,ABN 45 307 376 146,,"44 Bunting Road, Brooklyn, 3025",15-May-2021
+DPI-0133,Directorships,Executive Director,John Lawyers,ABN 44 308 583 722,,"45 Burnet Trail, Kew, 3067",15-May-2021
+DPI-0133,Investments,360000 Investment,The Trustee for MANAGED NOMINEES SUPERANNUATION FUND,ABN 46 338 412 668,,,15-May-2021
+DPI-0133,Other Assets,John Deere Historical Tractor,,,,,15-May-2021
+DPI-0134,Other Assets,1951 Penfolds Grange,,,,,24-Nov-2021
+DPI-0134,Partnerships,Quarter Partnership,Ryan Apparel,ABN 45 335 745 488,,"74 Blue Lake Circuit, Plenty, 3082",24-Nov-2021
+DPI-0134,Investments,480000 Family Investment,MCGOWAN SELF MANAGED SUPER FUND,ABN 47 326 771 456,,,24-Nov-2021
+DPI-0134,Trusts/Nominees,Family Trust,Christine Digital,,,,24-Nov-2021
+DPI-0134,Other Assets,Morris Minor - Mnti,,,,,24-Nov-2021
+DPI-0135,Share Holdings,Wesfarmers Ltd,,,WES,,05-Jul-2021
+DPI-0135,Real Estate,Owned Property for Rental,,,,"43 Jenny Rd, Point Cook, 3030",05-Jul-2021
+DPI-0135,Other Assets,1951 Penfolds Grange,,,,,05-Jul-2021
+DPI-0135,Directorships,Director,Ronald Hotel,ABN 46 345 649 637,,"87 Jolimont Road, Forest Hill, 3133",05-Jul-2021
+DPI-0135,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Purdue Pharma,,,,05-Jul-2021
+DPI-0136,Investments,780000 Family Investment,THE SAYERS SELF MANAGED SUPER FUND,ABN 45 349 357 654,,,20-Apr-2021
+DPI-0136,Other Assets,Morris Minor - Mnti,,,,,20-Apr-2021
+DPI-0136,Partnerships,25% Partnership,Matthew Digital,ABN 48 337 877 553,,"108 Neil Street, West Footscray, 3012",20-Apr-2021
+DPI-0136,Real Estate,Property Portfolio,,,,"55 Sherwood Road, Eaglemont, 3079",20-Apr-2021
+DPI-0137,Partnerships,Quarter Partnership,Robert Clinic,ABN 43 387 299 747,,"114 Heard Avenue, Plenty, 3090",21-Sep-2021
+DPI-0137,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Pfizer Pharma,,,,21-Sep-2021
+DPI-0137,Other Assets,Morris Minor - Mnti,,,,,21-Sep-2021
+DPI-0137,Partnerships,25% Partnership,Christine Digital,ABN 43 391 498 897,,"20 Melaleuca Close, Hillside, 3037",21-Sep-2021
+DPI-0137,Other Assets,Singer Sewing Machine,,,,,21-Sep-2021
+DPI-0138,Real Estate,Rental Property,,,,"77 Main Street, Greensborough, 3088",26-Aug-2021
+DPI-0138,Partnerships,Half Partnership,Ryan Apparel,ABN 45 335 745 488,,"74 Blue Lake Circuit, Plenty, 3082",26-Aug-2021
+DPI-0138,Other Source of Income,Spouse Income from Employer,Julie Apparel,ABN 42 398 293 588,,"36 Napier Street, South Melbourne, 3205",26-Aug-2021
+DPI-0138,Share Holdings,SOUTH32 Ltd,,,S32,,26-Aug-2021
+DPI-0138,Partnerships,25% Partnership,Andrew Finance,ABN 42 371 684 433,,"57 Allendale Road, Research, 3095",26-Aug-2021
+DPI-0139,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,GlaxoSmithKline,,,,09-Jul-2021
+DPI-0139,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Purdue Pharma,,,,09-Jul-2021
+DPI-0139,Other Assets,Morris Minor - Mnti,,,,,09-Jul-2021
+DPI-0140,Real Estate,Owned Property for Rental,,,,"60 Terminal Drive, Melbourne Airport, 3045",21-Feb-2021
+DPI-0140,Trusts/Nominees,Business Nominee,Jennifer Management,,,,21-Feb-2021
+DPI-0140,Other Source of Income,Crochet Classes for Execs,Ronald Accounting,ABN 44 394 582 439,,"121 Peronne Street, Pascoe Vale South, 3044",21-Feb-2021
+DPI-0140,Investments,550000 Investment,THE TRUSTEE FOR CLK SELF MANAGED SUPER FUND,ABN 44 344 159 482,,,21-Feb-2021
+DPI-0141,Other Assets,Singer Sewing Machine,,,,,01-Apr-2022
+DPI-0141,Directorships,Executive Director,Brandy Physiotherapy,ABN 45 392 543 107,,"45 Riversdale Road, Camberwell, 3124",01-Apr-2022
+DPI-0141,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Purdue Pharma,,,,01-Apr-2022
+DPI-0141,Other Assets,Morris Minor - Mnti,,,,,01-Apr-2022
+DPI-0142,Real Estate,Property Portfolio,,,,"24 Yarra Flats Entry Road, Eaglemont, 3084",01-May-2021
+DPI-0142,Partnerships,25% Partnership,Sarah Accounting,ABN 45 340 804 343,,"97 Tenth Avenue, Carlton North, 3054",01-May-2021
+DPI-0142,Partnerships,25% Partnership,Alexis Finance,ABN 43 330 750 303,,"78 Bannons Lane North, Doreen, 3091",01-May-2021
+DPI-0142,Directorships,Non-Executive Director,Chris Lawyers,ABN 47 393 455 339,,"112 Mulberry Parade, Heidelberg West, 3081",01-May-2021
+DPI-0143,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Pfizer Pharma,,,,14-Sep-2021
+DPI-0143,Real Estate,Property Portfolio,,,,"89 Boundary Road, Laverton North, 3026",14-Sep-2021
+DPI-0143,Trusts/Nominees,Family Trust,Chelsea Builders,,,,14-Sep-2021
+DPI-0144,Trusts/Nominees,Business Nominee,Tracy Physiotherapy,,,,15-Nov-2021
+DPI-0144,Share Holdings,ASX Ltd,,,ASX,,15-Nov-2021
+DPI-0144,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Purdue Pharma,,,,15-Nov-2021
+DPI-0144,Partnerships,Half Partnership,Jose Builders,ABN 44 379 589 591,,"38 Christies Road, Ravenhall, 3023",15-Nov-2021
+DPI-0145,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Johnson & Johnson,,,,18-Jun-2021
+DPI-0145,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Purdue Pharma,,,,18-Jun-2021
+DPI-0145,Other Source of Income,Crochet Classes for Execs,Elaine Builders,ABN 41 370 432 783,,"120 George Street, St Albans, 3021",18-Jun-2021
+DPI-0145,Partnerships,Quarter Partnership,Alexis Finance,ABN 43 330 750 303,,"78 Bannons Lane North, Doreen, 3091",18-Jun-2021
+DPI-0146,Other Source of Income,Spouse Income from Employer,Alex Apparel,ABN 43 357 160 878,,"61 Kokoda Road, Williamstown, 3016",07-Jun-2021
+DPI-0146,Share Holdings,Brambles Ltd,,,BXB,,07-Jun-2021
+DPI-0146,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Johnson & Johnson,,,,07-Jun-2021
+DPI-0147,Partnerships,Half Partnership,Kelly Finance,ABN 48 314 682 276,,"121 Brunton Avenue, East Melbourne, 3002",13-Jan-2022
+DPI-0147,Other Assets,John Deere Historical Tractor,,,,,13-Jan-2022
+DPI-0147,Partnerships,Quarter Partnership,Alex Apparel,ABN 43 357 160 878,,"61 Kokoda Road, Williamstown, 3016",13-Jan-2022
+DPI-0147,Share Holdings,Auckland International Airport Ltd,,,AIA,,13-Jan-2022
+DPI-0147,Trusts/Nominees,Business Nominee,Nicole Services,,,,13-Jan-2022
+DPI-0148,Partnerships,Quarter Partnership,Kevin Computers,ABN 44 344 159 482,,"87 Agar Drive, Truganina, 3023",05-Mar-2021
+DPI-0148,Trusts/Nominees,Business Trust,Kevin Clinic,,,,05-Mar-2021
+DPI-0148,Investments,710000 Long Term,SALAMANCA SELF MANAGED SUPERANNUATION FUND,ABN 45 336 398 139,,,05-Mar-2021
+DPI-0148,Other Assets,Singer Sewing Machine,,,,,05-Mar-2021
+DPI-0148,Share Holdings,Amcor Plc,,,AMC,,05-Mar-2021
+DPI-0149,Directorships,Director,Monica Finance,ABN 47 315 872 738,,"27 Duncans Road, Werribee South, 3030",28-Jun-2021
+DPI-0149,Other Source of Income,Spouse Income from Employer,Joel Clinic,ABN 42 334 277 307,,"24 Yarra Flats Entry Road, Eaglemont, 3084",28-Jun-2021
+DPI-0149,Other Assets,1951 Penfolds Grange,,,,,28-Jun-2021
+DPI-0149,Investments,190000 Investment,The Trustee for MANAGED NOMINEES SUPERANNUATION FUND,ABN 45 400 298 800,,,28-Jun-2021
+DPI-0149,Investments,810000 Long Term,THE TRUSTEE FOR BLACKMORE SELF-MANAGED SUPER FUND,ABN 48 351 707 284,,,28-Jun-2021
+DPI-0150,Partnerships,Half Partnership,Keith Management,ABN 46 333 653 400,,"36 Reeve Court, Cheltenham, 3192",11-Feb-2021
+DPI-0150,Real Estate,Owned Property for Rental,,,,"108 Ross Road, Altona North, 3025",11-Feb-2021
+DPI-0150,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Johnson & Johnson,,,,11-Feb-2021
+DPI-0150,Investments,330000 Investment,ATKINSON SELF MANAGED SUPERANNUATION FUND,ABN 43 330 750 303,,,11-Feb-2021
+DPI-0151,Trusts/Nominees,Business Nominee,Whitney Management,,,,07-Apr-2021
+DPI-0151,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Astra Pharma,,,,07-Apr-2021
+DPI-0151,Investments,450000 Long Term,The Trustee for Hughs Self Managed Fund,ABN 41 358 411 432,,,07-Apr-2021
+DPI-0152,Other Assets,John Deere Historical Tractor,,,,,19-Jun-2021
+DPI-0152,Other Source of Income,Crochet Classes for Execs,Scott Property,ABN 48 304 420 514,,"100 Victoria Drive, Thomastown, 3060",19-Jun-2021
+DPI-0152,Share Holdings,Woodside Petroleum Ltd,,,WPL,,19-Jun-2021
+DPI-0152,Other Assets,Morris Minor - Mnti,,,,,19-Jun-2021
+DPI-0153,Partnerships,25% Partnership,Julie Apparel,ABN 42 398 293 588,,"36 Napier Street, South Melbourne, 3205",18-Nov-2021
+DPI-0153,Share Holdings,Brambles Ltd,,,BXB,,18-Nov-2021
+DPI-0153,Partnerships,Quarter Partnership,Joseph Builders,ABN 47 312 269 347,,"71 Collard Drive, Diamond Creek, 3096",18-Nov-2021
+DPI-0153,Other Source of Income,Puppet Stand at Local Farmers Market,Matthew Gardening,ABN 48 327 378 235,,"78 Outlook Drive, Eaglemont, 3079",18-Nov-2021
+DPI-0154,Real Estate,Rental Property,,,,"77 Bridgewater Terrace, Caroline Springs, 3023",27-Jul-2021
+DPI-0154,Partnerships,Half Partnership,Sarah Accounting,ABN 45 340 804 343,,"97 Tenth Avenue, Carlton North, 3054",27-Jul-2021
+DPI-0154,Real Estate,Rental Property,,,,"70 Barwon Court, Clayton South, 3169",27-Jul-2021
+DPI-0154,Partnerships,25% Partnership,Steven Hotel,ABN 48 364 668 375,,"64 Foxton Street, St Albans, 3021",27-Jul-2021
+DPI-0155,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Johnson & Johnson,,,,12-Mar-2022
+DPI-0155,Trusts/Nominees,Family Trust,Joel Clinic,,,,12-Mar-2022
+DPI-0155,Share Holdings,Newcrest Mining Ltd,,,NCM,,12-Mar-2022
+DPI-0156,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Astra Pharma,,,,25-Feb-2021
+DPI-0156,Other Assets,1951 Penfolds Grange,,,,,25-Feb-2021
+DPI-0156,Share Holdings,Australia and New Zealand Banking Group Ltd,,,ANZ,,25-Feb-2021
+DPI-0156,Investments,270000 Family Investment,MAWESTA SELF MANAGED SUPER FUND,ABN 41 370 432 783,,,25-Feb-2021
+DPI-0157,Share Holdings,APA Group,,,APA,,10-Oct-2021
+DPI-0157,Share Holdings,Insurance Australia Group Ltd,,,IAG,,10-Oct-2021
+DPI-0157,Real Estate,Owned Property for Rental,,,,"78 Somerton Road, Greenvale, 3059",10-Oct-2021
+DPI-0157,Other Assets,John Deere Historical Tractor,,,,,10-Oct-2021
+DPI-0158,Real Estate,Owned Property for Rental,,,,"78 Bannons Lane North, Doreen, 3091",10-Feb-2022
+DPI-0158,Directorships,Director,Justin Property,ABN 45 373 645 203,,"112 Rowe Street, Maribyrnong, 3011",10-Feb-2022
+DPI-0158,Share Holdings,RIO Tinto Ltd,,,RIO,,10-Feb-2022
+DPI-0159,Other Source of Income,Crochet Classes for Execs,Joseph Digital,ABN 47 310 480 747,,"55 Flora Road, Donvale, 3111",18-Jun-2021
+DPI-0159,Directorships,Non-Executive Director,Andrew Finance,ABN 42 371 684 433,,"57 Allendale Road, Research, 3095",18-Jun-2021
+DPI-0159,Directorships,Director,Kimberly Lawyers,ABN 46 317 150 125,,"71 Haig Court, Doncaster East, 3130",18-Jun-2021
+DPI-0159,Real Estate,Rental Property,,,,"109 Merri Creek Trail, Fawkner, 3060",18-Jun-2021
+DPI-0159,Partnerships,Half Partnership,Kevin Clinic,ABN 46 354 260 532,,"29 Louisa Court, Oakleigh South, 3165",18-Jun-2021
+DPI-0160,Investments,550000 Investment,THE AJG SELF MANAGED PENSION FUND,ABN 42 322 548 809,,,19-Nov-2021
+DPI-0160,Partnerships,25% Partnership,Kari Hotel,ABN 42 332 235 727,,"60 Terminal Drive, Melbourne Airport, 3045",19-Nov-2021
+DPI-0160,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Astra Pharma,,,,19-Nov-2021
+DPI-0161,Other Source of Income,Exec Mentoring,Jennifer Management,ABN 42 322 548 809,,"62 Kingston Boulevard, Brunswick, 3029",30-Nov-2021
+DPI-0161,Real Estate,Rental Property,,,,"112 Mulberry Parade, Heidelberg West, 3081",30-Nov-2021
+DPI-0161,Directorships,Director,Stephanie Finance,ABN 42 341 567 697,,"86 Champion Road, Williamstown North, 3016",30-Nov-2021
+DPI-0162,Real Estate,Rental Property,,,,"86 Champion Road, Williamstown North, 3016",07-Feb-2022
+DPI-0162,Share Holdings,Suncorp Group Ltd��,,,SUN,,07-Feb-2022
+DPI-0162,Real Estate,Rental Property,,,,"97 Tenth Avenue, Carlton North, 3054",07-Feb-2022
+DPI-0162,Other Assets,Morris Minor - Mnti,,,,,07-Feb-2022
+DPI-0162,Partnerships,25% Partnership,Carol Lawyers,ABN 42 372 707 387,,"62 Candy Crescent, Braybrook, 3019",07-Feb-2022
+DPI-0163,Investments,620000 Family Investment,THE TRUSTEE FOR KHUSHI MANAGED SUPERFUND,ABN 43 391 498 897,,,21-Oct-2021
+DPI-0163,Share Holdings,Woodside Petroleum Ltd,,,WPL,,21-Oct-2021
+DPI-0163,Other Assets,Singer Sewing Machine,,,,,21-Oct-2021
+DPI-0163,Other Assets,1951 Penfolds Grange,,,,,21-Oct-2021
+DPI-0164,Directorships,Director,Ann Physiotherapy,ABN 41 375 498 344,,"36 Amery Street, Reservoir, 3060",16-Jun-2021
+DPI-0164,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Pfizer Pharma,,,,16-Jun-2021
+DPI-0164,Investments,150000 Long Term,KARZON SELF MANAGED SUPER FUND,ABN 43 360 354 182,,,16-Jun-2021
+DPI-0165,Investments,120000 Long Term,The Trustee for SSSN Managed Superannuation Fund,ABN 46 362 768 601,,,16-Apr-2022
+DPI-0165,Investments,380000 Long Term,THE HAO SELF MANAGED SUPERANNUATION FUND,ABN 45 392 543 107,,,16-Apr-2022
+DPI-0165,Directorships,Non-Executive Director,Alexandra Builders,ABN 46 382 880 578,,"122 Ajax Street, Truganina, 3029",16-Apr-2022
+DPI-0166,Investments,570000 Investment,The Trustee for West Super Managed Fund,ABN 42 372 707 387,,,01-Jul-2021
+DPI-0166,Other Assets,Morris Minor - Mnti,,,,,01-Jul-2021
+DPI-0166,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Pfizer Pharma,,,,01-Jul-2021
+DPI-0166,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,GlaxoSmithKline,,,,01-Jul-2021
+DPI-0166,Real Estate,Property Portfolio,,,,"82 Modal Place, Altona, 3018",01-Jul-2021
+DPI-0167,Partnerships,Quarter Partnership,Chelsea Builders,ABN 42 395 758 883,,"115 South Centre Road, Melbourne Airport, 3045",04-May-2021
+DPI-0167,Other Source of Income,Spouse Income from Employer,Whitney Management,ABN 41 348 545 880,,"45 Little Osborne Street, Williamstown, 3016",04-May-2021
+DPI-0167,Other Assets,John Deere Historical Tractor,,,,,04-May-2021
+DPI-0167,Investments,390000 Investment,The Trustee for FDM managed Fund,ABN 42 332 235 727,,,04-May-2021
+DPI-0167,Directorships,Director,Ann Physiotherapy,ABN 41 375 498 344,,"36 Amery Street, Reservoir, 3060",04-May-2021
+DPI-0168,Share Holdings,Amcor Plc,,,AMC,,19-Sep-2021
+DPI-0168,Other Source of Income,Spouse Income from Employer,Christine Digital,ABN 43 391 498 897,,"20 Melaleuca Close, Hillside, 3037",19-Sep-2021
+DPI-0168,Partnerships,Quarter Partnership,Barbara Cleaning,ABN 42 359 586 265,,"100 Calendula Circuit, Epping, 3082",19-Sep-2021
+DPI-0169,Real Estate,Rental Property,,,,"48 Ballantyne Street, Burwood East, 3151",14-Feb-2021
+DPI-0169,Partnerships,Half Partnership,Barbara Cleaning,ABN 42 359 586 265,,"100 Calendula Circuit, Epping, 3082",14-Feb-2021
+DPI-0169,Other Source of Income,Exec Mentoring,Stephanie Clinic,ABN 47 377 126 660,,"42 Little Berry Street, Yarraville, 3013",14-Feb-2021
+DPI-0170,Trusts/Nominees,Family Trust,Kevin Computers,,,,11-Mar-2021
+DPI-0170,Directorships,Director,Steven Hotel,ABN 48 364 668 375,,"64 Foxton Street, St Albans, 3021",11-Mar-2021
+DPI-0170,Trusts/Nominees,Business Nominee,Matthew Lawyers,,,,11-Mar-2021
+DPI-0171,Real Estate,Rental Property,,,,"61 Sydney Street, Avondale Heights, 3034",19-Nov-2021
+DPI-0171,Other Source of Income,Puppet Stand at Local Farmers Market,Linda Property,ABN 47 361 621 790,,"23 Carnsworth Avenue, Kew, 3101",19-Nov-2021
+DPI-0171,Real Estate,Property Portfolio,,,,"123 Fred St, Footscray, 3011",19-Nov-2021
+DPI-0171,Real Estate,Rental Property,,,,"102 Disney Street, Fawkner, 3060",19-Nov-2021
+DPI-0172,Trusts/Nominees,Family Trust,Laura Clinic,,,,30-Jan-2022
+DPI-0172,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Pfizer Pharma,,,,30-Jan-2022
+DPI-0172,Other Source of Income,Spouse Income from Employer,Maria Consulting,ABN 47 320 810 296,,"112 Calder Freeway, Keilor, 3036",30-Jan-2022
+DPI-0173,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Astra Pharma,,,,31-Aug-2021
+DPI-0173,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Johnson & Johnson,,,,31-Aug-2021
+DPI-0173,Real Estate,Owned Property for Rental,,,,"78 Bannons Lane North, Doreen, 3091",31-Aug-2021
+DPI-0173,Directorships,Executive Director,Richard Clinic,ABN 42 396 712 319,,"64 Beecroft Drive, Westmeadows, 3049",31-Aug-2021
+DPI-0174,Partnerships,Half Partnership,Karen Computers,ABN 46 388 106 109,,"107 Barkly Close, Brunswick, 3037",15-Jul-2021
+DPI-0174,Partnerships,25% Partnership,Maria Property,ABN 46 350 736 329,,"80 Mornington Peninsula Freeway Onramp, Braeside, 3195",15-Jul-2021
+DPI-0174,Other Source of Income,Spouse Income from Employer,Alex Apparel,ABN 43 357 160 878,,"61 Kokoda Road, Williamstown, 3016",15-Jul-2021
+DPI-0174,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Purdue Pharma,,,,15-Jul-2021
+DPI-0175,Other Assets,Morris Minor - Mnti,,,,,26-Apr-2021
+DPI-0175,Other Source of Income,Crochet Classes for Execs,Zachary Lawyers,ABN 44 397 380 528,,"51 Lawson Street, Oakleigh East, 3800",26-Apr-2021
+DPI-0175,Share Holdings,APA Group,,,APA,,26-Apr-2021
+DPI-0175,Partnerships,25% Partnership,Steven Hotel,ABN 48 364 668 375,,"64 Foxton Street, St Albans, 3021",26-Apr-2021
+DPI-0175,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Astra Pharma,,,,26-Apr-2021
+DPI-0176,Directorships,Director,Victoria Digital,ABN 46 338 412 668,,"81 Parkinson Street, Mount Waverley, 3166",07-Mar-2022
+DPI-0176,Partnerships,Half Partnership,Maria Consulting,ABN 47 320 810 296,,"112 Calder Freeway, Keilor, 3036",07-Mar-2022
+DPI-0176,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Pfizer Pharma,,,,07-Mar-2022
+DPI-0176,Directorships,Non-Executive Director,Kari Hotel,ABN 42 332 235 727,,"60 Terminal Drive, Melbourne Airport, 3045",07-Mar-2022
+DPI-0176,Share Holdings,APA Group,,,APA,,07-Mar-2022
+DPI-0177,Investments,780000 Investment,BOYES MOTYER SELF MANAGED SUPERANNUATI,ABN 45 374 774 544,,,17-Feb-2021
+DPI-0177,Share Holdings,Goodman Group,,,GMG,,17-Feb-2021
+DPI-0177,Real Estate,Property Portfolio,,,,"32 Mirabella Drive, Tullamarine, 3045",17-Feb-2021
+DPI-0178,Other Source of Income,Crochet Classes for Execs,William Finance,ABN 42 385 674 247,,"20 Larter Court, Wantirna South, 3152",13-Jul-2021
+DPI-0178,Real Estate,Property Portfolio,,,,"36 Napier Street, South Melbourne, 3205",13-Jul-2021
+DPI-0178,Other Source of Income,Spouse Income from Employer,Paul Builders,ABN 46 342 354 501,,"118 Winjeel Court, Braybrook, 3019",13-Jul-2021
+DPI-0179,Other Assets,1951 Penfolds Grange,,,,,21-Aug-2021
+DPI-0179,Share Holdings,Ramsay Health Care Ltd,,,RHC,,21-Aug-2021
+DPI-0179,Partnerships,Half Partnership,Stephanie Clinic,ABN 47 377 126 660,,"42 Little Berry Street, Yarraville, 3013",21-Aug-2021
+DPI-0180,Investments,820000 Investment,The trustee for Brenda Managed Super Fund,ABN 41 370 432 783,,,03-Jun-2022
+DPI-0180,Real Estate,Owned Property for Rental,,,,"36 Napier Street, South Melbourne, 3205",03-Jun-2022
+DPI-0180,Share Holdings,TPG Telecom Ltd,,,TPG,,03-Jun-2022
+DPI-0180,Other Assets,Morris Minor - Mnti,,,,,03-Jun-2022
+DPI-0180,Directorships,Director,Nicholas Computers,ABN 44 356 165 369,,"105 Salisbury Court, Sydenham, 3037",03-Jun-2022
+DPI-0181,Partnerships,25% Partnership,John Apparel,ABN 45 374 774 544,,"61 Sydney Street, Avondale Heights, 3034",04-Jun-2022
+DPI-0181,Trusts/Nominees,Business Trust,Richard Clinic,,,,04-Jun-2022
+DPI-0181,Other Assets,Singer Sewing Machine,,,,,04-Jun-2022
+DPI-0182,Trusts/Nominees,Business Trust,Nancy Management,,,,21-Jul-2021
+DPI-0182,Partnerships,Half Partnership,Jessica Clinic,ABN 42 386 592 614,,"89 Boundary Road, Laverton North, 3026",21-Jul-2021
+DPI-0182,Real Estate,Rental Property,,,,"57 Allendale Road, Research, 3095",21-Jul-2021
+DPI-0183,Real Estate,Owned Property for Rental,,,,"24 Boundary Road, Dingley Village, 3172",07-Jan-2022
+DPI-0183,Partnerships,Quarter Partnership,Chris Lawyers,ABN 47 393 455 339,,"112 Mulberry Parade, Heidelberg West, 3081",07-Jan-2022
+DPI-0183,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Johnson & Johnson,,,,07-Jan-2022
+DPI-0184,Share Holdings,REA Group Ltd,,,REA,,11-Jun-2022
+DPI-0184,Partnerships,Half Partnership,Arthur Lawyers,ABN 42 368 492 317,,"95 The Crescent, Port Melbourne, 3207",11-Jun-2022
+DPI-0184,Other Source of Income,Spouse Income from Employer,Paul Builders,ABN 46 342 354 501,,"118 Winjeel Court, Braybrook, 3019",11-Jun-2022
+DPI-0184,Share Holdings,Cochlear Ltd,,,COH,,11-Jun-2022
+DPI-0185,Share Holdings,Wisetech Global Ltd,,,WTC,,06-May-2021
+DPI-0185,Other Assets,Morris Minor - Mnti,,,,,06-May-2021
+DPI-0185,Partnerships,Quarter Partnership,Michele Management,ABN 44 378 482 301,,"112 Barongarook Court, Lower Plenty, 3093",06-May-2021
+DPI-0185,Real Estate,Rental Property,,,,"20 Larter Court, Wantirna South, 3152",06-May-2021
+DPI-0185,Other Source of Income,Exec Mentoring,Rachel Accounting,ABN 47 346 628 832,,"32 Main Yarra Trail Capital City Trail, Burnley, 3121",06-May-2021
+DPI-0186,Directorships,Non-Executive Director,Patrick Apparel,ABN 48 339 691 515,,"123 Orbital Drive, Kealba, 3021",27-Dec-2021
+DPI-0186,Real Estate,Property Portfolio,,,,"78 Bannons Lane North, Doreen, 3091",27-Dec-2021
+DPI-0186,Investments,310000 Family Investment,THE NORJAT SELF MANAGED SUPER FUND,ABN 46 362 768 601,,,27-Dec-2021
+DPI-0187,Directorships,Executive Director,Robert Clinic,ABN 43 387 299 747,,"114 Heard Avenue, Plenty, 3090",13-Apr-2022
+DPI-0187,Directorships,Executive Director,Kenneth Hotel,ABN 43 306 153 129,,"58 Upland Road, Strathmore, 3040",13-Apr-2022
+DPI-0187,Other Source of Income,Exec Mentoring,Scott Builders,ABN 42 331 129 734,,"74 Highview Grove, Burwood East, 3151",13-Apr-2022
+DPI-0187,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Astra Pharma,,,,13-Apr-2022
+DPI-0188,Share Holdings,Commonwealth Bank of Australia,,,CBA,,18-Mar-2021
+DPI-0188,Other Assets,Singer Sewing Machine,,,,,18-Mar-2021
+DPI-0188,Trusts/Nominees,Business Nominee,Kimberly Apparel,,,,18-Mar-2021
+DPI-0188,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Johnson & Johnson,,,,18-Mar-2021
+DPI-0189,Directorships,Director,Mason Builders,ABN 41 329 128 864,,"70 Barwon Court, Clayton South, 3169",22-May-2022
+DPI-0189,Other Assets,Singer Sewing Machine,,,,,22-May-2022
+DPI-0189,Share Holdings,Sonic Healthcare Ltd,,,SHL,,22-May-2022
+DPI-0189,Trusts/Nominees,Business Trust,Kevin Clinic,,,,22-May-2022
+DPI-0189,Other Assets,1951 Penfolds Grange,,,,,22-May-2022
+DPI-0190,Investments,320000 Long Term,The Trustee for MR Self Managed Super Fund,ABN 46 325 766 730,,,25-May-2021
+DPI-0190,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Astra Pharma,,,,25-May-2021
+DPI-0190,Real Estate,Rental Property,,,,"42 Little Berry Street, Yarraville, 3013",25-May-2021
+DPI-0190,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Pfizer Pharma,,,,25-May-2021
+DPI-0191,Investments,770000 Long Term,THE TRUSTEE FOR JCM SELF-MANAGED SUPERANNUATION FUND,ABN 43 311 447 799,,,08-Feb-2022
+DPI-0191,Directorships,Director,Joshua Property,ABN 45 303 156 248,,"77 Natalia Avenue, Oakleigh South, 3166",08-Feb-2022
+DPI-0191,Trusts/Nominees,Business Trust,Christie Property,,,,08-Feb-2022
+DPI-0191,Other Assets,1951 Penfolds Grange,,,,,08-Feb-2022
+DPI-0192,Partnerships,Quarter Partnership,Keith Management,ABN 46 333 653 400,,"36 Reeve Court, Cheltenham, 3192",15-Apr-2022
+DPI-0192,Investments,50000 Long Term,BELCLARE SELF-MANAGED SUPER FUND,ABN 48 339 691 515,,,15-Apr-2022
+DPI-0192,"Gift, Sponsorsored Travel, Hospitality",Louis Vutton Luggage,Purdue Pharma,,,,15-Apr-2022
+DPI-0192,Directorships,Non-Executive Director,Scott Builders,ABN 42 331 129 734,,"74 Highview Grove, Burwood East, 3151",15-Apr-2022
+DPI-0193,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,GlaxoSmithKline,,,,17-May-2021
+DPI-0193,Investments,730000 Long Term,The Trustee for MR Self Managed Super Fund,ABN 45 318 829 567,,,17-May-2021
+DPI-0193,Directorships,Director,Edwin Clinic,ABN 43 399 724 727,,"120 Perennial Drive, Sunshine North, 3034",17-May-2021
+DPI-0194,Other Assets,Singer Sewing Machine,,,,,17-Mar-2021
+DPI-0194,Partnerships,Half Partnership,Joshua Property,ABN 45 303 156 248,,"77 Natalia Avenue, Oakleigh South, 3166",17-Mar-2021
+DPI-0194,Share Holdings,Reece Ltd,,,REH,,17-Mar-2021
+DPI-0195,Other Assets,1951 Penfolds Grange,,,,,01-May-2022
+DPI-0195,Other Source of Income,Spouse Income from Employer,Jose Builders,ABN 44 379 589 591,,"38 Christies Road, Ravenhall, 3023",01-May-2022
+DPI-0195,Directorships,Executive Director,Jose Builders,ABN 44 379 589 591,,"38 Christies Road, Ravenhall, 3023",01-May-2022
+DPI-0195,Trusts/Nominees,Family Trust,Tracy Physiotherapy,,,,01-May-2022
+DPI-0196,Other Assets,Singer Sewing Machine,,,,,29-Apr-2022
+DPI-0196,Other Source of Income,Exec Mentoring,Michael Clinic,ABN 43 369 376 360,,"39 Phoenix Street, Sunshine North, 3020",29-Apr-2022
+DPI-0196,Trusts/Nominees,Business Trust,Victoria Digital,,,,29-Apr-2022
+DPI-0197,Real Estate,Property Portfolio,,,,"77 Main Street, Greensborough, 3088",02-May-2022
+DPI-0197,"Gift, Sponsorsored Travel, Hospitality",Gold Coast Conference,Pfizer Pharma,,,,02-May-2022
+DPI-0197,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Purdue Pharma,,,,02-May-2022
+DPI-0197,Trusts/Nominees,Business Trust,Kenneth Hotel,,,,02-May-2022
+DPI-0197,Real Estate,Property Portfolio,,,,"105 Salisbury Court, Sydenham, 3037",02-May-2022
+DPI-0198,Partnerships,25% Partnership,Christine Trading,ABN 43 365 431 228,,"83 Smiley Crescent, Essendon West, 3034",29-Mar-2021
+DPI-0198,Partnerships,Quarter Partnership,Keith Management,ABN 46 333 653 400,,"36 Reeve Court, Cheltenham, 3192",29-Mar-2021
+DPI-0198,Trusts/Nominees,Business Trust,Andrew Finance,,,,29-Mar-2021
+DPI-0198,Other Assets,John Deere Historical Tractor,,,,,29-Mar-2021
+DPI-0199,Investments,80000 Long Term,The trustee for Delport Managed Super,ABN 41 347 279 364,,,15-Mar-2022
+DPI-0199,Partnerships,25% Partnership,Katherine Lawyers,ABN 43 305 792 134,,"48 Ballantyne Street, Burwood East, 3151",15-Mar-2022
+DPI-0199,"Gift, Sponsorsored Travel, Hospitality",Travel to International Conference,Purdue Pharma,,,,15-Mar-2022
