@@ -1,0 +1,99 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "name": "traceability",
+      "configuration": {
+        "visualization": {
+          "filters": [
+            {
+              "_id": 1670824797100,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": []
+              },
+              "properties": {
+                "sizes": [
+                  11
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1670824694346,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "label",
+                    "operator": "=",
+                    "value": "PLACE"
+                  }
+                ]
+              },
+              "properties": {
+                "colors": [
+                  "blue"
+                ],
+                "icons": [
+                  "fa-home"
+                ],
+                "iconColors": [
+                  "white"
+                ],
+                "label": [
+                  "ID"
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1670824474136,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "label",
+                    "operator": "=",
+                    "value": "PART"
+                  }
+                ]
+              },
+              "properties": {
+                "colors": [
+                  "green"
+                ],
+                "icons": [
+                  "fa-gear"
+                ],
+                "iconColors": [
+                  "white"
+                ],
+                "label": [
+                  "ID"
+                ]
+              },
+              "aggregation": []
+            }
+          ],
+          "edgeLabelProperty": "label",
+          "charLimit": 15,
+          "layout": "hierarchical",
+          "version": 9
+        }
+      }
+    }
+  ]
+}
