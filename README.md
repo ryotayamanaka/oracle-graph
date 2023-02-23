@@ -9,3 +9,7 @@
 ## conflict-of-interest
 
 - [Detect Conflicts of Interest using Graphs](https://medium.com/oracledevs/303fdc8ccb5a)
+
+## traceability
+
+- [Powerful graph search for traceability in manufacturing](https://medium.com/oracledevs/d65521510975)
