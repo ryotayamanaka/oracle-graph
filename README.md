@@ -13,3 +13,15 @@
 ## traceability
 
 - [Powerful graph search for traceability in manufacturing](https://medium.com/oracledevs/d65521510975)
+
+## recommendation
+
+TBD
+
+## boarding
+
+TBD
+
+## critical-path
+
+TBD

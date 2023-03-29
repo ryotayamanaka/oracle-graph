@@ -1,0 +1,142 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "name": "boarding",
+      "configuration": {
+        "visualization": {
+          "filters": [
+            {
+              "_id": 1678351150680,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "IS_BLOCKED",
+                    "operator": "=",
+                    "value": "1"
+                  }
+                ]
+              },
+              "properties": {
+                "colors": [
+                  "rgb(183, 0, 255)"
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1676263816653,
+              "component": "edge",
+              "type": "styling",
+              "target": "edge",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "label",
+                    "operator": "=",
+                    "value": "BOARDED_TOGETHER"
+                  }
+                ]
+              },
+              "properties": {
+                "label": [
+                  "CNT"
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1676262366741,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": []
+              },
+              "properties": {
+                "sizes": [
+                  15
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1676262147516,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "label",
+                    "operator": "=",
+                    "value": "FLIGHT"
+                  }
+                ]
+              },
+              "properties": {
+                "colors": [
+                  "rgb(66, 186, 14)"
+                ],
+                "icons": [
+                  "fa-plane"
+                ],
+                "iconColors": [
+                  "white"
+                ],
+                "label": [
+                  "FLIGHT_CODE"
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1676262109522,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "label",
+                    "operator": "=",
+                    "value": "PASSENGER"
+                  }
+                ]
+              },
+              "properties": {
+                "colors": [
+                  "rgb(0, 166, 255)"
+                ],
+                "icons": [
+                  "fa-user-man"
+                ],
+                "iconColors": [
+                  "white"
+                ],
+                "label": [
+                  "FIRST_NAME"
+                ]
+              },
+              "aggregation": []
+            }
+          ],
+          "version": 9
+        }
+      }
+    }
+  ]
+}

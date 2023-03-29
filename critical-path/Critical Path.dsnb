@@ -1,0 +1,1076 @@
+[
+  {
+    "name" : "Critical Path",
+    "description" : null,
+    "tags" : null,
+    "version" : "6",
+    "layout" : "zeppelin",
+    "type" : "Default",
+    "readOnly" : false,
+    "snapshot" : false,
+    "template" : "dsWa71Z3",
+    "templateConfig" : "{\"visualization\":{\"vertexLabelProperty\":\"JOB_ID\",\"edgeLabelProperty\":\"ELAPSED_TIME\",\"layout\":\"hierarchical\",\"layoutProperties\":{\"hierarchical\":{\"rankDirection\":\"leftRight\"}},\"version\":9}}",
+    "paragraphs" : [
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 0,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "# Cheapest Path",
+          "",
+          "First, we will create a graph and try finding the shortest path. In PGQL, the **SHORTEST** returns the paths with a minimal number of hops, while the **CHEAPEST** considers the weight of the edges.",
+          "",
+          "- SHORTEST: https://pgql-lang.org/spec/1.5/#shortest-path",
+          "- CHEAPEST: https://pgql-lang.org/spec/1.5/#cheapest-path"
+        ],
+        "selectedVisualization" : "html",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679280142425,
+          "endTime" : 1679280142516,
+          "interpreter" : "md",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "<h1 id=\"cheapest-path\">Cheapest Path</h1>\n<p>First, we will create a graph and try finding the shortest path. In PGQL, the <strong>SHORTEST</strong> returns the paths with a minimal number of hops, while the <strong>CHEAPEST</strong> considers the weight of the edges.</p>\n<ul>\n<li>SHORTEST: <a href=\"https://pgql-lang.org/spec/1.5/#shortest-path\">https://pgql-lang.org/spec/1.5/#shortest-path</a></li>\n<li>CHEAPEST: <a href=\"https://pgql-lang.org/spec/1.5/#cheapest-path\">https://pgql-lang.org/spec/1.5/#cheapest-path</a></li>\n</ul>\n",
+              "type" : "HTML"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 1,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "statement = '''",
+          "CREATE PROPERTY GRAPH critical_path",
+          "  VERTEX TABLES (",
+          "    critical_path_node",
+          "      KEY (job_id)",
+          "      LABEL job",
+          "  )",
+          "  EDGE TABLES (",
+          "    critical_path_edge",
+          "      KEY (id)",
+          "      SOURCE KEY(job_id) REFERENCES critical_path_node",
+          "      DESTINATION KEY(job_id_next) REFERENCES critical_path_node",
+          "      LABEL next_job",
+          "  )",
+          "'''",
+          "session.prepare_pgql(statement).execute()"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : "[{\"raw\":{\"lastColumns\":[\"False\"],\"version\":1}}]",
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679276570483,
+          "endTime" : 1679276571288,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "False\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 2,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "graph = session.get_graph(\"critical_path\".upper())",
+          "graph"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : "[{\"raw\":{\"lastColumns\":[\"PgxGraph(name: CRITICAL_PATH, v: 46, e: 60, directed: True, memory(Mb): 0)\"],\"version\":1}}]",
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679278639088,
+          "endTime" : 1679278639531,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "PgxGraph(name: CRITICAL_PATH, v: 46, e: 60, directed: True, memory(Mb): 0)\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 3,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%pgql-pgx",
+          "",
+          "SELECT * FROM MATCH (v1)-[e]->(v2) ON critical_path"
+        ],
+        "selectedVisualization" : "visualization",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679276696394,
+          "endTime" : 1679276697115,
+          "interpreter" : "pgql-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "{\"name\":\"CRITICAL_PATH\",\"resultSetId\":\"pgql_6\",\"graph\":{\"idType\":\"string\",\"vertices\":[{\"_id\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0012\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0000\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0022\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0002\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0012\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0002\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0022\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0021\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0001\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0011\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0001\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0021\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0011\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]}],\"edges\":[{\"_id\":\"CRITICAL_PATH_EDGE(53)\",\"p\":[{\"n\":\"ID\",\"v\":\"53\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2122\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"605.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2122)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(41)\",\"p\":[{\"n\":\"ID\",\"v\":\"41\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1211\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"482.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1211)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(33)\",\"p\":[{\"n\":\"ID\",\"v\":\"33\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0111\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"763.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0011\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(21)\",\"p\":[{\"n\":\"ID\",\"v\":\"21\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0021\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"72.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(17)\",\"p\":[{\"n\":\"ID\",\"v\":\"17\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0002\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"819.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0021\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(49)\",\"p\":[{\"n\":\"ID\",\"v\":\"49\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2111\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"601.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(29)\",\"p\":[{\"n\":\"ID\",\"v\":\"29\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0222\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"111.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(13)\",\"p\":[{\"n\":\"ID\",\"v\":\"13\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0012\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"871.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(57)\",\"p\":[{\"n\":\"ID\",\"v\":\"57\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2212\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"400.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2212)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(45)\",\"p\":[{\"n\":\"ID\",\"v\":\"45\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1222\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"958.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1222)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(37)\",\"p\":[{\"n\":\"ID\",\"v\":\"37\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1121\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"937.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1121)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(25)\",\"p\":[{\"n\":\"ID\",\"v\":\"25\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0022\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"264.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(7)\",\"p\":[{\"n\":\"ID\",\"v\":\"7\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0112\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"26.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(3)\",\"p\":[{\"n\":\"ID\",\"v\":\"3\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0011\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"346.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(42)\",\"p\":[{\"n\":\"ID\",\"v\":\"42\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1212\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"475.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1212)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(30)\",\"p\":[{\"n\":\"ID\",\"v\":\"30\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0222\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"909.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(22)\",\"p\":[{\"n\":\"ID\",\"v\":\"22\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0212\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"30.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(10)\",\"p\":[{\"n\":\"ID\",\"v\":\"10\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0012\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"848.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(54)\",\"p\":[{\"n\":\"ID\",\"v\":\"54\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0022\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"358.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0002\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(50)\",\"p\":[{\"n\":\"ID\",\"v\":\"50\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2112\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"320.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2112)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(38)\",\"p\":[{\"n\":\"ID\",\"v\":\"38\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1122\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"694.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1122)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(18)\",\"p\":[{\"n\":\"ID\",\"v\":\"18\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0021\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"900.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(46)\",\"p\":[{\"n\":\"ID\",\"v\":\"46\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0002\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"584.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0000\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(34)\",\"p\":[{\"n\":\"ID\",\"v\":\"34\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1111\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"834.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1111)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(26)\",\"p\":[{\"n\":\"ID\",\"v\":\"26\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0221\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"919.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(58)\",\"p\":[{\"n\":\"ID\",\"v\":\"58\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0222\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"593.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0022\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(14)\",\"p\":[{\"n\":\"ID\",\"v\":\"14\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0122\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"374.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(2)\",\"p\":[{\"n\":\"ID\",\"v\":\"2\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0001\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"169.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0011\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(6)\",\"p\":[{\"n\":\"ID\",\"v\":\"6\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0011\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"74.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(31)\",\"p\":[{\"n\":\"ID\",\"v\":\"31\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0001\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"399.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0000\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(55)\",\"p\":[{\"n\":\"ID\",\"v\":\"55\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0221\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"272.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0022\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(11)\",\"p\":[{\"n\":\"ID\",\"v\":\"11\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0121\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"30.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(43)\",\"p\":[{\"n\":\"ID\",\"v\":\"43\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0122\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"710.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0012\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(51)\",\"p\":[{\"n\":\"ID\",\"v\":\"51\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0212\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"369.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0021\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(39)\",\"p\":[{\"n\":\"ID\",\"v\":\"39\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0012\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"626.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0001\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(27)\",\"p\":[{\"n\":\"ID\",\"v\":\"27\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0221\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"985.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(19)\",\"p\":[{\"n\":\"ID\",\"v\":\"19\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0211\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"837.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(35)\",\"p\":[{\"n\":\"ID\",\"v\":\"35\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1112\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"964.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1112)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(23)\",\"p\":[{\"n\":\"ID\",\"v\":\"23\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0212\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"382.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(15)\",\"p\":[{\"n\":\"ID\",\"v\":\"15\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0122\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"193.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(59)\",\"p\":[{\"n\":\"ID\",\"v\":\"59\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2221\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"707.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2221)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(47)\",\"p\":[{\"n\":\"ID\",\"v\":\"47\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0021\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"867.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0002\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(1)\",\"p\":[{\"n\":\"ID\",\"v\":\"1\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"866.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0001\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(9)\",\"p\":[{\"n\":\"ID\",\"v\":\"9\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0001\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"691.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0012\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(5)\",\"p\":[{\"n\":\"ID\",\"v\":\"5\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0111\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"901.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(20)\",\"p\":[{\"n\":\"ID\",\"v\":\"20\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0211\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"439.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(52)\",\"p\":[{\"n\":\"ID\",\"v\":\"52\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2121\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"440.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2121)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(44)\",\"p\":[{\"n\":\"ID\",\"v\":\"44\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1221\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"344.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(32)\",\"p\":[{\"n\":\"ID\",\"v\":\"32\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0011\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"718.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0001\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(60)\",\"p\":[{\"n\":\"ID\",\"v\":\"60\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2222\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"84.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2222)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(40)\",\"p\":[{\"n\":\"ID\",\"v\":\"40\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0121\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"518.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0012\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(28)\",\"p\":[{\"n\":\"ID\",\"v\":\"28\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0022\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"170.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(16)\",\"p\":[{\"n\":\"ID\",\"v\":\"16\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"416.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0002\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(24)\",\"p\":[{\"n\":\"ID\",\"v\":\"24\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0002\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"393.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0022\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(56)\",\"p\":[{\"n\":\"ID\",\"v\":\"56\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2211\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"759.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2211)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(12)\",\"p\":[{\"n\":\"ID\",\"v\":\"12\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0121\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"337.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(48)\",\"p\":[{\"n\":\"ID\",\"v\":\"48\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0211\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"780.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0021\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(36)\",\"p\":[{\"n\":\"ID\",\"v\":\"36\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0112\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"405.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0011\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(8)\",\"p\":[{\"n\":\"ID\",\"v\":\"8\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0112\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"694.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(4)\",\"p\":[{\"n\":\"ID\",\"v\":\"4\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0111\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"32.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1111)\",\"u\":false}],\"paths\":[],\"totalNumResults\":60},\"table\":\"V1\\tV2\\tE\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0012,ID=CRITICAL_PATH_NODE(Job_A0012)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0122,ID=CRITICAL_PATH_NODE(Job_A0122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=13,ID=CRITICAL_PATH_EDGE(13)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0012,ID=CRITICAL_PATH_NODE(Job_A0012)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0121,ID=CRITICAL_PATH_NODE(Job_A0121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=10,ID=CRITICAL_PATH_EDGE(10)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1111,ID=CRITICAL_PATH_NODE(Job_A1111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0111,ID=CRITICAL_PATH_NODE(Job_B0111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=34,ID=CRITICAL_PATH_EDGE(34)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1122,ID=CRITICAL_PATH_NODE(Job_A1122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0112,ID=CRITICAL_PATH_NODE(Job_B0112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=38,ID=CRITICAL_PATH_EDGE(38)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1221,ID=CRITICAL_PATH_NODE(Job_A1221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0122,ID=CRITICAL_PATH_NODE(Job_B0122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=44,ID=CRITICAL_PATH_EDGE(44)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0002,ID=CRITICAL_PATH_NODE(Job_B0002)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0000,ID=CRITICAL_PATH_NODE(Job_B0000)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=46,ID=CRITICAL_PATH_EDGE(46)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0111,ID=CRITICAL_PATH_NODE(Job_B0111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0011,ID=CRITICAL_PATH_NODE(Job_B0011)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=33,ID=CRITICAL_PATH_EDGE(33)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0011,ID=CRITICAL_PATH_NODE(Job_A0011)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0112,ID=CRITICAL_PATH_NODE(Job_A0112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=6,ID=CRITICAL_PATH_EDGE(6)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0011,ID=CRITICAL_PATH_NODE(Job_A0011)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0111,ID=CRITICAL_PATH_NODE(Job_A0111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=3,ID=CRITICAL_PATH_EDGE(3)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1112,ID=CRITICAL_PATH_NODE(Job_A1112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0111,ID=CRITICAL_PATH_NODE(Job_B0111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=35,ID=CRITICAL_PATH_EDGE(35)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1121,ID=CRITICAL_PATH_NODE(Job_A1121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0112,ID=CRITICAL_PATH_NODE(Job_B0112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=37,ID=CRITICAL_PATH_EDGE(37)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1211,ID=CRITICAL_PATH_NODE(Job_A1211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0121,ID=CRITICAL_PATH_NODE(Job_B0121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=41,ID=CRITICAL_PATH_EDGE(41)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1212,ID=CRITICAL_PATH_NODE(Job_A1212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0121,ID=CRITICAL_PATH_NODE(Job_B0121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=42,ID=CRITICAL_PATH_EDGE(42)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2121,ID=CRITICAL_PATH_NODE(Job_A2121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0212,ID=CRITICAL_PATH_NODE(Job_B0212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=52,ID=CRITICAL_PATH_EDGE(52)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2211,ID=CRITICAL_PATH_NODE(Job_A2211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0221,ID=CRITICAL_PATH_NODE(Job_B0221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=56,ID=CRITICAL_PATH_EDGE(56)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0011,ID=CRITICAL_PATH_NODE(Job_B0011)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0001,ID=CRITICAL_PATH_NODE(Job_B0001)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=32,ID=CRITICAL_PATH_EDGE(32)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0022,ID=CRITICAL_PATH_NODE(Job_B0022)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0002,ID=CRITICAL_PATH_NODE(Job_B0002)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=54,ID=CRITICAL_PATH_EDGE(54)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0122,ID=CRITICAL_PATH_NODE(Job_B0122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0012,ID=CRITICAL_PATH_NODE(Job_B0012)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=43,ID=CRITICAL_PATH_EDGE(43)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0212,ID=CRITICAL_PATH_NODE(Job_B0212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0021,ID=CRITICAL_PATH_NODE(Job_B0021)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=51,ID=CRITICAL_PATH_EDGE(51)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0222,ID=CRITICAL_PATH_NODE(Job_B0222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0022,ID=CRITICAL_PATH_NODE(Job_B0022)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=58,ID=CRITICAL_PATH_EDGE(58)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=1,ID=CRITICAL_PATH_EDGE(1)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=16,ID=CRITICAL_PATH_EDGE(16)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0021,ID=CRITICAL_PATH_NODE(Job_A0021)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0211,ID=CRITICAL_PATH_NODE(Job_A0211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=18,ID=CRITICAL_PATH_EDGE(18)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0021,ID=CRITICAL_PATH_NODE(Job_A0021)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0212,ID=CRITICAL_PATH_NODE(Job_A0212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=21,ID=CRITICAL_PATH_EDGE(21)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0112,ID=CRITICAL_PATH_NODE(Job_A0112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1122,ID=CRITICAL_PATH_NODE(Job_A1122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=8,ID=CRITICAL_PATH_EDGE(8)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0112,ID=CRITICAL_PATH_NODE(Job_A0112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1121,ID=CRITICAL_PATH_NODE(Job_A1121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=7,ID=CRITICAL_PATH_EDGE(7)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0122,ID=CRITICAL_PATH_NODE(Job_A0122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1221,ID=CRITICAL_PATH_NODE(Job_A1221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=14,ID=CRITICAL_PATH_EDGE(14)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0122,ID=CRITICAL_PATH_NODE(Job_A0122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1222,ID=CRITICAL_PATH_NODE(Job_A1222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=15,ID=CRITICAL_PATH_EDGE(15)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0211,ID=CRITICAL_PATH_NODE(Job_A0211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2112,ID=CRITICAL_PATH_NODE(Job_A2112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=20,ID=CRITICAL_PATH_EDGE(20)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0211,ID=CRITICAL_PATH_NODE(Job_A0211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2111,ID=CRITICAL_PATH_NODE(Job_A2111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=19,ID=CRITICAL_PATH_EDGE(19)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0212,ID=CRITICAL_PATH_NODE(Job_A0212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2121,ID=CRITICAL_PATH_NODE(Job_A2121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=22,ID=CRITICAL_PATH_EDGE(22)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0212,ID=CRITICAL_PATH_NODE(Job_A0212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2122,ID=CRITICAL_PATH_NODE(Job_A2122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=23,ID=CRITICAL_PATH_EDGE(23)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2112,ID=CRITICAL_PATH_NODE(Job_A2112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0211,ID=CRITICAL_PATH_NODE(Job_B0211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=50,ID=CRITICAL_PATH_EDGE(50)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2221,ID=CRITICAL_PATH_NODE(Job_A2221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0222,ID=CRITICAL_PATH_NODE(Job_B0222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=59,ID=CRITICAL_PATH_EDGE(59)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0021,ID=CRITICAL_PATH_NODE(Job_B0021)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0002,ID=CRITICAL_PATH_NODE(Job_B0002)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=47,ID=CRITICAL_PATH_EDGE(47)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0112,ID=CRITICAL_PATH_NODE(Job_B0112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0011,ID=CRITICAL_PATH_NODE(Job_B0011)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=36,ID=CRITICAL_PATH_EDGE(36)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0121,ID=CRITICAL_PATH_NODE(Job_B0121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0012,ID=CRITICAL_PATH_NODE(Job_B0012)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=40,ID=CRITICAL_PATH_EDGE(40)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0211,ID=CRITICAL_PATH_NODE(Job_B0211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0021,ID=CRITICAL_PATH_NODE(Job_B0021)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=48,ID=CRITICAL_PATH_EDGE(48)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0221,ID=CRITICAL_PATH_NODE(Job_B0221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0022,ID=CRITICAL_PATH_NODE(Job_B0022)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=55,ID=CRITICAL_PATH_EDGE(55)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0012,ID=CRITICAL_PATH_NODE(Job_A0012)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=9,ID=CRITICAL_PATH_EDGE(9)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0011,ID=CRITICAL_PATH_NODE(Job_A0011)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=2,ID=CRITICAL_PATH_EDGE(2)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0021,ID=CRITICAL_PATH_NODE(Job_A0021)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=17,ID=CRITICAL_PATH_EDGE(17)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0022,ID=CRITICAL_PATH_NODE(Job_A0022)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=24,ID=CRITICAL_PATH_EDGE(24)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0022,ID=CRITICAL_PATH_NODE(Job_A0022)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0221,ID=CRITICAL_PATH_NODE(Job_A0221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=25,ID=CRITICAL_PATH_EDGE(25)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0022,ID=CRITICAL_PATH_NODE(Job_A0022)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0222,ID=CRITICAL_PATH_NODE(Job_A0222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=28,ID=CRITICAL_PATH_EDGE(28)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0111,ID=CRITICAL_PATH_NODE(Job_A0111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1111,ID=CRITICAL_PATH_NODE(Job_A1111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=4,ID=CRITICAL_PATH_EDGE(4)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0111,ID=CRITICAL_PATH_NODE(Job_A0111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1112,ID=CRITICAL_PATH_NODE(Job_A1112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=5,ID=CRITICAL_PATH_EDGE(5)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0121,ID=CRITICAL_PATH_NODE(Job_A0121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1211,ID=CRITICAL_PATH_NODE(Job_A1211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=11,ID=CRITICAL_PATH_EDGE(11)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0121,ID=CRITICAL_PATH_NODE(Job_A0121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1212,ID=CRITICAL_PATH_NODE(Job_A1212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=12,ID=CRITICAL_PATH_EDGE(12)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0221,ID=CRITICAL_PATH_NODE(Job_A0221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2211,ID=CRITICAL_PATH_NODE(Job_A2211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=26,ID=CRITICAL_PATH_EDGE(26)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0221,ID=CRITICAL_PATH_NODE(Job_A0221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2212,ID=CRITICAL_PATH_NODE(Job_A2212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=27,ID=CRITICAL_PATH_EDGE(27)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0222,ID=CRITICAL_PATH_NODE(Job_A0222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2221,ID=CRITICAL_PATH_NODE(Job_A2221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=29,ID=CRITICAL_PATH_EDGE(29)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0222,ID=CRITICAL_PATH_NODE(Job_A0222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2222,ID=CRITICAL_PATH_NODE(Job_A2222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=30,ID=CRITICAL_PATH_EDGE(30)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1222,ID=CRITICAL_PATH_NODE(Job_A1222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0122,ID=CRITICAL_PATH_NODE(Job_B0122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=45,ID=CRITICAL_PATH_EDGE(45)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2111,ID=CRITICAL_PATH_NODE(Job_A2111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0211,ID=CRITICAL_PATH_NODE(Job_B0211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=49,ID=CRITICAL_PATH_EDGE(49)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2122,ID=CRITICAL_PATH_NODE(Job_A2122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0212,ID=CRITICAL_PATH_NODE(Job_B0212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=53,ID=CRITICAL_PATH_EDGE(53)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2212,ID=CRITICAL_PATH_NODE(Job_A2212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0221,ID=CRITICAL_PATH_NODE(Job_B0221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=57,ID=CRITICAL_PATH_EDGE(57)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2222,ID=CRITICAL_PATH_NODE(Job_A2222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0222,ID=CRITICAL_PATH_NODE(Job_B0222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=60,ID=CRITICAL_PATH_EDGE(60)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0001,ID=CRITICAL_PATH_NODE(Job_B0001)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0000,ID=CRITICAL_PATH_NODE(Job_B0000)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=31,ID=CRITICAL_PATH_EDGE(31)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0012,ID=CRITICAL_PATH_NODE(Job_B0012)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0001,ID=CRITICAL_PATH_NODE(Job_B0001)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=39,ID=CRITICAL_PATH_EDGE(39)]\"}",
+              "type" : "NETWORK"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 4,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%pgql-pgx",
+          "",
+          "SELECT v1, e, v2",
+          "FROM MATCH SHORTEST",
+          "  ((a1) (-[t]->(a))+ (a2))",
+          "  ONE ROW PER STEP (v1, e, v2) ON critical_path",
+          "WHERE a1.job_id = 'Job_A0000' AND a2.job_id = 'Job_B0000'"
+        ],
+        "selectedVisualization" : "visualization",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679276865150,
+          "endTime" : 1679276865619,
+          "interpreter" : "pgql-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "{\"name\":\"CRITICAL_PATH\",\"resultSetId\":\"pgql_7\",\"graph\":{\"idType\":\"string\",\"vertices\":[{\"_id\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0001\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0012\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0000\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0012\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0001\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\"]}],\"edges\":[{\"_id\":\"CRITICAL_PATH_EDGE(31)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0001\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0000\",\"s\":false},{\"n\":\"ID\",\"v\":\"31\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"399.0\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(44)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1221\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0122\",\"s\":false},{\"n\":\"ID\",\"v\":\"44\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"344.0\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(43)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0122\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0012\",\"s\":false},{\"n\":\"ID\",\"v\":\"43\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"710.0\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(1)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0001\",\"s\":false},{\"n\":\"ID\",\"v\":\"1\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"866.0\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(39)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0012\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0001\",\"s\":false},{\"n\":\"ID\",\"v\":\"39\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"626.0\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(9)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0001\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0012\",\"s\":false},{\"n\":\"ID\",\"v\":\"9\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"691.0\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(13)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0012\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0122\",\"s\":false},{\"n\":\"ID\",\"v\":\"13\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"871.0\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(14)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0122\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1221\",\"s\":false},{\"n\":\"ID\",\"v\":\"14\",\"s\":false},{\"n\":\"ELAPSED_TIME\",\"v\":\"374.0\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"u\":false}],\"paths\":[],\"totalNumResults\":8},\"table\":\"V1\\tE\\tV2\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0001,ID=CRITICAL_PATH_NODE(Job_B0001)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=31,ID=CRITICAL_PATH_EDGE(31)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0000,ID=CRITICAL_PATH_NODE(Job_B0000)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0012,ID=CRITICAL_PATH_NODE(Job_B0012)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=39,ID=CRITICAL_PATH_EDGE(39)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0001,ID=CRITICAL_PATH_NODE(Job_B0001)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0122,ID=CRITICAL_PATH_NODE(Job_B0122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=43,ID=CRITICAL_PATH_EDGE(43)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0012,ID=CRITICAL_PATH_NODE(Job_B0012)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1221,ID=CRITICAL_PATH_NODE(Job_A1221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=44,ID=CRITICAL_PATH_EDGE(44)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0122,ID=CRITICAL_PATH_NODE(Job_B0122)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0122,ID=CRITICAL_PATH_NODE(Job_A0122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=14,ID=CRITICAL_PATH_EDGE(14)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1221,ID=CRITICAL_PATH_NODE(Job_A1221)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0012,ID=CRITICAL_PATH_NODE(Job_A0012)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=13,ID=CRITICAL_PATH_EDGE(13)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0122,ID=CRITICAL_PATH_NODE(Job_A0122)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=9,ID=CRITICAL_PATH_EDGE(9)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0012,ID=CRITICAL_PATH_NODE(Job_A0012)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=1,ID=CRITICAL_PATH_EDGE(1)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)]\"}",
+              "type" : "NETWORK"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 5,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%pgql-pgx",
+          "",
+          "SELECT",
+          "  ELEMENT_NUMBER(e) AS order",
+          ", v1.job_id AS a1_job_id",
+          ", e.elapsed_time",
+          ", v2.job_id AS a2_job_id",
+          "FROM MATCH SHORTEST",
+          "  ((a1) (-[t]->(a))+ (a2))",
+          "  ONE ROW PER STEP (v1, e, v2) ON critical_path",
+          "WHERE a1.job_id = 'Job_A0000' AND a2.job_id = 'Job_B0000'",
+          "ORDER BY a1_job_id"
+        ],
+        "selectedVisualization" : "table",
+        "visualizationConfig" : "[{\"table\":{\"lastColumns\":[\"ORDER\",\"A1_JOB_ID\",\"ELAPSED_TIME\",\"A2_JOB_ID\"],\"version\":1}}]",
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679276630326,
+          "endTime" : 1679276631508,
+          "interpreter" : "pgql-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "{\"table\":\"ORDER\\tA1_JOB_ID\\tELAPSED_TIME\\tA2_JOB_ID\\n2\\tJob_A0000\\t866.0\\tJob_A0001\\n4\\tJob_A0001\\t691.0\\tJob_A0012\\n6\\tJob_A0012\\t871.0\\tJob_A0122\\n8\\tJob_A0122\\t374.0\\tJob_A1221\\n10\\tJob_A1221\\t344.0\\tJob_B0122\\n16\\tJob_B0001\\t399.0\\tJob_B0000\\n14\\tJob_B0012\\t626.0\\tJob_B0001\\n12\\tJob_B0122\\t710.0\\tJob_B0012\",\"totalNumResults\":8}",
+              "type" : "TABLE"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 6,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%pgql-pgx",
+          "",
+          "SELECT",
+          "  ARRAY_AGG(j.job_id) AS job_id",
+          ", ARRAY_AGG(d.elapsed_time) AS elapsed_time",
+          ", SUM(d.elapsed_time) AS elapsed_time_total",
+          "FROM MATCH TOP 5 CHEAPEST",
+          "  ((j1) (-[d]->(j) COST d.elapsed_time)* (j2)) ON critical_path",
+          "WHERE j1.job_id = 'Job_A0000' AND j2.job_id = 'Job_B0000'",
+          "ORDER BY elapsed_time_total"
+        ],
+        "selectedVisualization" : "table",
+        "visualizationConfig" : "[{\"table\":{\"lastColumns\":[\"JOB_ID\",\"ELAPSED_TIME\",\"ELAPSED_TIME_TOTAL\"],\"version\":1}}]",
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679277415565,
+          "endTime" : 1679277415829,
+          "interpreter" : "pgql-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "{\"name\":\"CRITICAL_PATH\",\"resultSetId\":\"pgql_11\",\"graph\":{\"idType\":\"number\",\"vertices\":[],\"edges\":[],\"paths\":[],\"totalNumResults\":5},\"table\":\"JOB_ID\\tELAPSED_TIME\\tELAPSED_TIME_TOTAL\\n[Job_A0002, Job_A0022, Job_A0222, Job_A2221, Job_B0222, Job_B0022, Job_B0002, Job_B0000]\\t[416.0, 393.0, 170.0, 111.0, 707.0, 593.0, 358.0, 584.0]\\t3332.0\\n[Job_A0002, Job_A0022, Job_A0222, Job_A2222, Job_B0222, Job_B0022, Job_B0002, Job_B0000]\\t[416.0, 393.0, 170.0, 909.0, 84.0, 593.0, 358.0, 584.0]\\t3507.0\\n[Job_A0001, Job_A0011, Job_A0112, Job_A1121, Job_B0112, Job_B0011, Job_B0001, Job_B0000]\\t[866.0, 169.0, 74.0, 26.0, 937.0, 405.0, 718.0, 399.0]\\t3594.0\\n[Job_A0002, Job_A0021, Job_A0212, Job_A2121, Job_B0212, Job_B0021, Job_B0002, Job_B0000]\\t[416.0, 819.0, 72.0, 30.0, 440.0, 369.0, 867.0, 584.0]\\t3597.0\\n[Job_A0002, Job_A0022, Job_A0221, Job_A2212, Job_B0221, Job_B0022, Job_B0002, Job_B0000]\\t[416.0, 393.0, 264.0, 985.0, 400.0, 272.0, 358.0, 584.0]\\t3672.0\"}",
+              "type" : "NETWORK"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 7,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "# Critical Path",
+          "",
+          "The most expensive = time-consuming path"
+        ],
+        "selectedVisualization" : "html",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679279891865,
+          "endTime" : 1679279891909,
+          "interpreter" : "md",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "<h1 id=\"critical-path\">Critical Path</h1>\n<p>The most expensive = time-consuming path</p>\n",
+              "type" : "HTML"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 8,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "statement = '''",
+          "CREATE PROPERTY GRAPH critical_path_minus",
+          "  VERTEX TABLES (",
+          "    critical_path_node",
+          "      KEY (job_id)",
+          "      LABEL job",
+          "  )",
+          "  EDGE TABLES (",
+          "    critical_path_edge_minus",
+          "      KEY (id)",
+          "      SOURCE KEY(job_id) REFERENCES critical_path_node",
+          "      DESTINATION KEY(job_id_next) REFERENCES critical_path_node",
+          "      LABEL next_job",
+          "  )",
+          "'''",
+          "session.prepare_pgql(statement).execute()"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : "[{\"raw\":{\"lastColumns\":[\"False\"],\"version\":1}}]",
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679286381717,
+          "endTime" : 1679286382809,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "False\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 9,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "graph = session.get_graph(\"critical_path_minus\".upper())",
+          "graph"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : "[{\"raw\":{\"lastColumns\":[\"PgxGraph(name: CRITICAL_PATH_MINUS, v: 46, e: 60, directed: True, memory(Mb): 0)\"],\"version\":1}}]",
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679278732871,
+          "endTime" : 1679278733229,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "PgxGraph(name: CRITICAL_PATH_MINUS, v: 46, e: 60, directed: True, memory(Mb): 0)\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 10,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%pgql-pgx",
+          "",
+          "SELECT * FROM MATCH (v1)-[e]->(v2) ON critical_path_minus"
+        ],
+        "selectedVisualization" : "visualization",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679277647329,
+          "endTime" : 1679277647637,
+          "interpreter" : "pgql-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "{\"name\":\"CRITICAL_PATH_MINUS\",\"resultSetId\":\"pgql_15\",\"graph\":{\"idType\":\"string\",\"vertices\":[{\"_id\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0012\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0000\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0022\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0002\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0012\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0002\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0022\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0021\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0001\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0011\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0001\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0021\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0011\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]}],\"edges\":[{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(3)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-346.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0111\",\"s\":false},{\"n\":\"ID\",\"v\":\"3\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0011\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(29)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-111.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2221\",\"s\":false},{\"n\":\"ID\",\"v\":\"29\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(17)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-819.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0021\",\"s\":false},{\"n\":\"ID\",\"v\":\"17\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0002\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(49)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-601.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0211\",\"s\":false},{\"n\":\"ID\",\"v\":\"49\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(37)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-937.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0112\",\"s\":false},{\"n\":\"ID\",\"v\":\"37\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1121)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(7)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-26.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1121\",\"s\":false},{\"n\":\"ID\",\"v\":\"7\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(25)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-264.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0221\",\"s\":false},{\"n\":\"ID\",\"v\":\"25\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0022\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(13)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-871.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0122\",\"s\":false},{\"n\":\"ID\",\"v\":\"13\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0012\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(57)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-400.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0221\",\"s\":false},{\"n\":\"ID\",\"v\":\"57\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2212)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(45)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-958.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0122\",\"s\":false},{\"n\":\"ID\",\"v\":\"45\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1222)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(33)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-763.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0011\",\"s\":false},{\"n\":\"ID\",\"v\":\"33\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(21)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-72.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0212\",\"s\":false},{\"n\":\"ID\",\"v\":\"21\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0021\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(53)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-605.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0212\",\"s\":false},{\"n\":\"ID\",\"v\":\"53\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2122)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(41)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-482.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0121\",\"s\":false},{\"n\":\"ID\",\"v\":\"41\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1211)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(2)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-169.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0011\",\"s\":false},{\"n\":\"ID\",\"v\":\"2\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0001\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(28)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-170.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0222\",\"s\":false},{\"n\":\"ID\",\"v\":\"28\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0022\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(16)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-416.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0002\",\"s\":false},{\"n\":\"ID\",\"v\":\"16\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(48)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-780.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0021\",\"s\":false},{\"n\":\"ID\",\"v\":\"48\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(36)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-405.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0011\",\"s\":false},{\"n\":\"ID\",\"v\":\"36\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(6)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-74.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0112\",\"s\":false},{\"n\":\"ID\",\"v\":\"6\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0011\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(24)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-393.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0022\",\"s\":false},{\"n\":\"ID\",\"v\":\"24\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0002\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(56)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-759.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0221\",\"s\":false},{\"n\":\"ID\",\"v\":\"56\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2211)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(12)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-337.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1212\",\"s\":false},{\"n\":\"ID\",\"v\":\"12\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(44)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-344.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0122\",\"s\":false},{\"n\":\"ID\",\"v\":\"44\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(32)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-718.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0001\",\"s\":false},{\"n\":\"ID\",\"v\":\"32\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0011\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(20)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-439.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2112\",\"s\":false},{\"n\":\"ID\",\"v\":\"20\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(52)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-440.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0212\",\"s\":false},{\"n\":\"ID\",\"v\":\"52\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2121)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(40)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-518.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0012\",\"s\":false},{\"n\":\"ID\",\"v\":\"40\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(60)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-84.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0222\",\"s\":false},{\"n\":\"ID\",\"v\":\"60\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2222)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(5)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-901.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1112\",\"s\":false},{\"n\":\"ID\",\"v\":\"5\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(19)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-837.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2111\",\"s\":false},{\"n\":\"ID\",\"v\":\"19\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(39)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-626.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0001\",\"s\":false},{\"n\":\"ID\",\"v\":\"39\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0012\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(9)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-691.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0012\",\"s\":false},{\"n\":\"ID\",\"v\":\"9\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0001\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(27)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-985.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2212\",\"s\":false},{\"n\":\"ID\",\"v\":\"27\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(15)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-193.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1222\",\"s\":false},{\"n\":\"ID\",\"v\":\"15\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(59)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-707.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0222\",\"s\":false},{\"n\":\"ID\",\"v\":\"59\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2221)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(47)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-867.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0002\",\"s\":false},{\"n\":\"ID\",\"v\":\"47\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0021\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(35)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-964.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0111\",\"s\":false},{\"n\":\"ID\",\"v\":\"35\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1112)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(23)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-382.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2122\",\"s\":false},{\"n\":\"ID\",\"v\":\"23\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(55)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-272.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0022\",\"s\":false},{\"n\":\"ID\",\"v\":\"55\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(11)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-30.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1211\",\"s\":false},{\"n\":\"ID\",\"v\":\"11\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(43)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-710.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0012\",\"s\":false},{\"n\":\"ID\",\"v\":\"43\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(31)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-399.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0000\",\"s\":false},{\"n\":\"ID\",\"v\":\"31\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0001\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(1)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-866.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0001\",\"s\":false},{\"n\":\"ID\",\"v\":\"1\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(51)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-369.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0021\",\"s\":false},{\"n\":\"ID\",\"v\":\"51\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(4)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-32.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1111\",\"s\":false},{\"n\":\"ID\",\"v\":\"4\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(18)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-900.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0211\",\"s\":false},{\"n\":\"ID\",\"v\":\"18\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0021\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(38)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-694.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0112\",\"s\":false},{\"n\":\"ID\",\"v\":\"38\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1122)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(8)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-694.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1122\",\"s\":false},{\"n\":\"ID\",\"v\":\"8\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(26)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-919.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2211\",\"s\":false},{\"n\":\"ID\",\"v\":\"26\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(58)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-593.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0022\",\"s\":false},{\"n\":\"ID\",\"v\":\"58\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(14)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-374.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1221\",\"s\":false},{\"n\":\"ID\",\"v\":\"14\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(46)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-584.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0000\",\"s\":false},{\"n\":\"ID\",\"v\":\"46\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0002\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(34)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-834.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0111\",\"s\":false},{\"n\":\"ID\",\"v\":\"34\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1111)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(22)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-30.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2121\",\"s\":false},{\"n\":\"ID\",\"v\":\"22\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(10)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-848.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0121\",\"s\":false},{\"n\":\"ID\",\"v\":\"10\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0012\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(54)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-358.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0002\",\"s\":false},{\"n\":\"ID\",\"v\":\"54\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0022\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(42)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-475.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0121\",\"s\":false},{\"n\":\"ID\",\"v\":\"42\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1212)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(30)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-909.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2222\",\"s\":false},{\"n\":\"ID\",\"v\":\"30\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(50)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-320.0\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0211\",\"s\":false},{\"n\":\"ID\",\"v\":\"50\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2112)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"u\":false}],\"paths\":[],\"totalNumResults\":60},\"table\":\"V1\\tV2\\tE\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0012,ID=CRITICAL_PATH_NODE(Job_A0012)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0122,ID=CRITICAL_PATH_NODE(Job_A0122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=13,ID=CRITICAL_PATH_EDGE_MINUS(13)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0012,ID=CRITICAL_PATH_NODE(Job_A0012)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0121,ID=CRITICAL_PATH_NODE(Job_A0121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=10,ID=CRITICAL_PATH_EDGE_MINUS(10)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1111,ID=CRITICAL_PATH_NODE(Job_A1111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0111,ID=CRITICAL_PATH_NODE(Job_B0111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=34,ID=CRITICAL_PATH_EDGE_MINUS(34)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1122,ID=CRITICAL_PATH_NODE(Job_A1122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0112,ID=CRITICAL_PATH_NODE(Job_B0112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=38,ID=CRITICAL_PATH_EDGE_MINUS(38)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1221,ID=CRITICAL_PATH_NODE(Job_A1221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0122,ID=CRITICAL_PATH_NODE(Job_B0122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=44,ID=CRITICAL_PATH_EDGE_MINUS(44)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0002,ID=CRITICAL_PATH_NODE(Job_B0002)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0000,ID=CRITICAL_PATH_NODE(Job_B0000)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=46,ID=CRITICAL_PATH_EDGE_MINUS(46)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0111,ID=CRITICAL_PATH_NODE(Job_B0111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0011,ID=CRITICAL_PATH_NODE(Job_B0011)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=33,ID=CRITICAL_PATH_EDGE_MINUS(33)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0011,ID=CRITICAL_PATH_NODE(Job_A0011)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0112,ID=CRITICAL_PATH_NODE(Job_A0112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=6,ID=CRITICAL_PATH_EDGE_MINUS(6)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0011,ID=CRITICAL_PATH_NODE(Job_A0011)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0111,ID=CRITICAL_PATH_NODE(Job_A0111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=3,ID=CRITICAL_PATH_EDGE_MINUS(3)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1112,ID=CRITICAL_PATH_NODE(Job_A1112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0111,ID=CRITICAL_PATH_NODE(Job_B0111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=35,ID=CRITICAL_PATH_EDGE_MINUS(35)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1121,ID=CRITICAL_PATH_NODE(Job_A1121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0112,ID=CRITICAL_PATH_NODE(Job_B0112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=37,ID=CRITICAL_PATH_EDGE_MINUS(37)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1211,ID=CRITICAL_PATH_NODE(Job_A1211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0121,ID=CRITICAL_PATH_NODE(Job_B0121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=41,ID=CRITICAL_PATH_EDGE_MINUS(41)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1212,ID=CRITICAL_PATH_NODE(Job_A1212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0121,ID=CRITICAL_PATH_NODE(Job_B0121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=42,ID=CRITICAL_PATH_EDGE_MINUS(42)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2121,ID=CRITICAL_PATH_NODE(Job_A2121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0212,ID=CRITICAL_PATH_NODE(Job_B0212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=52,ID=CRITICAL_PATH_EDGE_MINUS(52)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2211,ID=CRITICAL_PATH_NODE(Job_A2211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0221,ID=CRITICAL_PATH_NODE(Job_B0221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=56,ID=CRITICAL_PATH_EDGE_MINUS(56)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0011,ID=CRITICAL_PATH_NODE(Job_B0011)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0001,ID=CRITICAL_PATH_NODE(Job_B0001)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=32,ID=CRITICAL_PATH_EDGE_MINUS(32)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0022,ID=CRITICAL_PATH_NODE(Job_B0022)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0002,ID=CRITICAL_PATH_NODE(Job_B0002)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=54,ID=CRITICAL_PATH_EDGE_MINUS(54)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0122,ID=CRITICAL_PATH_NODE(Job_B0122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0012,ID=CRITICAL_PATH_NODE(Job_B0012)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=43,ID=CRITICAL_PATH_EDGE_MINUS(43)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0212,ID=CRITICAL_PATH_NODE(Job_B0212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0021,ID=CRITICAL_PATH_NODE(Job_B0021)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=51,ID=CRITICAL_PATH_EDGE_MINUS(51)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0222,ID=CRITICAL_PATH_NODE(Job_B0222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0022,ID=CRITICAL_PATH_NODE(Job_B0022)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=58,ID=CRITICAL_PATH_EDGE_MINUS(58)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=1,ID=CRITICAL_PATH_EDGE_MINUS(1)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=16,ID=CRITICAL_PATH_EDGE_MINUS(16)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0021,ID=CRITICAL_PATH_NODE(Job_A0021)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0211,ID=CRITICAL_PATH_NODE(Job_A0211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=18,ID=CRITICAL_PATH_EDGE_MINUS(18)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0021,ID=CRITICAL_PATH_NODE(Job_A0021)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0212,ID=CRITICAL_PATH_NODE(Job_A0212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=21,ID=CRITICAL_PATH_EDGE_MINUS(21)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0112,ID=CRITICAL_PATH_NODE(Job_A0112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1122,ID=CRITICAL_PATH_NODE(Job_A1122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=8,ID=CRITICAL_PATH_EDGE_MINUS(8)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0112,ID=CRITICAL_PATH_NODE(Job_A0112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1121,ID=CRITICAL_PATH_NODE(Job_A1121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=7,ID=CRITICAL_PATH_EDGE_MINUS(7)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0122,ID=CRITICAL_PATH_NODE(Job_A0122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1221,ID=CRITICAL_PATH_NODE(Job_A1221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=14,ID=CRITICAL_PATH_EDGE_MINUS(14)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0122,ID=CRITICAL_PATH_NODE(Job_A0122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1222,ID=CRITICAL_PATH_NODE(Job_A1222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=15,ID=CRITICAL_PATH_EDGE_MINUS(15)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0211,ID=CRITICAL_PATH_NODE(Job_A0211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2112,ID=CRITICAL_PATH_NODE(Job_A2112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=20,ID=CRITICAL_PATH_EDGE_MINUS(20)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0211,ID=CRITICAL_PATH_NODE(Job_A0211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2111,ID=CRITICAL_PATH_NODE(Job_A2111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=19,ID=CRITICAL_PATH_EDGE_MINUS(19)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0212,ID=CRITICAL_PATH_NODE(Job_A0212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2121,ID=CRITICAL_PATH_NODE(Job_A2121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=22,ID=CRITICAL_PATH_EDGE_MINUS(22)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0212,ID=CRITICAL_PATH_NODE(Job_A0212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2122,ID=CRITICAL_PATH_NODE(Job_A2122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=23,ID=CRITICAL_PATH_EDGE_MINUS(23)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2112,ID=CRITICAL_PATH_NODE(Job_A2112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0211,ID=CRITICAL_PATH_NODE(Job_B0211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=50,ID=CRITICAL_PATH_EDGE_MINUS(50)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2221,ID=CRITICAL_PATH_NODE(Job_A2221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0222,ID=CRITICAL_PATH_NODE(Job_B0222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=59,ID=CRITICAL_PATH_EDGE_MINUS(59)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0021,ID=CRITICAL_PATH_NODE(Job_B0021)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0002,ID=CRITICAL_PATH_NODE(Job_B0002)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=47,ID=CRITICAL_PATH_EDGE_MINUS(47)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0112,ID=CRITICAL_PATH_NODE(Job_B0112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0011,ID=CRITICAL_PATH_NODE(Job_B0011)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=36,ID=CRITICAL_PATH_EDGE_MINUS(36)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0121,ID=CRITICAL_PATH_NODE(Job_B0121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0012,ID=CRITICAL_PATH_NODE(Job_B0012)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=40,ID=CRITICAL_PATH_EDGE_MINUS(40)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0211,ID=CRITICAL_PATH_NODE(Job_B0211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0021,ID=CRITICAL_PATH_NODE(Job_B0021)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=48,ID=CRITICAL_PATH_EDGE_MINUS(48)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0221,ID=CRITICAL_PATH_NODE(Job_B0221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0022,ID=CRITICAL_PATH_NODE(Job_B0022)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=55,ID=CRITICAL_PATH_EDGE_MINUS(55)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0012,ID=CRITICAL_PATH_NODE(Job_A0012)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=9,ID=CRITICAL_PATH_EDGE_MINUS(9)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0011,ID=CRITICAL_PATH_NODE(Job_A0011)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=2,ID=CRITICAL_PATH_EDGE_MINUS(2)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0021,ID=CRITICAL_PATH_NODE(Job_A0021)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=17,ID=CRITICAL_PATH_EDGE_MINUS(17)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0022,ID=CRITICAL_PATH_NODE(Job_A0022)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=24,ID=CRITICAL_PATH_EDGE_MINUS(24)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0022,ID=CRITICAL_PATH_NODE(Job_A0022)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0221,ID=CRITICAL_PATH_NODE(Job_A0221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=25,ID=CRITICAL_PATH_EDGE_MINUS(25)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0022,ID=CRITICAL_PATH_NODE(Job_A0022)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0222,ID=CRITICAL_PATH_NODE(Job_A0222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=28,ID=CRITICAL_PATH_EDGE_MINUS(28)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0111,ID=CRITICAL_PATH_NODE(Job_A0111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1111,ID=CRITICAL_PATH_NODE(Job_A1111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=4,ID=CRITICAL_PATH_EDGE_MINUS(4)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0111,ID=CRITICAL_PATH_NODE(Job_A0111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1112,ID=CRITICAL_PATH_NODE(Job_A1112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=5,ID=CRITICAL_PATH_EDGE_MINUS(5)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0121,ID=CRITICAL_PATH_NODE(Job_A0121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1211,ID=CRITICAL_PATH_NODE(Job_A1211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=11,ID=CRITICAL_PATH_EDGE_MINUS(11)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0121,ID=CRITICAL_PATH_NODE(Job_A0121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1212,ID=CRITICAL_PATH_NODE(Job_A1212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=12,ID=CRITICAL_PATH_EDGE_MINUS(12)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0221,ID=CRITICAL_PATH_NODE(Job_A0221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2211,ID=CRITICAL_PATH_NODE(Job_A2211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=26,ID=CRITICAL_PATH_EDGE_MINUS(26)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0221,ID=CRITICAL_PATH_NODE(Job_A0221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2212,ID=CRITICAL_PATH_NODE(Job_A2212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=27,ID=CRITICAL_PATH_EDGE_MINUS(27)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0222,ID=CRITICAL_PATH_NODE(Job_A0222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2221,ID=CRITICAL_PATH_NODE(Job_A2221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=29,ID=CRITICAL_PATH_EDGE_MINUS(29)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0222,ID=CRITICAL_PATH_NODE(Job_A0222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2222,ID=CRITICAL_PATH_NODE(Job_A2222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=30,ID=CRITICAL_PATH_EDGE_MINUS(30)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1222,ID=CRITICAL_PATH_NODE(Job_A1222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0122,ID=CRITICAL_PATH_NODE(Job_B0122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=45,ID=CRITICAL_PATH_EDGE_MINUS(45)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2111,ID=CRITICAL_PATH_NODE(Job_A2111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0211,ID=CRITICAL_PATH_NODE(Job_B0211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=49,ID=CRITICAL_PATH_EDGE_MINUS(49)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2122,ID=CRITICAL_PATH_NODE(Job_A2122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0212,ID=CRITICAL_PATH_NODE(Job_B0212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=53,ID=CRITICAL_PATH_EDGE_MINUS(53)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2212,ID=CRITICAL_PATH_NODE(Job_A2212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0221,ID=CRITICAL_PATH_NODE(Job_B0221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=57,ID=CRITICAL_PATH_EDGE_MINUS(57)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2222,ID=CRITICAL_PATH_NODE(Job_A2222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0222,ID=CRITICAL_PATH_NODE(Job_B0222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=60,ID=CRITICAL_PATH_EDGE_MINUS(60)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0001,ID=CRITICAL_PATH_NODE(Job_B0001)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0000,ID=CRITICAL_PATH_NODE(Job_B0000)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=31,ID=CRITICAL_PATH_EDGE_MINUS(31)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0012,ID=CRITICAL_PATH_NODE(Job_B0012)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0001,ID=CRITICAL_PATH_NODE(Job_B0001)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=39,ID=CRITICAL_PATH_EDGE_MINUS(39)]\"}",
+              "type" : "NETWORK"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 11,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%pgql-pgx",
+          "",
+          "SELECT",
+          "  ELEMENT_NUMBER(e) AS order",
+          ", v1.job_id AS a1_job_id",
+          ", e.elapsed_time_minus",
+          ", v2.job_id AS a2_job_id",
+          "FROM MATCH SHORTEST",
+          "  ((a1) (-[t]->(a))+ (a2))",
+          "  ONE ROW PER STEP (v1, e, v2) ON critical_path_minus",
+          "WHERE a1.job_id = 'Job_A0000' AND a2.job_id = 'Job_B0000'",
+          "ORDER BY a1_job_id"
+        ],
+        "selectedVisualization" : "table",
+        "visualizationConfig" : "[{\"table\":{\"lastColumns\":[\"ORDER\",\"A1_JOB_ID\",\"ELAPSED_TIME_MINUS\",\"A2_JOB_ID\"],\"version\":1}}]",
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679277741736,
+          "endTime" : 1679277741994,
+          "interpreter" : "pgql-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "{\"table\":\"ORDER\\tA1_JOB_ID\\tELAPSED_TIME_MINUS\\tA2_JOB_ID\\n2\\tJob_A0000\\t-866.0\\tJob_A0001\\n4\\tJob_A0001\\t-691.0\\tJob_A0012\\n6\\tJob_A0012\\t-871.0\\tJob_A0122\\n8\\tJob_A0122\\t-374.0\\tJob_A1221\\n10\\tJob_A1221\\t-344.0\\tJob_B0122\\n16\\tJob_B0001\\t-399.0\\tJob_B0000\\n14\\tJob_B0012\\t-626.0\\tJob_B0001\\n12\\tJob_B0122\\t-710.0\\tJob_B0012\",\"totalNumResults\":8}",
+              "type" : "TABLE"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 12,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%pgql-pgx",
+          "",
+          "SELECT",
+          "  ARRAY_AGG(a.job_id) AS job_id",
+          ", ARRAY_AGG(e.elapsed_time_minus) AS elapsed_time",
+          "FROM MATCH CHEAPEST",
+          "  ((a1) (-[e]->(a) COST e.elapsed_time_minus)* (a2)) ON critical_path_minus",
+          "WHERE a1.job_id = 'Job_A0000' AND a2.job_id = 'Job_B0000'",
+          "",
+          "/* UnsupportedOperationException: only positive edge costs are supported in cheapest path queries code */"
+        ],
+        "selectedVisualization" : null,
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679277832459,
+          "endTime" : 1679277832638,
+          "interpreter" : "pgql-pgx",
+          "taskStatus" : null,
+          "status" : null,
+          "results" : null,
+          "forms" : null
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 13,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "graph"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679277997010,
+          "endTime" : 1679277997066,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "PgxGraph(name: CRITICAL_PATH_MINUS, v: 46, e: 60, directed: True, memory(Mb): 0)\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 14,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "src = graph.get_vertex(\"CRITICAL_PATH_NODE(Job_A0000)\")",
+          "src"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679278685623,
+          "endTime" : 1679278686041,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "PgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)]\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 15,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "cost = graph.get_edge_property((\"elapsed_time_minus\").upper())",
+          "cost"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679278670708,
+          "endTime" : 1679278671272,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [ ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 16,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "paths = analyst.shortest_path_bellman_ford(graph, src, cost, distance='bellman_ford_distance')",
+          "paths"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679278142265,
+          "endTime" : 1679278143161,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "AllPaths(source: PgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)])\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 17,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "dst = graph.get_vertex(\"CRITICAL_PATH_NODE(Job_B0000)\")",
+          "path = paths.get_path(dst)",
+          "path"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679279117661,
+          "endTime" : 1679279118456,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "PgxPath(graph: CRITICAL_PATH_MINUS, src: PgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)], dst: PgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0000,ID=CRITICAL_PATH_NODE(Job_B0000)], num. edges: 8 cost: -5804.0)\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 18,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "ids = []",
+          "for edge in path.edges:",
+          "    ids.append(edge.get_property(\"id\".upper()))",
+          "",
+          "ids"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679279452735,
+          "endTime" : 1679279454416,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "[46, 47, 48, 49, 19, 18, 17, 16]\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 19,
+        "width" : 0,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%pgql-pgx",
+          "",
+          "SELECT * FROM MATCH (v1)-[e]->(v2) ON critical_path_minus WHERE e.id IN (46, 47, 48, 49, 19, 18, 17, 16)"
+        ],
+        "selectedVisualization" : "visualization",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679279531884,
+          "endTime" : 1679279533114,
+          "interpreter" : "pgql-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "{\"name\":\"CRITICAL_PATH_MINUS\",\"resultSetId\":\"pgql_20\",\"graph\":{\"idType\":\"string\",\"vertices\":[{\"_id\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"p\":[{\"n\":\"bellman_ford_distance\",\"v\":\"-2972.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0021\",\"s\":false},{\"n\":\"bellman_ford_distance\",\"v\":\"-4353.0\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"p\":[{\"n\":\"bellman_ford_distance\",\"v\":\"-5804.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0000\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0211\",\"s\":false},{\"n\":\"bellman_ford_distance\",\"v\":\"-3573.0\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0002\",\"s\":false},{\"n\":\"bellman_ford_distance\",\"v\":\"-5220.0\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"p\":[{\"n\":\"bellman_ford_distance\",\"v\":\"-416.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0002\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0021\",\"s\":false},{\"n\":\"bellman_ford_distance\",\"v\":\"-1235.0\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"p\":[{\"n\":\"bellman_ford_distance\",\"v\":\"-2135.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false},{\"n\":\"bellman_ford_distance\",\"v\":\"0.0\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\"]}],\"edges\":[{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(19)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-837.0\",\"s\":false},{\"n\":\"ID\",\"v\":\"19\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0211\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(18)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-900.0\",\"s\":false},{\"n\":\"ID\",\"v\":\"18\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0021\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(17)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-819.0\",\"s\":false},{\"n\":\"ID\",\"v\":\"17\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0002\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0021\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(16)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-416.0\",\"s\":false},{\"n\":\"ID\",\"v\":\"16\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0002\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(49)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-601.0\",\"s\":false},{\"n\":\"ID\",\"v\":\"49\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2111\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(48)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-780.0\",\"s\":false},{\"n\":\"ID\",\"v\":\"48\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0211\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0021\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(47)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-867.0\",\"s\":false},{\"n\":\"ID\",\"v\":\"47\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0021\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0002\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE_MINUS(46)\",\"p\":[{\"n\":\"ELAPSED_TIME_MINUS\",\"v\":\"-584.0\",\"s\":false},{\"n\":\"ID\",\"v\":\"46\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0002\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0000\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"u\":false}],\"paths\":[],\"totalNumResults\":8},\"table\":\"V1\\tV2\\tE\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0002,ID=CRITICAL_PATH_NODE(Job_B0002)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0000,ID=CRITICAL_PATH_NODE(Job_B0000)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=46,ID=CRITICAL_PATH_EDGE_MINUS(46)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=16,ID=CRITICAL_PATH_EDGE_MINUS(16)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0021,ID=CRITICAL_PATH_NODE(Job_A0021)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0211,ID=CRITICAL_PATH_NODE(Job_A0211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=18,ID=CRITICAL_PATH_EDGE_MINUS(18)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0211,ID=CRITICAL_PATH_NODE(Job_A0211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2111,ID=CRITICAL_PATH_NODE(Job_A2111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=19,ID=CRITICAL_PATH_EDGE_MINUS(19)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0021,ID=CRITICAL_PATH_NODE(Job_B0021)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0002,ID=CRITICAL_PATH_NODE(Job_B0002)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=47,ID=CRITICAL_PATH_EDGE_MINUS(47)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0211,ID=CRITICAL_PATH_NODE(Job_B0211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0021,ID=CRITICAL_PATH_NODE(Job_B0021)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=48,ID=CRITICAL_PATH_EDGE_MINUS(48)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0021,ID=CRITICAL_PATH_NODE(Job_A0021)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=17,ID=CRITICAL_PATH_EDGE_MINUS(17)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2111,ID=CRITICAL_PATH_NODE(Job_A2111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0211,ID=CRITICAL_PATH_NODE(Job_B0211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE_MINUS,key=49,ID=CRITICAL_PATH_EDGE_MINUS(49)]\"}",
+              "type" : "NETWORK"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 20,
+        "width" : 12,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "graph.query_pgql(\"\"\"",
+          "SELECT x, x.bellman_ford_distance MATCH (x)",
+          "ORDER BY x.bellman_ford_distance DESC",
+          "LIMIT 5",
+          "\"\"\").print()"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679278154180,
+          "endTime" : 1679278154744,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "+-----------------------------------------------------------------------------------------------------------------+\n| x                                                                                     | x.bellman_ford_distance |\n+-----------------------------------------------------------------------------------------------------------------+\n| PgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)] | 0.0                     |\n| PgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)] | -416.0                  |\n| PgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0022,ID=CRITICAL_PATH_NODE(Job_A0022)] | -809.0                  |\n| PgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)] | -866.0                  |\n| PgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0222,ID=CRITICAL_PATH_NODE(Job_A0222)] | -979.0                  |\n+-----------------------------------------------------------------------------------------------------------------+\n\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 21,
+        "width" : 0,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "# Highlight the Critical Path"
+        ],
+        "selectedVisualization" : "html",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679287363911,
+          "endTime" : 1679287363952,
+          "interpreter" : "md",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "<h1 id=\"highlight-the-critical-path\">Highlight the Critical Path</h1>\n",
+              "type" : "HTML"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 22,
+        "width" : 0,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "graph = session.get_graph(\"CRITICAL_PATH\")",
+          "graph.clone(name='CRITICAL_PATH_HIGHLIGHT')"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679286630712,
+          "endTime" : 1679286631195,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "PgxGraph(name: CRITICAL_PATH_HIGHLIGHT, v: 46, e: 60, directed: True, memory(Mb): 0)\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 23,
+        "width" : 0,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%python-pgx",
+          "",
+          "graph = session.get_graph(\"CRITICAL_PATH_HIGHLIGHT\")",
+          "is_critical = graph.create_edge_property(\"boolean\", \"IS_CRITICAL\")",
+          "is_critical"
+        ],
+        "selectedVisualization" : "raw",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679286789009,
+          "endTime" : 1679286789732,
+          "interpreter" : "python-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "EdgeProperty(name: IS_CRITICAL, type: boolean, graph: CRITICAL_PATH_HIGHLIGHT)\n",
+              "type" : "TEXT"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 24,
+        "width" : 0,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%pgql-pgx",
+          "",
+          "UPDATE e SET ( e.is_critical = true )",
+          "  FROM MATCH () -[e]-> () ON CRITICAL_PATH_HIGHLIGHT",
+          " WHERE e.id IN (46, 47, 48, 49, 19, 18, 17, 16)"
+        ],
+        "selectedVisualization" : "html",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679286953054,
+          "endTime" : 1679286953525,
+          "interpreter" : "pgql-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [ ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      },
+      {
+        "row" : 0,
+        "col" : 0,
+        "sizeX" : 0,
+        "order" : 25,
+        "width" : 0,
+        "title" : null,
+        "hasTitle" : false,
+        "message" : [
+          "%pgql-pgx",
+          "",
+          "SELECT * FROM MATCH (v1)-[e]->(v2) ON critical_path_highlight"
+        ],
+        "selectedVisualization" : "visualization",
+        "visualizationConfig" : null,
+        "hideCode" : false,
+        "hideResult" : false,
+        "hideGutter" : true,
+        "hideVizConfig" : false,
+        "hideInIFrame" : false,
+        "forms" : "[]",
+        "result" : {
+          "startTime" : 1679287136403,
+          "endTime" : 1679287137637,
+          "interpreter" : "pgql-pgx",
+          "taskStatus" : "SUCCESS",
+          "status" : "SUCCESS",
+          "results" : [
+            {
+              "message" : "{\"name\":\"CRITICAL_PATH_HIGHLIGHT\",\"resultSetId\":\"pgql_26\",\"graph\":{\"idType\":\"string\",\"vertices\":[{\"_id\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0012\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0000\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0022\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0002\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0012\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0002\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0022\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0021\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0001\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0011\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_B0112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A1221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2222)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2222\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2111\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2212)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2212\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0001\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0112\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A2121)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A2121\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0021\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0211\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0122\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0011\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]},{\"_id\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"p\":[{\"n\":\"JOB_ID\",\"v\":\"Job_A0221\",\"s\":false}],\"l\":[\"JOB\"],\"g\":[\"V1\",\"V2\"]}],\"edges\":[{\"_id\":\"CRITICAL_PATH_EDGE(53)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"605.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2122\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"53\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2122)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(41)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"482.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1211\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"41\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1211)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(33)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"763.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0111\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"33\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0011\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(21)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"72.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0021\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"21\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(17)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"819.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0002\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"true\",\"s\":false},{\"n\":\"ID\",\"v\":\"17\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0021\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(49)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"601.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2111\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"true\",\"s\":false},{\"n\":\"ID\",\"v\":\"49\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(29)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"111.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0222\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"29\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(13)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"871.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0012\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"13\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(57)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"400.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2212\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"57\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2212)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(45)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"958.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1222\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"45\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1222)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(37)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"937.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1121\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"37\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1121)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(25)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"264.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0022\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"25\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(7)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"26.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0112\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"7\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(3)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"346.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0011\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"3\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(42)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"475.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1212\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"42\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1212)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(30)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"909.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0222\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"30\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(22)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"30.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0212\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"22\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(10)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"848.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0012\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"10\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0121\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(54)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"358.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0022\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"54\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0002\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(50)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"320.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2112\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"50\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2112)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(38)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"694.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1122\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"38\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1122)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(18)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"900.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0021\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"true\",\"s\":false},{\"n\":\"ID\",\"v\":\"18\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0021)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(46)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"584.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0002\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"true\",\"s\":false},{\"n\":\"ID\",\"v\":\"46\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0000\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(34)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"834.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1111\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"34\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1111)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(26)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"919.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0221\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"26\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(58)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"593.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0222\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"58\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0022\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(14)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"374.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0122\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"14\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(2)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"169.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0001\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"2\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0011\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(6)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"74.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0011\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"6\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0011)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(31)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"399.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0001\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"31\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0000\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0000)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(55)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"272.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0221\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"55\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0022\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0022)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(11)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"30.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0121\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"11\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1211\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1211)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(43)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"710.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0122\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"43\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0012\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(51)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"369.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0212\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"51\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0021\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(39)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"626.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0012\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"39\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0001\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(27)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"985.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0221\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"27\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0221)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(19)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"837.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0211\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"true\",\"s\":false},{\"n\":\"ID\",\"v\":\"19\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(35)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"964.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1112\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"35\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1112)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0111)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(23)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"382.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0212\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"23\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0212)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(15)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"193.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0122\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"15\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0122)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(59)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"707.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2221\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"59\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2221)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(47)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"867.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0021\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"true\",\"s\":false},{\"n\":\"ID\",\"v\":\"47\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0002\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0002)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(1)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"866.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"1\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0001\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(9)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"691.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0001\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"9\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0012\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0001)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0012)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(5)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"901.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0111\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"5\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(20)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"439.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0211\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"20\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A2112\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0211)\",\"d\":\"CRITICAL_PATH_NODE(Job_A2112)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(52)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"440.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2121\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"52\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2121)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(44)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"344.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A1221\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"44\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A1221)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(32)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"718.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0011\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"32\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0001\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0001)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(60)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"84.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2222\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"60\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2222)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(40)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"518.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0121\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"40\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0012\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0121)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0012)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(28)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"170.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0022\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"28\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0222\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0222)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(16)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"416.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0000\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"true\",\"s\":false},{\"n\":\"ID\",\"v\":\"16\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0002\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0000)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(24)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"393.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0002\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"24\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A0022\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0002)\",\"d\":\"CRITICAL_PATH_NODE(Job_A0022)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(56)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"759.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A2211\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"56\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0221\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A2211)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0221)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(12)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"337.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0121\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"12\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1212\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0121)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1212)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(48)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"780.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0211\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"true\",\"s\":false},{\"n\":\"ID\",\"v\":\"48\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0021\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0211)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0021)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(36)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"405.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_B0112\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"36\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_B0011\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_B0112)\",\"d\":\"CRITICAL_PATH_NODE(Job_B0011)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(8)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"694.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0112\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"8\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1122\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0112)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1122)\",\"u\":false},{\"_id\":\"CRITICAL_PATH_EDGE(4)\",\"p\":[{\"n\":\"ELAPSED_TIME\",\"v\":\"32.0\",\"s\":false},{\"n\":\"JOB_ID\",\"v\":\"Job_A0111\",\"s\":false},{\"n\":\"IS_CRITICAL\",\"v\":\"false\",\"s\":false},{\"n\":\"ID\",\"v\":\"4\",\"s\":false},{\"n\":\"JOB_ID_NEXT\",\"v\":\"Job_A1111\",\"s\":false}],\"l\":[\"NEXT_JOB\"],\"g\":[\"E\"],\"s\":\"CRITICAL_PATH_NODE(Job_A0111)\",\"d\":\"CRITICAL_PATH_NODE(Job_A1111)\",\"u\":false}],\"paths\":[],\"totalNumResults\":60},\"table\":\"V1\\tV2\\tE\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0012,ID=CRITICAL_PATH_NODE(Job_A0012)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0122,ID=CRITICAL_PATH_NODE(Job_A0122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=13,ID=CRITICAL_PATH_EDGE(13)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0012,ID=CRITICAL_PATH_NODE(Job_A0012)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0121,ID=CRITICAL_PATH_NODE(Job_A0121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=10,ID=CRITICAL_PATH_EDGE(10)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1111,ID=CRITICAL_PATH_NODE(Job_A1111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0111,ID=CRITICAL_PATH_NODE(Job_B0111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=34,ID=CRITICAL_PATH_EDGE(34)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1122,ID=CRITICAL_PATH_NODE(Job_A1122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0112,ID=CRITICAL_PATH_NODE(Job_B0112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=38,ID=CRITICAL_PATH_EDGE(38)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1221,ID=CRITICAL_PATH_NODE(Job_A1221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0122,ID=CRITICAL_PATH_NODE(Job_B0122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=44,ID=CRITICAL_PATH_EDGE(44)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0002,ID=CRITICAL_PATH_NODE(Job_B0002)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0000,ID=CRITICAL_PATH_NODE(Job_B0000)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=46,ID=CRITICAL_PATH_EDGE(46)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0111,ID=CRITICAL_PATH_NODE(Job_B0111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0011,ID=CRITICAL_PATH_NODE(Job_B0011)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=33,ID=CRITICAL_PATH_EDGE(33)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0011,ID=CRITICAL_PATH_NODE(Job_A0011)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0112,ID=CRITICAL_PATH_NODE(Job_A0112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=6,ID=CRITICAL_PATH_EDGE(6)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0011,ID=CRITICAL_PATH_NODE(Job_A0011)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0111,ID=CRITICAL_PATH_NODE(Job_A0111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=3,ID=CRITICAL_PATH_EDGE(3)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1112,ID=CRITICAL_PATH_NODE(Job_A1112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0111,ID=CRITICAL_PATH_NODE(Job_B0111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=35,ID=CRITICAL_PATH_EDGE(35)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1121,ID=CRITICAL_PATH_NODE(Job_A1121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0112,ID=CRITICAL_PATH_NODE(Job_B0112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=37,ID=CRITICAL_PATH_EDGE(37)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1211,ID=CRITICAL_PATH_NODE(Job_A1211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0121,ID=CRITICAL_PATH_NODE(Job_B0121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=41,ID=CRITICAL_PATH_EDGE(41)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1212,ID=CRITICAL_PATH_NODE(Job_A1212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0121,ID=CRITICAL_PATH_NODE(Job_B0121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=42,ID=CRITICAL_PATH_EDGE(42)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2121,ID=CRITICAL_PATH_NODE(Job_A2121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0212,ID=CRITICAL_PATH_NODE(Job_B0212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=52,ID=CRITICAL_PATH_EDGE(52)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2211,ID=CRITICAL_PATH_NODE(Job_A2211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0221,ID=CRITICAL_PATH_NODE(Job_B0221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=56,ID=CRITICAL_PATH_EDGE(56)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0011,ID=CRITICAL_PATH_NODE(Job_B0011)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0001,ID=CRITICAL_PATH_NODE(Job_B0001)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=32,ID=CRITICAL_PATH_EDGE(32)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0022,ID=CRITICAL_PATH_NODE(Job_B0022)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0002,ID=CRITICAL_PATH_NODE(Job_B0002)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=54,ID=CRITICAL_PATH_EDGE(54)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0122,ID=CRITICAL_PATH_NODE(Job_B0122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0012,ID=CRITICAL_PATH_NODE(Job_B0012)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=43,ID=CRITICAL_PATH_EDGE(43)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0212,ID=CRITICAL_PATH_NODE(Job_B0212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0021,ID=CRITICAL_PATH_NODE(Job_B0021)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=51,ID=CRITICAL_PATH_EDGE(51)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0222,ID=CRITICAL_PATH_NODE(Job_B0222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0022,ID=CRITICAL_PATH_NODE(Job_B0022)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=58,ID=CRITICAL_PATH_EDGE(58)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=1,ID=CRITICAL_PATH_EDGE(1)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0000,ID=CRITICAL_PATH_NODE(Job_A0000)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=16,ID=CRITICAL_PATH_EDGE(16)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0021,ID=CRITICAL_PATH_NODE(Job_A0021)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0211,ID=CRITICAL_PATH_NODE(Job_A0211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=18,ID=CRITICAL_PATH_EDGE(18)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0021,ID=CRITICAL_PATH_NODE(Job_A0021)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0212,ID=CRITICAL_PATH_NODE(Job_A0212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=21,ID=CRITICAL_PATH_EDGE(21)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0112,ID=CRITICAL_PATH_NODE(Job_A0112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1122,ID=CRITICAL_PATH_NODE(Job_A1122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=8,ID=CRITICAL_PATH_EDGE(8)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0112,ID=CRITICAL_PATH_NODE(Job_A0112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1121,ID=CRITICAL_PATH_NODE(Job_A1121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=7,ID=CRITICAL_PATH_EDGE(7)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0122,ID=CRITICAL_PATH_NODE(Job_A0122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1221,ID=CRITICAL_PATH_NODE(Job_A1221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=14,ID=CRITICAL_PATH_EDGE(14)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0122,ID=CRITICAL_PATH_NODE(Job_A0122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1222,ID=CRITICAL_PATH_NODE(Job_A1222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=15,ID=CRITICAL_PATH_EDGE(15)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0211,ID=CRITICAL_PATH_NODE(Job_A0211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2112,ID=CRITICAL_PATH_NODE(Job_A2112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=20,ID=CRITICAL_PATH_EDGE(20)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0211,ID=CRITICAL_PATH_NODE(Job_A0211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2111,ID=CRITICAL_PATH_NODE(Job_A2111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=19,ID=CRITICAL_PATH_EDGE(19)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0212,ID=CRITICAL_PATH_NODE(Job_A0212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2121,ID=CRITICAL_PATH_NODE(Job_A2121)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=22,ID=CRITICAL_PATH_EDGE(22)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0212,ID=CRITICAL_PATH_NODE(Job_A0212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2122,ID=CRITICAL_PATH_NODE(Job_A2122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=23,ID=CRITICAL_PATH_EDGE(23)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2112,ID=CRITICAL_PATH_NODE(Job_A2112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0211,ID=CRITICAL_PATH_NODE(Job_B0211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=50,ID=CRITICAL_PATH_EDGE(50)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2221,ID=CRITICAL_PATH_NODE(Job_A2221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0222,ID=CRITICAL_PATH_NODE(Job_B0222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=59,ID=CRITICAL_PATH_EDGE(59)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0021,ID=CRITICAL_PATH_NODE(Job_B0021)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0002,ID=CRITICAL_PATH_NODE(Job_B0002)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=47,ID=CRITICAL_PATH_EDGE(47)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0112,ID=CRITICAL_PATH_NODE(Job_B0112)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0011,ID=CRITICAL_PATH_NODE(Job_B0011)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=36,ID=CRITICAL_PATH_EDGE(36)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0121,ID=CRITICAL_PATH_NODE(Job_B0121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0012,ID=CRITICAL_PATH_NODE(Job_B0012)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=40,ID=CRITICAL_PATH_EDGE(40)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0211,ID=CRITICAL_PATH_NODE(Job_B0211)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0021,ID=CRITICAL_PATH_NODE(Job_B0021)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=48,ID=CRITICAL_PATH_EDGE(48)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0221,ID=CRITICAL_PATH_NODE(Job_B0221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0022,ID=CRITICAL_PATH_NODE(Job_B0022)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=55,ID=CRITICAL_PATH_EDGE(55)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0012,ID=CRITICAL_PATH_NODE(Job_A0012)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=9,ID=CRITICAL_PATH_EDGE(9)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0001,ID=CRITICAL_PATH_NODE(Job_A0001)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0011,ID=CRITICAL_PATH_NODE(Job_A0011)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=2,ID=CRITICAL_PATH_EDGE(2)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0021,ID=CRITICAL_PATH_NODE(Job_A0021)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=17,ID=CRITICAL_PATH_EDGE(17)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0002,ID=CRITICAL_PATH_NODE(Job_A0002)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0022,ID=CRITICAL_PATH_NODE(Job_A0022)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=24,ID=CRITICAL_PATH_EDGE(24)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0022,ID=CRITICAL_PATH_NODE(Job_A0022)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0221,ID=CRITICAL_PATH_NODE(Job_A0221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=25,ID=CRITICAL_PATH_EDGE(25)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0022,ID=CRITICAL_PATH_NODE(Job_A0022)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0222,ID=CRITICAL_PATH_NODE(Job_A0222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=28,ID=CRITICAL_PATH_EDGE(28)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0111,ID=CRITICAL_PATH_NODE(Job_A0111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1111,ID=CRITICAL_PATH_NODE(Job_A1111)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=4,ID=CRITICAL_PATH_EDGE(4)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0111,ID=CRITICAL_PATH_NODE(Job_A0111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1112,ID=CRITICAL_PATH_NODE(Job_A1112)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=5,ID=CRITICAL_PATH_EDGE(5)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0121,ID=CRITICAL_PATH_NODE(Job_A0121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1211,ID=CRITICAL_PATH_NODE(Job_A1211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=11,ID=CRITICAL_PATH_EDGE(11)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0121,ID=CRITICAL_PATH_NODE(Job_A0121)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1212,ID=CRITICAL_PATH_NODE(Job_A1212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=12,ID=CRITICAL_PATH_EDGE(12)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0221,ID=CRITICAL_PATH_NODE(Job_A0221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2211,ID=CRITICAL_PATH_NODE(Job_A2211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=26,ID=CRITICAL_PATH_EDGE(26)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0221,ID=CRITICAL_PATH_NODE(Job_A0221)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2212,ID=CRITICAL_PATH_NODE(Job_A2212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=27,ID=CRITICAL_PATH_EDGE(27)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0222,ID=CRITICAL_PATH_NODE(Job_A0222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2221,ID=CRITICAL_PATH_NODE(Job_A2221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=29,ID=CRITICAL_PATH_EDGE(29)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A0222,ID=CRITICAL_PATH_NODE(Job_A0222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2222,ID=CRITICAL_PATH_NODE(Job_A2222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=30,ID=CRITICAL_PATH_EDGE(30)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A1222,ID=CRITICAL_PATH_NODE(Job_A1222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0122,ID=CRITICAL_PATH_NODE(Job_B0122)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=45,ID=CRITICAL_PATH_EDGE(45)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2111,ID=CRITICAL_PATH_NODE(Job_A2111)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0211,ID=CRITICAL_PATH_NODE(Job_B0211)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=49,ID=CRITICAL_PATH_EDGE(49)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2122,ID=CRITICAL_PATH_NODE(Job_A2122)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0212,ID=CRITICAL_PATH_NODE(Job_B0212)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=53,ID=CRITICAL_PATH_EDGE(53)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2212,ID=CRITICAL_PATH_NODE(Job_A2212)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0221,ID=CRITICAL_PATH_NODE(Job_B0221)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=57,ID=CRITICAL_PATH_EDGE(57)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_A2222,ID=CRITICAL_PATH_NODE(Job_A2222)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0222,ID=CRITICAL_PATH_NODE(Job_B0222)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=60,ID=CRITICAL_PATH_EDGE(60)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0001,ID=CRITICAL_PATH_NODE(Job_B0001)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0000,ID=CRITICAL_PATH_NODE(Job_B0000)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=31,ID=CRITICAL_PATH_EDGE(31)]\\nPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0012,ID=CRITICAL_PATH_NODE(Job_B0012)]\\tPgxVertex[provider=CRITICAL_PATH_NODE,key=Job_B0001,ID=CRITICAL_PATH_NODE(Job_B0001)]\\tPgxEdge[provider=CRITICAL_PATH_EDGE,key=39,ID=CRITICAL_PATH_EDGE(39)]\"}",
+              "type" : "NETWORK"
+            }
+          ],
+          "forms" : "[]"
+        },
+        "relations" : [ ],
+        "dynamicFormParams" : null
+      }
+    ]
+  }
+]

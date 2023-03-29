@@ -1,0 +1,21 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "name": "critical-path",
+      "configuration": {
+        "visualization": {
+          "vertexLabelProperty": "JOB_ID",
+          "edgeLabelProperty": "ELAPSED_TIME",
+          "layout": "hierarchical",
+          "layoutProperties": {
+            "hierarchical": {
+              "rankDirection": "leftRight"
+            }
+          },
+          "version": 9
+        }
+      }
+    }
+  ]
+}
