@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>Oracle Graph Visualization Example</title>
+
+<link rel="stylesheet" href="/alta.css" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="https://static.oracle.com/cdn/fnd/gallery/2210.1.0/images/iconfont/ojuxIconFont.css" />
+
+<script type="module">
+import * as ogvt from '/index.js';
+
+const styles = {
+  vertex: {
+    size: 12,
+  },
+  edge: {
+    color: 'lightgray'
+  },
+  'edge:hover': {
+    color: 'orange'
+  },
+  "vertex[properties.ID.slice(0, 1) == 'P' || properties.ID.slice(0, 1) == 'M']": {
+    color: 'green',
+    label: '${properties.ID}',
+    icon: 'gear',
+  },
+  "vertex[properties.ID.slice(0, 1) == 'I' || properties.ID.slice(0, 1) == 'F']": {
+    color: 'blue',
+    label: '${properties.ID}',
+    icon: {
+      class: 'fa-home',
+    },
+  },
+};
+
+const expand = async (ids) => {
+  vizSection.style.display = 'none';
+  queryBtn.disabled = true;
+  fetch('/trace/by_ids?ids=' + ids).then((response) => {
+    return response.json();
+  }).then((json) => {
+    vizSection.style.display = 'block';
+    queryBtn.disabled = false;
+    visualization.data = json.graph;
+  });
+};
+
+const visualization = new GraphVisualization({
+  target: document.getElementById('graphviz'),
+  props: {
+    data: { vertices: {}, edges: {} },
+    styles,
+    expand,
+    settings: { layout: 'hierarchical' },
+    featureFlags: {
+      exploration: {
+        expand: true,
+        focus: false,
+        group: false,
+        ungroup: false,
+        drop: false,
+        undo: false,
+        redo: false,
+        reset: false,
+      },
+      modes: {
+        interaction: true,
+        fitToScreen: true,
+        sticky: false
+      },
+      pagination: false
+    }
+  }
+});
+
+const str1 = document.getElementById('str1');
+const str2 = document.getElementById('str2');
+const queryBtn = document.getElementById('query');
+const vizSection = document.getElementById('visualization');
+queryBtn.onclick = () => {
+  vizSection.style.display = 'none';
+  queryBtn.disabled = true;
+  fetch('/trace/by_str?str1=' + str1.value + '&str2=' + str2.value).then((response) => {
+    return response.json();
+  }).then((json) => {
+    vizSection.style.display = 'block';
+    queryBtn.disabled = false;
+    visualization.data = json.graph;
+  });
+};
+
+</script>
+</head>
+<body>
+  <div class="container">
+    <div class="example" style="width: 500px">
+      <h3>Trace BoM and Supply Chain</h3>
+      <div id="query-section">
+        <label for="str1">Part ID or Inventory ID:</label>
+        <input type="text" id="str1" value="P1112" />
+        <label for="str2">Lot Number:</label>
+        <input type="text" id="str2" value="0269322" />
+        <button id="query">Trace</button>
+      </div>
+      <div id="visualization">
+        <div style="height: 600px" id="graphviz"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
