@@ -11,11 +11,9 @@ The key source files to look at are
 ## Pre-requisites
 
 1. Oracle JDK 11 (or OpenJDK 11)
-2. A running Oracle Graph Server. Download [from oracle.com](https://www.oracle.com/database/technologies/spatialandgraph/property-graph-features/graph-server-and-client/graph-server-and-client-downloads.html) 
-   and install [as per documentation](https://docs.oracle.com/en/database/oracle/property-graph/22.4/spgdg/deploying-graph-visualization-application.html).
+2. A running Oracle Graph Server. Download from [oracle.com](https://www.oracle.com/database/technologies/spatialandgraph/property-graph-features/graph-server-and-client/graph-server-and-client-downloads.html) and install [as per documentation](https://docs.oracle.com/en/database/oracle/property-graph/23.1/spgdg/using-rpm-installation.html#GUID-EF1C77D2-86B5-4F16-AA43-3B37BE5FE4B9).
 3. A running Oracle Database (e.g. [Autonomous Database](https://www.oracle.com/autonomous-database/))
-4. This example uses the [Human Resources sample dataset](https://github.com/oracle-samples/db-sample-schemas).
-   Import this dataset into your database  [as per instructions on github](https://github.com/oracle-samples/db-sample-schemas).
+4. This example uses the [sample dataset](https://objectstorage.ap-tokyo-1.oraclecloud.com/n/nr92jg8wdcil/b/public/o/traceability.zip) explained in the [article](https://medium.com/oracledevs/d65521510975). Import this dataset into your database.
 5. Create a graph out of the dataset using the following statement:
 
 ```
@@ -52,11 +50,9 @@ CREATE PROPERTY GRAPH trace_all
   )
 ```
 
-You can run this statement using a PGQL client of your choice. If you're using the Autonomous Database, we recommend
-to use [Graph Studio](https://docs.oracle.com/en/cloud/paas/autonomous-database/csgru/graph-studio-interactive-self-service-user-interface.html).
+You can run this statement using a PGQL client of your choice. If you're using the Autonomous Database, we recommend to use [Graph Studio](https://docs.oracle.com/en/cloud/paas/autonomous-database/csgru/graph-studio-interactive-self-service-user-interface.html).
 
-On premise, we recommend to use the [PGQL Plug-in for SQLcl](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/20.2/sqcug/using-pgql-plug-sqlcl.html)
-or [SQL Developer](https://docs.oracle.com/en/database/oracle/property-graph/22.4/spgdg/property-graph-support-sql-developer1.html).
+On premise, we recommend to use the [PGQL Plug-in for SQLcl](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/20.2/sqcug/using-pgql-plug-sqlcl.html) or [SQL Developer](https://docs.oracle.com/en/database/oracle/property-graph/22.4/spgdg/property-graph-support-sql-developer1.html).
 
 ## Usage
 
@@ -85,9 +81,11 @@ Then open your browser at `http://localhost:8080`.
 
 When you click on the <em>Query</em> button, a request is made to `/trace/by_str`, which fetches the tree starting from the given part (by default `P1112`) from the TRACE_ALL graph using a PGQL query. 
 
-![](screenshot.jpg)
+![](screenshot-1.png)
 
-When you right-click on one of the resulting nodes and then select <em>Expand</em>, a request to `/hr/by_ids` is being made, which fetches the tree from the selected node via another PGQL query.
+When you right-click on one of the resulting nodes and then select <em>Expand</em>, a request to `/trace/by_ids` is being made, which fetches the tree from the selected node via another PGQL query.
+
+![](screenshot-2.png)
 
 ## Troubleshooting
 
