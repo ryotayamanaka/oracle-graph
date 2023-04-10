@@ -86,6 +86,7 @@ When you click on the <em>Query</em> button, a request is made to `/trace/by_str
 When you right-click on one of the resulting nodes and then select <em>Expand</em>, a request to `/trace/by_ids` is being made, which fetches the tree from the selected node via another PGQL query.
 
 ![](screenshot-2.png)
+![](screenshot-3.png)
 
 ## Troubleshooting
 
