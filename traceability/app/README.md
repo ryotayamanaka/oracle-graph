@@ -31,20 +31,20 @@ CREATE PROPERTY GRAPH trace_all
   EDGE TABLES (
     trace_bom_edge
       KEY (id)
-      SOURCE KEY(child_id) REFERENCES trace_bom_node
-      DESTINATION KEY(parent_id) REFERENCES trace_bom_node
+      SOURCE KEY(child_id) REFERENCES trace_bom_node (id)
+      DESTINATION KEY(parent_id) REFERENCES trace_bom_node (id)
       LABEL part_of
       NO PROPERTIES
   , trace_scn_edge
       KEY (id)
-      SOURCE KEY(src_id) REFERENCES trace_scn_node
-      DESTINATION KEY(dst_id) REFERENCES trace_scn_node
+      SOURCE KEY(src_id) REFERENCES trace_scn_node (id)
+      DESTINATION KEY(dst_id) REFERENCES trace_scn_node (id)
       LABEL supplied_to
       NO PROPERTIES
   , trace_b2s_edge
       KEY (id)
-      SOURCE KEY(part_id) REFERENCES trace_bom_node
-      DESTINATION KEY(place_id) REFERENCES trace_scn_node
+      SOURCE KEY(part_id) REFERENCES trace_bom_node (id)
+      DESTINATION KEY(place_id) REFERENCES trace_scn_node (id)
       LABEL produced_at
       NO PROPERTIES
   )
