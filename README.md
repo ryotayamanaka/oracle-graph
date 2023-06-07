@@ -14,6 +14,11 @@
 
 - [Powerful graph search for traceability in manufacturing](https://medium.com/oracledevs/d65521510975)
 
+## count-parts
+
+- [Count the Number of Parts using Graphs](https://ryotayamanaka.medium.com/f999f80e1559)
+- [User-Defined Functions (UDFs) in Oracle Graph](https://ryotayamanaka.medium.com/815f3e1ee031)
+
 ## recommendation
 
 TBD
