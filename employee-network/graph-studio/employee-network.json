@@ -1,0 +1,882 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "link": null,
+      "name": "employee-network",
+      "configuration": {
+        "tree": {
+          "title": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "subtitle": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "footnote": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "version": 1,
+          "aggregationOption": "Avg",
+          "colorSeries": [],
+          "colorValues": 1,
+          "groupByColumns": [],
+          "sizeSeries": [],
+          "layoutValue": "squarified",
+          "radiusGroup": [],
+          "sortingValue": "off",
+          "width": 100,
+          "height": 0
+        },
+        "table": {
+          "version": 1,
+          "columnsToShow": [],
+          "numberOfItems": 5,
+          "width": 100,
+          "height": 0
+        },
+        "html": {
+          "width": 100,
+          "height": 0
+        },
+        "image": {
+          "width": 100,
+          "height": 0
+        },
+        "raw": {
+          "version": 1,
+          "layout": "raw",
+          "width": 100,
+          "height": 0
+        },
+        "sunburst": {
+          "title": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "subtitle": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "footnote": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "version": 1,
+          "aggregationOption": "Avg",
+          "colorSeries": [],
+          "colorValues": 1,
+          "groupByColumns": [],
+          "sizeSeries": [],
+          "layoutValue": "squarified",
+          "radiusGroup": [],
+          "sortingValue": "off",
+          "width": 100,
+          "height": 0
+        },
+        "tag": {
+          "title": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "subtitle": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "footnote": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "version": 1,
+          "groupByColumns": [],
+          "showSeries": [],
+          "aggregationOption": "Sum",
+          "layoutShape": "rectangular",
+          "otherThresholdValue": 0.05,
+          "width": 100,
+          "height": 0
+        },
+        "boxplot": {
+          "title": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "subtitle": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "footnote": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "version": 1,
+          "groupByColumns": [],
+          "showSeries": [],
+          "orientationValue": "vertical",
+          "limit": 10,
+          "interQuartileRange": 1.5,
+          "showOutliers": false,
+          "showMeans": false,
+          "width": 100,
+          "height": 0
+        },
+        "scatterplot": {
+          "title": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "subtitle": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "footnote": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "version": 1,
+          "groupByColumns": [],
+          "showSeriesX": [],
+          "showSeriesY": [],
+          "label": [],
+          "extraDescription": [],
+          "height": 350,
+          "limit": 100,
+          "showLabel": "yes",
+          "showDescription": "yes",
+          "width": 100
+        },
+        "map": {
+          "version": 1,
+          "visualizations": {
+            "descriptionColumn": [],
+            "latColumn": "",
+            "lngColumn": "",
+            "titleColumn": [],
+            "layers": "[\n    {\n        \"id\": \"elocation-tiles\",\n        \"type\": \"raster\",\n        \"source\": \"oracle-elocation\"\n    }\n]",
+            "sources": "{\n    \"oracle-elocation\": {\n        \"type\": \"raster\",\n        \"tiles\": [\n            \"https://maps.oracle.com/mapviewer/mcserver/ELOCATION_MERCATOR/world_map_mb/{z}/{y}/{x}.png\"\n        ],\n        \"tileSize\": 256,\n        \"minzoom\": 0,\n        \"maxzoom\": 18,\n        \"attribution\": \"&copy; <a href=\\\"http://openmaptiles.org\\\">OpenMapTiles</a> and <a href=\\\"http://openstreetmap.org\\\">OpenStreetMap</a> Contributors\"\n    }\n}",
+            "mapType": "osm_positron"
+          },
+          "zoomControl": true,
+          "width": 100,
+          "height": 0
+        },
+        "visualization": {
+          "filters": [
+            {
+              "_id": 1683790387597,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": []
+              },
+              "properties": {
+                "sizes": [
+                  13
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1683790335718,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "label",
+                    "operator": "=",
+                    "value": "MEETING"
+                  }
+                ]
+              },
+              "properties": {
+                "colors": [
+                  "rgb(2, 153, 5)"
+                ],
+                "icons": [
+                  "fa-video-camera"
+                ],
+                "iconColors": [
+                  "white"
+                ],
+                "label": [
+                  "NAME"
+                ]
+              },
+              "aggregation": []
+            },
+            {
+              "_id": 1683790224241,
+              "component": "vertex",
+              "type": "styling",
+              "target": "vertex",
+              "enabled": true,
+              "conditions": {
+                "operator": "and",
+                "conditions": [
+                  {
+                    "property": "label",
+                    "operator": "=",
+                    "value": "EMPLOYEE"
+                  }
+                ]
+              },
+              "properties": {
+                "colors": [
+                  "rgb(0, 43, 255)"
+                ],
+                "icons": [
+                  "fa-user-man"
+                ],
+                "iconColors": [
+                  "white"
+                ],
+                "label": [
+                  "ROLE"
+                ]
+              },
+              "aggregation": []
+            }
+          ],
+          "version": 9,
+          "vertexPositions": [],
+          "theme": "light",
+          "height": 300,
+          "similarEdges": "keep",
+          "edgeMarker": "arrow",
+          "vertexGeometry": "sphere",
+          "antiAlias": true,
+          "floorGrid": true,
+          "edgesGeometry": true,
+          "enable3DLayout": false,
+          "selectedPropZ": "",
+          "valueRangePropZ": 0.5,
+          "sortPropZ": "descending",
+          "smartExpands": [],
+          "smartGroups": [],
+          "vertexLabelProperty": null,
+          "edgeLabelProperty": null,
+          "vertexLabelOrientation": "bottom",
+          "pageSize": 100,
+          "selectedPage": 0,
+          "charLimit": 10,
+          "truncateLabel": true,
+          "showTitle": true,
+          "dimension": "2d",
+          "layout": "force",
+          "layoutProperties": {
+            "circle": {
+              "avoidOverlap": true,
+              "radius": 40
+            },
+            "grid": {
+              "avoidOverlap": true,
+              "rows": 5,
+              "columns": 5
+            },
+            "concentric": {
+              "avoidOverlap": true,
+              "minimumVertexSpacing": 10
+            },
+            "force": {
+              "edgeDistance": 120,
+              "forceStrength": -30,
+              "vertexPadding": 40,
+              "velocityDecay": 0.3
+            },
+            "force3D": {
+              "attractionMultiplier": 20,
+              "repulsionMultiplier": 0.2
+            },
+            "geographical": {
+              "latitude": "latitude",
+              "longitude": "longitude",
+              "sources": "{\n    \"oracle-elocation\": {\n        \"type\": \"raster\",\n        \"tiles\": [\n            \"https://maps.oracle.com/mapviewer/mcserver/ELOCATION_MERCATOR/world_map_mb/{z}/{y}/{x}.png\"\n        ],\n        \"tileSize\": 256,\n        \"minzoom\": 0,\n        \"maxzoom\": 18,\n        \"attribution\": \"&copy; <a href=\\\"http://openmaptiles.org\\\">OpenMapTiles</a> and <a href=\\\"http://openstreetmap.org\\\">OpenStreetMap</a> Contributors\"\n    }\n}",
+              "layers": "[\n    {\n        \"id\": \"elocation-tiles\",\n        \"type\": \"raster\",\n        \"source\": \"oracle-elocation\"\n    }\n]",
+              "mapType": "osm_positron"
+            },
+            "hierarchical": {
+              "rankDirection": "topBottom",
+              "ranker": "networkSimplex",
+              "align": "None",
+              "vertexSeparation": {
+                "value": 0,
+                "enabled": false
+              },
+              "edgeSeparation": {
+                "value": 0,
+                "enabled": false
+              },
+              "rankSeparation": {
+                "value": 0,
+                "enabled": false
+              }
+            },
+            "radial": {
+              "arcDegree": 360,
+              "startingPoint": "left",
+              "packing": 1,
+              "intelligentSeparation": true
+            }
+          },
+          "animateChanges": true,
+          "liveSearch": {
+            "enabled": false,
+            "enabledTypes": [],
+            "selectedColumns": [],
+            "value": "",
+            "location": 0,
+            "distance": 100,
+            "minMatchCharLength": 1,
+            "advancedSettingsToggle": false,
+            "disabledSelectedColumns": []
+          },
+          "graphAction": {
+            "enabled": true,
+            "graphName": "",
+            "lastRun": 0,
+            "metadata": {
+              "vertexProperties": [],
+              "edgeProperties": []
+            },
+            "stack": [],
+            "index": 0,
+            "numberOfHops": 2,
+            "smartExpand": 0,
+            "smartGroup": 0
+          },
+          "interactionMode": "select",
+          "networkEvolution": {
+            "enabled": false,
+            "vertexProperty": "id",
+            "vertexEndProperty": "",
+            "axis": "vertices",
+            "overview": "on",
+            "height": 100,
+            "overviewChartType": "bar",
+            "valuesToExclude": [],
+            "valuesToExcludeType": "hideBoth",
+            "increment": 1,
+            "timeUnit": "days",
+            "edgeProperty": "id",
+            "edgeEndProperty": "",
+            "playTimeout": 1000,
+            "playStep": 1,
+            "advancedSettingsToggle": false
+          },
+          "stickyVertices": true,
+          "annotationMode": false,
+          "fitToScreen": true,
+          "viewTransform": [],
+          "showLegend": true,
+          "visibleGraphMode": {
+            "enabled": false,
+            "name": ""
+          },
+          "customApiClass": "",
+          "width": 100
+        },
+        "area": {
+          "title": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "subtitle": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "footnote": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "version": 1,
+          "otherThresholdValue": 0.05,
+          "groupByColumns": [],
+          "showSeries": [],
+          "aggregationOption": "Avg",
+          "visualizations": {
+            "stackValue": "off",
+            "orientationValue": "vertical",
+            "systemValue": "cartesian",
+            "overviewValue": "off",
+            "sortingValue": "off",
+            "variant": "pie",
+            "zoomValue": "off",
+            "threeDValue": "off",
+            "label": "",
+            "labelColor": "#9e9e9e",
+            "labelSize": 12,
+            "zoomInitialValue": "none",
+            "innerRadius": 0,
+            "withRescale": false
+          },
+          "series": {
+            "selectedId": "all",
+            "availableSeriesElements": [],
+            "borderColor": "auto",
+            "borderWidth": 1,
+            "color": "auto",
+            "lineType": "straight",
+            "pattern": "auto",
+            "markerDisplayed": "auto",
+            "markerShape": "auto",
+            "markerColor": "auto",
+            "markerSize": 1
+          },
+          "axis": {
+            "x": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "rgb(0, 0, 0)"
+            },
+            "y": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "auto",
+              "lineStyle": "solid",
+              "linePosition": "outside",
+              "majorTickColor": "rgba(78, 82, 86, 0.4)",
+              "majorTickWidth": 1,
+              "scale": "linear"
+            }
+          },
+          "width": 100,
+          "height": 0
+        },
+        "bar": {
+          "title": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "subtitle": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "footnote": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "version": 1,
+          "otherThresholdValue": 0.05,
+          "groupByColumns": [],
+          "showSeries": [],
+          "aggregationOption": "Avg",
+          "visualizations": {
+            "stackValue": "off",
+            "orientationValue": "vertical",
+            "systemValue": "cartesian",
+            "overviewValue": "off",
+            "sortingValue": "off",
+            "variant": "pie",
+            "zoomValue": "off",
+            "threeDValue": "off",
+            "label": "",
+            "labelColor": "#9e9e9e",
+            "labelSize": 12,
+            "zoomInitialValue": "none",
+            "innerRadius": 0,
+            "withRescale": false
+          },
+          "series": {
+            "selectedId": "all",
+            "availableSeriesElements": [],
+            "borderColor": "auto",
+            "borderWidth": 1,
+            "color": "auto",
+            "lineType": "straight",
+            "pattern": "auto",
+            "markerDisplayed": "auto",
+            "markerShape": "auto",
+            "markerColor": "auto",
+            "markerSize": 1
+          },
+          "axis": {
+            "x": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "rgb(0, 0, 0)"
+            },
+            "y": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "auto",
+              "lineStyle": "solid",
+              "linePosition": "outside",
+              "majorTickColor": "rgba(78, 82, 86, 0.4)",
+              "majorTickWidth": 1,
+              "scale": "linear"
+            }
+          },
+          "width": 100,
+          "height": 0
+        },
+        "funnel": {
+          "title": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "subtitle": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "footnote": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "version": 1,
+          "otherThresholdValue": 0.05,
+          "groupByColumns": [],
+          "showSeries": [],
+          "aggregationOption": "Avg",
+          "visualizations": {
+            "stackValue": "off",
+            "orientationValue": "vertical",
+            "systemValue": "cartesian",
+            "overviewValue": "off",
+            "sortingValue": "off",
+            "variant": "pie",
+            "zoomValue": "off",
+            "threeDValue": "off",
+            "label": "",
+            "labelColor": "#9e9e9e",
+            "labelSize": 12,
+            "zoomInitialValue": "none",
+            "innerRadius": 0,
+            "withRescale": false
+          },
+          "series": {
+            "selectedId": "all",
+            "availableSeriesElements": [],
+            "borderColor": "auto",
+            "borderWidth": 1,
+            "color": "auto",
+            "lineType": "straight",
+            "pattern": "auto",
+            "markerDisplayed": "auto",
+            "markerShape": "auto",
+            "markerColor": "auto",
+            "markerSize": 1
+          },
+          "axis": {
+            "x": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "rgb(0, 0, 0)"
+            },
+            "y": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "auto",
+              "lineStyle": "solid",
+              "linePosition": "outside",
+              "majorTickColor": "rgba(78, 82, 86, 0.4)",
+              "majorTickWidth": 1,
+              "scale": "linear"
+            }
+          },
+          "width": 100,
+          "height": 0
+        },
+        "line": {
+          "title": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "subtitle": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "footnote": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "version": 1,
+          "otherThresholdValue": 0.05,
+          "groupByColumns": [],
+          "showSeries": [],
+          "aggregationOption": "Avg",
+          "visualizations": {
+            "stackValue": "off",
+            "orientationValue": "vertical",
+            "systemValue": "cartesian",
+            "overviewValue": "off",
+            "sortingValue": "off",
+            "variant": "pie",
+            "zoomValue": "off",
+            "threeDValue": "off",
+            "label": "",
+            "labelColor": "#9e9e9e",
+            "labelSize": 12,
+            "zoomInitialValue": "none",
+            "innerRadius": 0,
+            "withRescale": false
+          },
+          "series": {
+            "selectedId": "all",
+            "availableSeriesElements": [],
+            "borderColor": "auto",
+            "borderWidth": 1,
+            "color": "auto",
+            "lineType": "straight",
+            "pattern": "auto",
+            "markerDisplayed": "auto",
+            "markerShape": "auto",
+            "markerColor": "auto",
+            "markerSize": 1
+          },
+          "axis": {
+            "x": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "rgb(0, 0, 0)"
+            },
+            "y": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "auto",
+              "lineStyle": "solid",
+              "linePosition": "outside",
+              "majorTickColor": "rgba(78, 82, 86, 0.4)",
+              "majorTickWidth": 1,
+              "scale": "linear"
+            }
+          },
+          "width": 100,
+          "height": 0
+        },
+        "pie": {
+          "title": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "subtitle": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "footnote": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "version": 1,
+          "otherThresholdValue": 0.05,
+          "groupByColumns": [],
+          "showSeries": [],
+          "aggregationOption": "Avg",
+          "visualizations": {
+            "stackValue": "off",
+            "orientationValue": "vertical",
+            "systemValue": "cartesian",
+            "overviewValue": "off",
+            "sortingValue": "off",
+            "variant": "pie",
+            "zoomValue": "off",
+            "threeDValue": "off",
+            "label": "",
+            "labelColor": "#9e9e9e",
+            "labelSize": 12,
+            "zoomInitialValue": "none",
+            "innerRadius": 0,
+            "withRescale": false
+          },
+          "series": {
+            "selectedId": "all",
+            "availableSeriesElements": [],
+            "borderColor": "auto",
+            "borderWidth": 1,
+            "color": "auto",
+            "lineType": "straight",
+            "pattern": "auto",
+            "markerDisplayed": "auto",
+            "markerShape": "auto",
+            "markerColor": "auto",
+            "markerSize": 1
+          },
+          "axis": {
+            "x": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "rgb(0, 0, 0)"
+            },
+            "y": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "auto",
+              "lineStyle": "solid",
+              "linePosition": "outside",
+              "majorTickColor": "rgba(78, 82, 86, 0.4)",
+              "majorTickWidth": 1,
+              "scale": "linear"
+            }
+          },
+          "width": 100,
+          "height": 0
+        },
+        "pyramid": {
+          "title": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "subtitle": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "footnote": {
+            "text": "",
+            "halign": "start",
+            "fontSize": 16,
+            "color": "rgb(0, 0, 0)"
+          },
+          "version": 1,
+          "otherThresholdValue": 0.05,
+          "groupByColumns": [],
+          "showSeries": [],
+          "aggregationOption": "Avg",
+          "visualizations": {
+            "stackValue": "off",
+            "orientationValue": "vertical",
+            "systemValue": "cartesian",
+            "overviewValue": "off",
+            "sortingValue": "off",
+            "variant": "pie",
+            "zoomValue": "off",
+            "threeDValue": "off",
+            "label": "",
+            "labelColor": "#9e9e9e",
+            "labelSize": 12,
+            "zoomInitialValue": "none",
+            "innerRadius": 0,
+            "withRescale": false
+          },
+          "series": {
+            "selectedId": "all",
+            "availableSeriesElements": [],
+            "borderColor": "auto",
+            "borderWidth": 1,
+            "color": "auto",
+            "lineType": "straight",
+            "pattern": "auto",
+            "markerDisplayed": "auto",
+            "markerShape": "auto",
+            "markerColor": "auto",
+            "markerSize": 1
+          },
+          "axis": {
+            "x": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "rgb(0, 0, 0)"
+            },
+            "y": {
+              "title": "",
+              "color": "rgb(0, 0, 0)",
+              "fontSize": 14,
+              "lineWidth": 1,
+              "lineColor": "auto",
+              "lineStyle": "solid",
+              "linePosition": "outside",
+              "majorTickColor": "rgba(78, 82, 86, 0.4)",
+              "majorTickWidth": 1,
+              "scale": "linear"
+            }
+          },
+          "width": 100,
+          "height": 0
+        }
+      }
+    }
+  ]
+}
