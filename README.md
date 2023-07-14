@@ -2,8 +2,12 @@
 
 ## [bank-transaction](./bank-transaction)
 
-- [Analyze Bank Transaction Data using Graph (Part 1/2)](https://ryotayamanaka.medium.com/b6007afc3d2d)
-- [Analyze Bank Transaction Data using Graph (Part 2/2)](https://ryotayamanaka.medium.com/da607bd15e8d)
+- Article
+  - [Analyze Bank Transaction Data using Graph (Part 1/2)](https://ryotayamanaka.medium.com/b6007afc3d2d)
+  - [Analyze Bank Transaction Data using Graph (Part 2/2)](https://ryotayamanaka.medium.com/da607bd15e8d)
+- Notebook
+  - [Jupyter](./bank-transaction/jupyter/bank-transaction.ipynb)
+  - [Graph Studio](./bank-transaction/graph_studio/bank_20221031.dsnb)
 
 ## conflict-of-interest
 
