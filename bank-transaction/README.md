@@ -1,15 +1,13 @@
 # Bank Transaction
 
-Bank transaction simulation dataset for graph analytics.
+Articles:
 
-- [Analyze Bank Transaction Data using Graph](https://medium.com/oracledevs/analyze-bank-transaction-data-using-graph-part-1-3-2088c6024f81)
-
-## How to setup Oracle Graph
-
-- [Oracle Cloud Always Free Services](https://apexapps.oracle.com/pls/apex/dbpm/r/livelabs/view-workshop?wid=686)
-- [Build Oracle Graph on Docker](https://medium.com/oracledevs/build-oracle-graph-on-docker-part-1-2-5fcacaca430e)
+- [Analyze Bank Transaction Data using Graph (Part 1/2)](https://ryotayamanaka.medium.com/b6007afc3d2d)
+- [Analyze Bank Transaction Data using Graph (Part 2/2)](https://ryotayamanaka.medium.com/da607bd15e8d)
 
 ## How to create dataset
+
+Bank transaction simulation dataset for graph analytics.
 
 ### Pre-created dataset
 
