@@ -27,9 +27,10 @@
   - [Count the Number of Parts using Graphs](https://ryotayamanaka.medium.com/f999f80e1559)
   - [User-Defined Functions (UDFs) in Oracle Graph](https://ryotayamanaka.medium.com/815f3e1ee031)
 
-## recommendation
+## online-retail
 
-TBD
+- Demo
+  - [Google Colab](https://colab.research.google.com/drive/1JrLreKIaHYl_9DEU6agfsb91pa-G_RTS?usp=sharing)
 
 ## boarding
 
