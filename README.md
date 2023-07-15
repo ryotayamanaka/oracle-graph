@@ -6,7 +6,7 @@
   - [Analyze Bank Transaction Data using Graph (Part 1/2)](https://ryotayamanaka.medium.com/b6007afc3d2d)
   - [Analyze Bank Transaction Data using Graph (Part 2/2)](https://ryotayamanaka.medium.com/da607bd15e8d)
 - Notebook
-  - [Jupyter](./bank-transaction/jupyter/bank-transaction.ipynb)
+  - [Jupyter](./bank-transaction/jupyter/bank-transaction.ipynb) / [Google Colab](https://colab.research.google.com/drive/16CGpls9Xa64Jjj3CJqlelet9xWvD1dQu?usp=sharing)
   - [Graph Studio](./bank-transaction/graph_studio/bank_20221031.dsnb)
 
 ## conflict-of-interest
