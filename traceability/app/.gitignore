@@ -1,5 +1,6 @@
 .gradle/
-oracle-graph-visualization-library-23.1.0.zip
+oracle-graph-visualization-library-*.zip
 src/main/resources/public/alta.css
 src/main/resources/public/index.d.ts
 src/main/resources/public/index.js
+src/main/resources/application.yml
