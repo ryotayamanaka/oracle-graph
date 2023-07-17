@@ -50,10 +50,6 @@ CREATE PROPERTY GRAPH trace_all
   )
 ```
 
-You can run this statement using a PGQL client of your choice. If you're using the Autonomous Database, we recommend to use [Graph Studio](https://docs.oracle.com/en/cloud/paas/autonomous-database/csgru/graph-studio-interactive-self-service-user-interface.html).
-
-On premise, we recommend to use the [PGQL Plug-in for SQLcl](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/20.2/sqcug/using-pgql-plug-sqlcl.html) or [SQL Developer](https://docs.oracle.com/en/database/oracle/property-graph/22.4/spgdg/property-graph-support-sql-developer1.html).
-
 ## Usage
 
 1. Clone this repository 
@@ -61,21 +57,20 @@ On premise, we recommend to use the [PGQL Plug-in for SQLcl](https://docs.oracle
 3. Unzip the library into the `src/main/resources/public` directory. For example:
 
 ```
-unzip oracle-graph-visualization-library-23.1.0.zip -d src/main/resources/public/
+unzip oracle-graph-visualization-library-<version>.zip -d src/main/resources/public/
 ```
 
-4. Run the following command to start the example app locally:
+4. Create `src/main/resources/application.yml` and set login information
+  * `<pgxUrl>` being the URL of the Graph Server, e.g. `https://myhost:7007`
+  * `<jdbcUrl>` being the JDBC URL of the Oracle Database the Graph Server should connect to, e.g. `jdbc:oracle:thin:@myhost:1521/orcl` 
+  * `<username>` being the Oracle Database username to authenticate the example application with the Graph Server, e.g. `graphuser`
+  * `<password>` being the Oracle Database password to authenticate the example application with the Graph Server, e.g. `password123`
+
+5. Run the following command to start the example app locally:
 
 ```
-./gradlew run --args='-oracle.graph-server.url=<graph-server-url> -oracle.graph-server.jdbc-url=<jdbc-url> -oracle.graph-server.username=<username> -oracle.graph-server.password=<password'
+./gradlew run
 ```
-
-with
-
-* `<graph-server-url>` being the URL of the Graph Server, e.g. `https://myhost:7007`
-* `<jdbc-url>` being the JDBC URL of the Oracle Database the Graph Server should connect to, e.g. `jdbc:oracle:thin:@myhost:1521/orcl` 
-* `<username>` being the Oracle Database username to authenticate the example application with the Graph Server, e.g. `scott`
-* `<password>` being the Oracle Database password to authenticate the example application with the Graph Server, e.g. `tiger`
 
 Then open your browser at `http://localhost:8080`.
 

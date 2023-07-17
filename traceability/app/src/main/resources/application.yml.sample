@@ -1,0 +1,20 @@
+micronaut:
+  application:
+    name: graphvizDemo
+  http:
+    client:
+      read-timeout: 2m
+  router:
+    static-resources:
+      default:
+        enabled: true
+        paths: classpath:public
+netty:
+  default:
+    allocator:
+      max-order: 3
+login:
+  username: graphuser
+  password: password123
+  pgxUrl: http://...:7007
+  jdbcUrl: jdbc:oracle:thin:@...

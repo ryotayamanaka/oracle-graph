@@ -33,23 +33,23 @@ public class GraphClient {
 
   private static Logger log = LoggerFactory.getLogger(GraphClient.class);
 
-  HttpClient httpClient;
+  private final HttpClient httpClient;
 
-  @Value("${oracle.graph-server.url}")
+  @Value("${login.pgxUrl}")
   String pgxUrl;
 
-  @Value("${oracle.graph-server.jdbc-url}")
+  @Value("${login.jdbcUrl}")
   String jdbcUrl;
 
-  @Value("${oracle.graph-server.username}")
+  @Value("${login.username}")
   String username;
 
-  @Value("${oracle.graph-server.password}")
+  @Value("${login.password}")
   String password;
 
   Cookie cookie;
 
-  public GraphClient(@Client("${oracle.graph-server.url}") HttpClient httpClient) {
+  public GraphClient(@Client("${login.pgxUrl}") HttpClient httpClient) {
     this.httpClient = httpClient;
   }
 
